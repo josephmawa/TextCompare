@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Compare
+Exec=io.github.josephmawa.Compare
+Icon=io.github.josephmawa.Compare
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

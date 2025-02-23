@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/github/josephmawa/Compare/js">
+    <file compressed="true">main.js</file>
+    <file compressed="true">window.js</file>
+  </gresource>
+  <gresource prefix="/io/github/josephmawa/Compare/js">
+    <file compressed="true" alias="js-diff.js">lib/js-diff.js</file>
+  </gresource>
+</gresources>
