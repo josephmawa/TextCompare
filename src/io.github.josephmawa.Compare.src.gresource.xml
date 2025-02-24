@@ -7,5 +7,6 @@
   </gresource>
   <gresource prefix="/io/github/josephmawa/Compare/js">
     <file compressed="true" alias="js-diff.js">lib/js-diff.js</file>
+    <file compressed="true" alias="util.js">util/util.js</file>
   </gresource>
 </gresources>

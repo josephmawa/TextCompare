@@ -5,7 +5,6 @@ import Gio from "gi://Gio";
 
 import { diffChars } from "./js-diff.js";
 
-
 export const CompareWindow = GObject.registerClass(
   {
     GTypeName: "CompareWindow",
@@ -76,7 +75,6 @@ export const CompareWindow = GObject.registerClass(
           if (!added && !removed) {
             const length = [...value].length;
             offset += length;
-            o += offset;
             continue;
           }
 
@@ -111,27 +109,6 @@ export const CompareWindow = GObject.registerClass(
             continue;
           }
         }
-
-        // console.log(changeObjects);
-
-        // for (let i = 0; i < charCount; i++) {
-
-        //   const text = this.buffer_before.get_text(startIter, endIter, false);
-        //   console.log(text);
-        // }
-
-        // const redTag = new Gtk.TextTag({ foreground: "red" });
-        // tagTableBefore.add(redTag);
-
-        // // Blue tag
-        // const blueTag = new Gtk.TextTag({ foreground: "blue" });
-        // tagTableBefore.add(blueTag);
-
-        // let redStart = this.buffer_before.get_iter_at_offset(2);
-        // let redEnd = this.buffer_before.get_iter_at_offset(12);
-        // this.buffer_before.apply_tag(redTag, redStart, redEnd);
-        // console.log(this.buffer_before.get_char_count())
-        // console.log(this.buffer_before.get_line_count())
       });
 
       this.add_action(checkDiffAction);
