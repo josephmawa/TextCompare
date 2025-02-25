@@ -3,13 +3,17 @@ import Gtk from "gi://Gtk";
 import Adw from "gi://Adw";
 import Gio from "gi://Gio";
 
-import { diffChars } from "./js-diff.js";
+import { diffChars, diffWords, diffWordsWithSpace } from "./js-diff.js";
 
 export const CompareWindow = GObject.registerClass(
   {
     GTypeName: "CompareWindow",
     Template: getResourceUri("window.ui"),
-    InternalChildren: ["text_view_before", "text_view_after"],
+    InternalChildren: [
+      "text_view_before",
+      "text_view_after",
+      "text_view_result",
+    ],
   },
   class CompareWindow extends Adw.ApplicationWindow {
     constructor(application) {
@@ -21,30 +25,17 @@ export const CompareWindow = GObject.registerClass(
     createBuffer = () => {
       this.buffer_before = Gtk.TextBuffer.new(null);
       this.buffer_after = Gtk.TextBuffer.new(null);
+      this.buffer_result = Gtk.TextBuffer.new(null);
 
-      const tagTableBefore = this.buffer_before.tag_table;
-      const tagTableAfter = this.buffer_after.tag_table;
+      const tagTableResult = this.buffer_result.tag_table;
 
-      tagTableBefore.add(
+      tagTableResult.add(
         new Gtk.TextTag({
           name: "redForeground",
           foreground: "red",
         })
       );
-      tagTableBefore.add(
-        new Gtk.TextTag({
-          name: "blueForeground",
-          foreground: "blue",
-        })
-      );
-
-      tagTableAfter.add(
-        new Gtk.TextTag({
-          name: "redForeground",
-          foreground: "red",
-        })
-      );
-      tagTableAfter.add(
+      tagTableResult.add(
         new Gtk.TextTag({
           name: "blueForeground",
           foreground: "blue",
@@ -53,6 +44,7 @@ export const CompareWindow = GObject.registerClass(
 
       this._text_view_before.buffer = this.buffer_before;
       this._text_view_after.buffer = this.buffer_after;
+      this._text_view_result.buffer = this.buffer_result;
     };
 
     createActions = () => {
@@ -66,48 +58,69 @@ export const CompareWindow = GObject.registerClass(
 
         if (!textBefore && !textAfter) return;
 
-        const changeObjects = diffChars(textBefore, textAfter);
+        const changeObjects = diffWordsWithSpace(textBefore, textAfter);
+        console.log(changeObjects);
 
-        let offset = 0;
-        let o = 0;
+        let oldStr = "";
+        let newStr = "";
+        let result = "";
+        let offset = [];
 
         for (const { added, removed, value } of changeObjects) {
           if (!added && !removed) {
-            const length = [...value].length;
-            offset += length;
+            oldStr += value;
+            newStr += value;
+            result += value;
+
             continue;
           }
 
           if (!added && removed) {
-            const endOffset = offset + [...value].length;
-            const startIter = this.buffer_before.get_iter_at_offset(offset);
-            const endIter = this.buffer_before.get_iter_at_offset(endOffset);
+            const i = [...result].length;
+            oldStr += value;
+            result += value;
 
-            this.buffer_before.apply_tag_by_name(
-              "redForeground",
-              startIter,
-              endIter
-            );
+            offset.push({
+              a: i,
+              b: i + [...value].length,
+              added,
+              removed,
+            });
 
-            offset = endOffset;
             continue;
           }
 
           if (added && !removed) {
-            const endOffset = o + [...value].length;
+            const i = [...result].length;
+            newStr += value;
+            result += value;
 
-            const startIter = this.buffer_after.get_iter_at_offset(o);
-            const endIter = this.buffer_after.get_iter_at_offset(endOffset);
-
-            this.buffer_after.apply_tag_by_name(
-              "blueForeground",
-              startIter,
-              endIter
-            );
-
-            o = endOffset;
-            continue;
+            offset.push({
+              a: i,
+              b: i + [...value].length,
+              added,
+              removed,
+            });
           }
+        }
+        this.buffer_before.text = oldStr;
+        this.buffer_after.text = newStr;
+        this.buffer_result.text = result;
+
+        for (const { a, b, added, removed } of offset) {
+          const startIter = this.buffer_result.get_iter_at_offset(a);
+          const endIter = this.buffer_result.get_iter_at_offset(b);
+          let tagName = "";
+
+          console.log("a = %s, b = %s", a, b);
+          if (!added && removed) {
+            tagName = "redForeground";
+          }
+
+          if (added && !removed) {
+            tagName = "blueForeground";
+          }
+          this.buffer_result.apply_tag_by_name(tagName, startIter, endIter);
         }
       });
 

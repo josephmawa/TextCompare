@@ -23,23 +23,34 @@
         <property name="content">
           <object class="GtkBox">
             <property name="orientation">vertical</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="margin-top">10</property>
+            <property name="hexpand">true</property>
+            <property name="vexpand">true</property>
             <property name="spacing">10</property>
             <property name="margin-top">10</property>
             <property name="margin-bottom">10</property>
             <property name="margin-start">10</property>
             <property name="margin-end">10</property>
             <child>
+              <object class="GtkButton" id="check_button">
+                <property name="label">Check</property>
+                <property name="halign">center</property>
+                <property name="action-name">win.check-diff</property>
+                <style>
+                  <class name="suggested-action" />
+                </style>
+              </object>
+            </child>
+            <child>
               <object class="GtkBox">
                 <property name="orientation">horizontal</property>
-                <property name="halign">center</property>
-                <property name="valign">center</property>
+                <property name="hexpand">true</property>
+                <property name="vexpand">true</property>
                 <property name="spacing">10</property>
                 <child>
                   <object class="GtkBox">
                     <property name="orientation">vertical</property>
+                    <property name="hexpand">true</property>
+                    <property name="vexpand">true</property>
                     <property name="spacing">10</property>
                     <child>
                       <object class="GtkLabel">
@@ -54,6 +65,8 @@
                         <property name="propagate-natural-width">true</property>
                         <property name="min-content-width">300</property>
                         <property name="min-content-height">300</property>
+                        <property name="hexpand">true</property>
+                        <property name="vexpand">true</property>
                         <property name="child">
                           <object class="GtkTextView" id="text_view_before">
                             <property name="top-margin">10</property>
@@ -73,6 +86,8 @@
                   <object class="GtkBox">
                     <property name="orientation">vertical</property>
                     <property name="spacing">10</property>
+                    <property name="hexpand">true</property>
+                    <property name="vexpand">true</property>
                     <child>
                       <object class="GtkLabel">
                         <property name="label">After</property>
@@ -86,6 +101,8 @@
                         <property name="propagate-natural-width">true</property>
                         <property name="min-content-width">300</property>
                         <property name="min-content-height">300</property>
+                        <property name="hexpand">true</property>
+                        <property name="vexpand">true</property>
                         <property name="child">
                           <object class="GtkTextView" id="text_view_after">
                             <property name="top-margin">10</property>
@@ -101,13 +118,42 @@
                     </child>
                   </object>
                 </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkButton" id="check_button">
-                <property name="label">Check</property>
-                <property name="halign">center</property>
-                <property name="action-name">win.check-diff</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">10</property>
+                    <property name="hexpand">true</property>
+                    <property name="vexpand">true</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label">Result</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkScrolledWindow">
+                        <property name="has-frame">true</property>
+                        <property name="propagate-natural-height">true</property>
+                        <property name="propagate-natural-width">true</property>
+                        <property name="min-content-width">300</property>
+                        <property name="min-content-height">300</property>
+                        <property name="hexpand">true</property>
+                        <property name="vexpand">true</property>
+                        <property name="child">
+                          <object class="GtkTextView" id="text_view_result">
+                            <property name="top-margin">10</property>
+                            <property name="bottom-margin">10</property>
+                            <property name="left-margin">10</property>
+                            <property name="right-margin">10</property>
+                            <property name="cursor-visible">true</property>
+                            <property name="editable">true</property>
+                            <property name="wrap-mode">word</property>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
