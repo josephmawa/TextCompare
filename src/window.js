@@ -25,22 +25,34 @@ export const CompareWindow = GObject.registerClass(
     }
 
     createBuffer = () => {
-      this.buffer_before = Gtk.TextBuffer.new(null);
-      this.buffer_after = Gtk.TextBuffer.new(null);
-      this.buffer_result = Gtk.TextBuffer.new(null);
+      this.buffer_before = new GtkSource.Buffer();
+      this.buffer_after = new GtkSource.Buffer();
+      this.buffer_result = new GtkSource.Buffer();
 
       const tagTableResult = this.buffer_result.tag_table;
 
       tagTableResult.add(
         new Gtk.TextTag({
           name: "redForeground",
-          foreground: "red",
+          foreground: "#b30000",
+        })
+      );
+      tagTableResult.add(
+        new Gtk.TextTag({
+          name: "redBackground",
+          background: "#fadad7",
         })
       );
       tagTableResult.add(
         new Gtk.TextTag({
           name: "blueForeground",
-          foreground: "blue",
+          foreground: "#406619",
+        })
+      );
+      tagTableResult.add(
+        new Gtk.TextTag({
+          name: "blueBackground",
+          background: "#eaf2c2",
         })
       );
 
@@ -112,17 +124,28 @@ export const CompareWindow = GObject.registerClass(
         for (const { a, b, added, removed } of offset) {
           const startIter = this.buffer_result.get_iter_at_offset(a);
           const endIter = this.buffer_result.get_iter_at_offset(b);
-          let tagName = "";
+          let backgroundTagName = "";
+          let foregroundTagName = "";
 
-          console.log("a = %s, b = %s", a, b);
           if (!added && removed) {
-            tagName = "redForeground";
+            backgroundTagName = "redBackground";
+            foregroundTagName = "redForeground";
           }
 
           if (added && !removed) {
-            tagName = "blueForeground";
+            backgroundTagName = "blueBackground";
+            foregroundTagName = "blueForeground";
           }
-          this.buffer_result.apply_tag_by_name(tagName, startIter, endIter);
+          this.buffer_result.apply_tag_by_name(
+            foregroundTagName,
+            startIter,
+            endIter
+          );
+          this.buffer_result.apply_tag_by_name(
+            backgroundTagName,
+            startIter,
+            endIter
+          );
         }
       });
 
