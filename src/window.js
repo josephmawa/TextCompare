@@ -2,8 +2,10 @@ import GObject from "gi://GObject";
 import Gtk from "gi://Gtk";
 import Adw from "gi://Adw";
 import Gio from "gi://Gio";
-
+import GtkSource from "gi://GtkSource?version=5";
 import { diffChars, diffWords, diffWordsWithSpace } from "./js-diff.js";
+
+GObject.type_ensure(GtkSource.View.$gtype);
 
 export const CompareWindow = GObject.registerClass(
   {
@@ -58,7 +60,7 @@ export const CompareWindow = GObject.registerClass(
 
         if (!textBefore && !textAfter) return;
 
-        const changeObjects = diffWordsWithSpace(textBefore, textAfter);
+        const changeObjects = diffWords(textBefore, textAfter);
         console.log(changeObjects);
 
         let oldStr = "";
