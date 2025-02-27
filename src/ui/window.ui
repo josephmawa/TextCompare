@@ -15,7 +15,7 @@
                 <property name="homogeneous">true</property>
                 <property name="spacing">6</property>
                 <child>
-                  <object class="GtkToggleButton" id="button_old_text">
+                  <object class="GtkToggleButton" id="old_text_button">
                     <property name="active">true</property>
                     <property name="child">
                       <object class="GtkBox">
@@ -40,7 +40,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkToggleButton" id="button_new_text">
+                  <object class="GtkToggleButton" id="new_text_button">
                     <property name="active">true</property>
                     <property name="child">
                       <object class="GtkBox">
@@ -65,7 +65,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkToggleButton" id="button_comparison">
+                  <object class="GtkToggleButton" id="comparison_button">
                     <property name="active">true</property>
                     <property name="child">
                       <object class="GtkBox">

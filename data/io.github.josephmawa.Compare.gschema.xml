@@ -18,5 +18,14 @@
       </choices>
       <default>"system"</default>
     </key>
+    <key name="show-old-text" type="b">
+      <default>true</default>
+    </key>
+    <key name="show-new-text" type="b">
+      <default>true</default>
+    </key>
+    <key name="show-comparison" type="b">
+      <default>true</default>
+    </key>
   </schema>
 </schemalist>

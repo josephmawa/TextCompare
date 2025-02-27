@@ -12,6 +12,11 @@ export const CompareWindow = GObject.registerClass(
     GTypeName: "CompareWindow",
     Template: getResourceUri("window.ui"),
     InternalChildren: [
+      // Toggle Buttons
+      "old_text_button",
+      "new_text_button",
+      "comparison_button",
+      // Source views
       "text_view_before",
       "text_view_after",
       "text_view_result",
@@ -22,8 +27,8 @@ export const CompareWindow = GObject.registerClass(
       super({ application });
       this.createActions();
       this.createBuffer();
-      this.bindSettings();
       this.loadStyles();
+      this.bindSettings();
       this.setPreferredColorScheme();
     }
 
@@ -173,6 +178,46 @@ export const CompareWindow = GObject.registerClass(
         this,
         "maximized",
         Gio.SettingsBindFlags.DEFAULT
+      );
+
+      this.settings.bind(
+        "show-old-text",
+        this._old_text_button,
+        "active",
+        Gio.SettingsBindFlags.DEFAULT
+      );
+      this.settings.bind(
+        "show-new-text",
+        this._new_text_button,
+        "active",
+        Gio.SettingsBindFlags.DEFAULT
+      );
+      this.settings.bind(
+        "show-comparison",
+        this._comparison_button,
+        "active",
+        Gio.SettingsBindFlags.DEFAULT
+      );
+
+      this._old_text_button.bind_property(
+        "active",
+        this._text_view_before.parent,
+        "visible",
+        GObject.BindingFlags.SYNC_CREATE
+      );
+
+      this._new_text_button.bind_property(
+        "active",
+        this._text_view_after.parent,
+        "visible",
+        GObject.BindingFlags.SYNC_CREATE
+      );
+
+      this._comparison_button.bind_property(
+        "active",
+        this._text_view_result.parent,
+        "visible",
+        GObject.BindingFlags.SYNC_CREATE
       );
 
       this.settings.connect(
