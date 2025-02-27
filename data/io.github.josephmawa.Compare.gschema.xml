@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="compare">
-	<schema id="io.github.josephmawa.Compare" path="/io/github/josephmawa/Compare/">
-	</schema>
+  <schema id="io.github.josephmawa.Compare" path="/io/github/josephmawa/Compare/">
+    <key name="window-width" type="i">
+      <default>800</default>
+    </key>
+    <key name="window-height" type="i">
+      <default>600</default>
+    </key>
+    <key name="window-maximized" type="b">
+      <default>false</default>
+    </key>
+    <key name="preferred-theme" type="s">
+      <choices>
+        <choice value="system" />
+        <choice value="dark" />
+        <choice value="light" />
+      </choices>
+      <default>"system"</default>
+    </key>
+  </schema>
 </schemalist>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <requires lib="Adw" version="1.0" />
+  <template class="CompareWindow" parent="AdwApplicationWindow">
+    <property name="title" translatable="yes">Compare</property>
+    <property name="default-width">800</property>
+    <property name="default-height">600</property>
+    <property name="content">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <child type="title">
+              <object class="GtkBox">
+                <property name="homogeneous">true</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkToggleButton" id="button_old_text">
+                    <property name="active">true</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="halign">center</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="icon-name">accessories-text-editor-symbolic</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">_Old Text</property>
+                            <property name="use-underline">true</property>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                    <style>
+                      <class name="flat" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="button_new_text">
+                    <property name="active">true</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="halign">center</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="icon-name">accessories-text-editor-symbolic</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">_New Text</property>
+                            <property name="use-underline">true</property>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                    <style>
+                      <class name="flat" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="button_comparison">
+                    <property name="active">true</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="halign">center</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="icon-name">accessories-text-editor-symbolic</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">_Comparison</property>
+                            <property name="use-underline">true</property>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                    <style>
+                      <class name="flat" />
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkMenuButton">
+                <property name="primary">True</property>
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Main Menu</property>
+                <property name="menu-model">primary_menu</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <property name="content">
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="hexpand">true</property>
+            <property name="vexpand">true</property>
+            <property name="spacing">10</property>
+            <property name="margin-top">10</property>
+            <property name="margin-bottom">10</property>
+            <property name="margin-start">10</property>
+            <property name="margin-end">10</property>
+            <child>
+              <object class="GtkButton" id="check_button">
+                <property name="label">Check</property>
+                <property name="halign">center</property>
+                <property name="action-name">win.check-diff</property>
+                <style>
+                  <class name="suggested-action" />
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">horizontal</property>
+                <property name="hexpand">true</property>
+                <property name="vexpand">true</property>
+                <property name="spacing">5</property>
+                <child>
+                  <object class="GtkScrolledWindow">
+                    <property name="has-frame">true</property>
+                    <property name="propagate-natural-height">true</property>
+                    <property name="propagate-natural-width">true</property>
+                    <property name="hexpand">true</property>
+                    <property name="vexpand">true</property>
+                    <property name="child">
+                      <object class="GtkSourceView" id="text_view_before">
+                        <property name="monospace">true</property>
+                        <property name="auto-indent">true</property>
+                        <property name="highlight-current-line">true</property>
+                        <property name="indent-on-tab">true</property>
+                        <property name="indent-width">2</property>
+                        <property name="insert-spaces-instead-of-tabs">true</property>
+                        <property name="show-line-marks">true</property>
+                        <property name="show-line-numbers">true</property>
+                        <property name="smart-backspace">true</property>
+                        <property name="tab-width">2</property>
+                        <property name="wrap-mode">word</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow">
+                    <property name="has-frame">true</property>
+                    <property name="propagate-natural-height">true</property>
+                    <property name="propagate-natural-width">true</property>
+                    <property name="hexpand">true</property>
+                    <property name="vexpand">true</property>
+                    <property name="child">
+                      <object class="GtkSourceView" id="text_view_after">
+                        <property name="monospace">true</property>
+                        <property name="auto-indent">true</property>
+                        <property name="highlight-current-line">true</property>
+                        <property name="indent-on-tab">true</property>
+                        <property name="indent-width">2</property>
+                        <property name="insert-spaces-instead-of-tabs">true</property>
+                        <property name="show-line-marks">true</property>
+                        <property name="show-line-numbers">true</property>
+                        <property name="smart-backspace">true</property>
+                        <property name="tab-width">2</property>
+                        <property name="wrap-mode">word</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkScrolledWindow">
+                    <property name="has-frame">true</property>
+                    <property name="propagate-natural-height">true</property>
+                    <property name="propagate-natural-width">true</property>
+                    <property name="hexpand">true</property>
+                    <property name="vexpand">true</property>
+                    <property name="child">
+                      <object class="GtkSourceView" id="text_view_result">
+                        <property name="monospace">true</property>
+                        <property name="auto-indent">true</property>
+                        <property name="highlight-current-line">true</property>
+                        <property name="indent-on-tab">true</property>
+                        <property name="indent-width">2</property>
+                        <property name="insert-spaces-instead-of-tabs">true</property>
+                        <property name="show-line-marks">true</property>
+                        <property name="show-line-numbers">true</property>
+                        <property name="smart-backspace">true</property>
+                        <property name="tab-width">2</property>
+                        <property name="wrap-mode">word</property>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
+        <attribute name="action">app.preferences</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_About Compare</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

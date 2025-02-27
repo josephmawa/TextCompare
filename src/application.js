@@ -4,6 +4,7 @@ import Gtk from "gi://Gtk?version=4.0";
 import Adw from "gi://Adw?version=1";
 
 import { CompareWindow } from "./window.js";
+import { ComparePreferencesDialog } from "./preferences.js";
 
 export const CompareApplication = GObject.registerClass(
   class CompareApplication extends Adw.Application {
@@ -18,7 +19,19 @@ export const CompareApplication = GObject.registerClass(
         this.quit();
       });
       this.add_action(quit_action);
+
+
+      const preferencesAction = new Gio.SimpleAction({ name: "preferences" });
+      preferencesAction.connect("activate", (action) => {
+        const preferencesDialog = new ComparePreferencesDialog();
+
+        preferencesDialog.present(this.active_window);
+      });
+      this.add_action(preferencesAction);
+
+
       this.set_accels_for_action("app.quit", ["<primary>q"]);
+      this.set_accels_for_action("app.preferences", ["<primary>comma"]);
 
       const show_about_action = new Gio.SimpleAction({ name: "about" });
       show_about_action.connect("activate", (action) => {

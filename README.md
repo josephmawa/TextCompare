@@ -9,6 +9,12 @@
     <img width="240" alt="Get it on Flathub" src="https://flathub.org/api/badge?locale=en"/>
   </a>
 </div>
+<p align="center">
+  <img src="./screenshots/compare-dark-mode.png" alt="Compare in dark mode" width="922" height="722"/>
+</p>
+<p align="center">
+  <img src="./screenshots/compare-light-mode.png" alt="Compare in light mode" width="922" height="722"/>
+</p>
 
 <!-- markdownlint-enable -->
 <!-- markdownlint-disable headings -->
