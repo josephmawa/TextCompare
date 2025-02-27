@@ -29,7 +29,7 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="title" translatable="yes" context="shortcut window">Compare text</property>
+                <property name="title" translatable="yes" context="shortcut window">Compare Text</property>
                 <property name="action-name">win.compare</property>
               </object>
             </child>
