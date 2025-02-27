@@ -113,9 +113,9 @@
             <property name="margin-end">10</property>
             <child>
               <object class="GtkButton" id="check_button">
-                <property name="label">Check</property>
+                <property name="label">Compare</property>
                 <property name="halign">center</property>
-                <property name="action-name">win.check-diff</property>
+                <property name="action-name">win.compare</property>
                 <style>
                   <class name="suggested-action" />
                 </style>

@@ -27,6 +27,12 @@
                 <property name="action-name">app.preferences</property>
               </object>
             </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes" context="shortcut window">Compare text</property>
+                <property name="action-name">win.compare</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>

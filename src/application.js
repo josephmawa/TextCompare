@@ -4,6 +4,7 @@ import Gtk from "gi://Gtk?version=4.0";
 import Adw from "gi://Adw?version=1";
 
 import { CompareWindow } from "./window.js";
+import { AboutDialog } from "./about.js";
 import { ComparePreferencesDialog } from "./preferences.js";
 
 export const CompareApplication = GObject.registerClass(
@@ -20,7 +21,6 @@ export const CompareApplication = GObject.registerClass(
       });
       this.add_action(quit_action);
 
-
       const preferencesAction = new Gio.SimpleAction({ name: "preferences" });
       preferencesAction.connect("activate", (action) => {
         const preferencesDialog = new ComparePreferencesDialog();
@@ -29,26 +29,16 @@ export const CompareApplication = GObject.registerClass(
       });
       this.add_action(preferencesAction);
 
+      const aboutAction = new Gio.SimpleAction({ name: "about" });
+      aboutAction.connect("activate", (action) => {
+        const aboutDialog = AboutDialog();
+        aboutDialog.present(this.active_window);
+      });
+      this.add_action(aboutAction);
 
       this.set_accels_for_action("app.quit", ["<primary>q"]);
       this.set_accels_for_action("app.preferences", ["<primary>comma"]);
-
-      const show_about_action = new Gio.SimpleAction({ name: "about" });
-      show_about_action.connect("activate", (action) => {
-        let aboutParams = {
-          application_name: APP_NAME,
-          application_icon: pkg.name,
-          developer_name: "Joseph Mawa",
-          version: pkg.version,
-          developers: ["Joseph Mawa"],
-          // Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-          translator_credits: _("translator-credits"),
-          copyright: "Copyright © 2025 Joseph Mawa",
-        };
-        const aboutDialog = new Adw.AboutDialog(aboutParams);
-        aboutDialog.present(this.active_window);
-      });
-      this.add_action(show_about_action);
+      this.set_accels_for_action("win.compare", ["<primary>c"]);
     }
 
     vfunc_activate() {

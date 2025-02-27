@@ -66,7 +66,7 @@ export const CompareWindow = GObject.registerClass(
 
     createActions = () => {
       const checkDiffAction = new Gio.SimpleAction({
-        name: "check-diff",
+        name: "compare",
       });
 
       checkDiffAction.connect("activate", () => {
@@ -76,7 +76,6 @@ export const CompareWindow = GObject.registerClass(
         if (!textBefore && !textAfter) return;
 
         const changeObjects = diffWords(textBefore, textAfter);
-        console.log(changeObjects);
 
         let oldStr = "";
         let newStr = "";
