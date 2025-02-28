@@ -111,10 +111,6 @@
                     <property name="hexpand">true</property>
                     <property name="vexpand">true</property>
                     <property name="spacing">10</property>
-                    <property name="margin-top">10</property>
-                    <property name="margin-bottom">10</property>
-                    <property name="margin-start">10</property>
-                    <property name="margin-end">10</property>
                     <child>
                       <object class="GtkButton" id="check_button">
                         <property name="label" translatable="true">Compare</property>
@@ -127,13 +123,11 @@
                     </child>
                     <child>
                       <object class="GtkBox">
-                        <property name="orientation">horizontal</property>
                         <property name="hexpand">true</property>
                         <property name="vexpand">true</property>
-                        <property name="spacing">5</property>
                         <child>
                           <object class="GtkScrolledWindow">
-                            <property name="has-frame">true</property>
+                            <property name="name">old_text</property>
                             <property name="propagate-natural-height">true</property>
                             <property name="propagate-natural-width">true</property>
                             <property name="hexpand">true</property>
@@ -157,7 +151,7 @@
                         </child>
                         <child>
                           <object class="GtkScrolledWindow">
-                            <property name="has-frame">true</property>
+                            <property name="name">new_text</property>
                             <property name="propagate-natural-height">true</property>
                             <property name="propagate-natural-width">true</property>
                             <property name="hexpand">true</property>
@@ -181,7 +175,7 @@
                         </child>
                         <child>
                           <object class="GtkScrolledWindow">
-                            <property name="has-frame">true</property>
+                            <property name="name">comparison_text</property>
                             <property name="propagate-natural-height">true</property>
                             <property name="propagate-natural-width">true</property>
                             <property name="hexpand">true</property>

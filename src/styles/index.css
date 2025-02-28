@@ -1,3 +1,8 @@
 .preferred-color-scheme-row {
   padding: 10px;
 }
+
+#old_text,
+#new_text {
+  border-right: 1px solid @borders;
+}
