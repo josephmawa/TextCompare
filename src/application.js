@@ -36,9 +36,14 @@ export const CompareApplication = GObject.registerClass(
       });
       this.add_action(aboutAction);
 
+      /**
+       * Be careful when assigning keyboard shortcuts. GtkTextView supports
+       * tons of shortcuts out of the box. You might accidentally override
+       * some if you don't pay attention.
+       */
       this.set_accels_for_action("app.quit", ["<primary>q"]);
       this.set_accels_for_action("app.preferences", ["<primary>comma"]);
-      this.set_accels_for_action("win.compare", ["<primary>c"]);
+      this.set_accels_for_action("win.compare", ["<shift><primary>c"]);
     }
 
     vfunc_activate() {
