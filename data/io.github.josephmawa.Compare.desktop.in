@@ -4,7 +4,8 @@ Exec=io.github.josephmawa.Compare
 Icon=io.github.josephmawa.Compare
 Terminal=false
 Type=Application
-Categories=Utility;
-Keywords=GTK;
+Categories=GTK;GNOME;Office;Utility;TextEditor;TextTools;
+# Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+Keywords=Text;Compare;Difference;Comparison;Diff;
 StartupNotify=true
 DBusActivatable=true
