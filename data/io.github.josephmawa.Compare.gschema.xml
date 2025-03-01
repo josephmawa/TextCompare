@@ -18,6 +18,15 @@
       </choices>
       <default>"system"</default>
     </key>
+    <key name="comparison-token" type="s">
+      <choices>
+        <choice value="characters" />
+        <choice value="words" />
+        <choice value="lines" />
+        <choice value="sentences" />
+      </choices>
+      <default>"words"</default>
+    </key>
     <key name="show-old-text" type="b">
       <default>true</default>
     </key>
