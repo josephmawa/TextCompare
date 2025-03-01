@@ -10,10 +10,10 @@
   </a>
 </div>
 <p align="center">
-  <img src="./screenshots/compare-dark-mode.png" alt="Compare in dark mode" width="922" height="722"/>
+  <img src="./screenshots/compare-dark-mode.png" alt="Compare in dark mode" width="986" height="692"/>
 </p>
 <p align="center">
-  <img src="./screenshots/compare-light-mode.png" alt="Compare in light mode" width="922" height="722"/>
+  <img src="./screenshots/compare-light-mode.png" alt="Compare in light mode" width="986" height="692"/>
 </p>
 
 <!-- markdownlint-enable -->
@@ -54,6 +54,14 @@ combination to run the project after opening it in GNOME builder. You can also
 Compare is a [free software](https://www.gnu.org/philosophy/free-sw.html) and
 will always be free. It is released under the terms of the
 [GNU General Public License v3.0](./LICENSE).
+
+## Acknowledgment
+
+- The UI for this app is inspired by [Workbench](https://github.com/workbenchdev/Workbench).
+Thank you Sonny Piers and the other maintainers of Workbench.
+- Internally, this app uses [js-diff](https://github.com/kpdecker/jsdiff), a JS implementation
+of Myers' [Difference Algorithm](http://www.xmailserver.org/diff2.pdf). Thank you
+Mark Amery and the other maintainers of js-diff.
 
 ## Copyright
 

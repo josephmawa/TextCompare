@@ -3,7 +3,14 @@ import Gtk from "gi://Gtk";
 import Adw from "gi://Adw";
 import Gio from "gi://Gio";
 import GtkSource from "gi://GtkSource?version=5";
-import { diffChars, diffWords, diffWordsWithSpace } from "./js-diff.js";
+import {
+  diffChars,
+  diffWords,
+  diffWordsWithSpace,
+  diffSentences,
+  diffLines,
+  diffTrimmedLines,
+} from "./js-diff.js";
 
 GObject.type_ensure(GtkSource.View.$gtype);
 
@@ -79,6 +86,17 @@ export const CompareWindow = GObject.registerClass(
         const textAfter = this.buffer_after.text;
 
         if (!textBefore && !textAfter) return;
+        let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
+        let comparisonToken = this.settings.get_string("comparison-token");
+        console.log(isCaseSenitive);
+        console.log(comparisonToken);
+
+        const locale = new Intl.DateTimeFormat().resolvedOptions().locale;
+        console.log(locale)
+
+        const options = {
+          ignoreCase: !isCaseSenitive
+        }
 
         const changeObjects = diffWords(textBefore, textAfter);
 
