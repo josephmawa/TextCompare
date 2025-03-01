@@ -57,11 +57,16 @@ will always be free. It is released under the terms of the
 
 ## Acknowledgment
 
-- The UI for this app is inspired by [Workbench](https://github.com/workbenchdev/Workbench).
+- This app's UI is inspired by [Workbench](https://github.com/workbenchdev/Workbench).
 Thank you Sonny Piers and the other maintainers of Workbench.
-- Internally, this app uses [js-diff](https://github.com/kpdecker/jsdiff), a JS implementation
-of Myers' [Difference Algorithm](http://www.xmailserver.org/diff2.pdf). Thank you
-Mark Amery and the other maintainers of js-diff.
+- Internally, the app uses [jsdiff](https://github.com/kpdecker/jsdiff), a JS implementation
+of [Myers' Difference Algorithm](http://www.xmailserver.org/diff2.pdf). Thank you
+Kevin Decker and the other maintainers of jsdiff.
+
+## License
+
+This project is [GPL-3.0 Licensed](./COPYING) and jsdiff, the text diff package
+it uses internally, is BSD 3-Clause Licensed.
 
 ## Copyright
 
