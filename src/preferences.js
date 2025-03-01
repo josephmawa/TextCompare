@@ -9,7 +9,13 @@ export const ComparePreferencesDialog = GObject.registerClass(
   {
     GTypeName: "ComparePreferencesDialog",
     Template: getResourceUri("preferences.ui"),
-    InternalChildren: ["system", "dark", "light", "comparison_token_settings"],
+    InternalChildren: [
+      "system",
+      "dark",
+      "light",
+      "comparison_token_settings",
+      "case_sensitivity_settings",
+    ],
     Properties: {
       theme: GObject.ParamSpec.string(
         "theme",
@@ -44,6 +50,12 @@ export const ComparePreferencesDialog = GObject.registerClass(
         "comparison-token",
         this,
         "comparisonToken",
+        Gio.SettingsBindFlags.DEFAULT
+      );
+      this.settings.bind(
+        "case-sensitivity",
+        this._case_sensitivity_settings,
+        "active",
         Gio.SettingsBindFlags.DEFAULT
       );
 

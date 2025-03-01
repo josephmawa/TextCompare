@@ -36,5 +36,8 @@
     <key name="show-comparison" type="b">
       <default>true</default>
     </key>
+    <key name="case-sensitivity" type="b">
+      <default>true</default>
+    </key>
   </schema>
 </schemalist>
