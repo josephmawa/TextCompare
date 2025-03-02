@@ -107,15 +107,18 @@ export const CompareWindow = GObject.registerClass(
         if (comparisonToken === "characters") {
           diffChars(textBefore, textAfter, options);
         }
+
         if (comparisonToken === "words") {
           options.intlSegmenter = new Intl.Segmenter(locale, {
             granularity: "word",
           });
           diffWordsWithSpace(textBefore, textAfter, options);
         }
+
         if (comparisonToken === "lines") {
           diffLines(textBefore, textAfter, options);
         }
+        
         if (comparisonToken === "sentences") {
           const sentenceSeg = new Intl.Segmenter(locale, {
             granularity: "sentence",
