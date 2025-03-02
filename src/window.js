@@ -10,6 +10,7 @@ import {
   diffSentences,
   diffLines,
   diffTrimmedLines,
+  diffArrays,
 } from "./js-diff.js";
 
 GObject.type_ensure(GtkSource.View.$gtype);
@@ -86,11 +87,11 @@ export const CompareWindow = GObject.registerClass(
       });
 
       checkDiffAction.connect("activate", () => {
-        const textBefore = this.buffer_before.text;
-        const textAfter = this.buffer_after.text;
+        const textBefore = this.buffer_before.text.normalize("NFC");
+        const textAfter = this.buffer_after.text.normalize("NFC");
 
         if (!textBefore && !textAfter) {
-          this.displayToast("New and old text are both empty");
+          this.displayToast(_("New and old text are both empty"));
           return;
         }
         let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
@@ -116,7 +117,21 @@ export const CompareWindow = GObject.registerClass(
           diffLines(textBefore, textAfter, options);
         }
         if (comparisonToken === "sentences") {
-          diffSentences(textBefore, textAfter, options);
+          const sentenceSeg = new Intl.Segmenter(locale, {
+            granularity: "sentence",
+          });
+
+          const tokensOldText = Array.from(
+            sentenceSeg.segment(textBefore),
+            ({ segment }) => segment
+          );
+
+          const tokensNewText = Array.from(
+            sentenceSeg.segment(textAfter),
+            ({ segment }) => segment
+          );
+
+          diffArrays(tokensOldText, tokensNewText, options);
         }
       });
 
@@ -232,81 +247,88 @@ export const CompareWindow = GObject.registerClass(
     };
 
     compareStrings = (changeObjects) => {
-      if (!changeObjects) {
-        this.displayToast("Comparison failed");
-        return;
-      }
-      let oldStr = "";
-      let newStr = "";
-      let result = "";
-      let offset = [];
-
-      for (const { added, removed, value } of changeObjects) {
-        if (!added && !removed) {
-          oldStr += value;
-          newStr += value;
-          result += value;
-
-          continue;
+      try {
+        if (!changeObjects) {
+          this.displayToast("Comparison failed");
+          return;
         }
+        let oldStr = "";
+        let newStr = "";
+        let result = "";
+        let offset = [];
 
-        if (!added && removed) {
-          const i = [...result].length;
-          oldStr += value;
-          result += value;
+        for (let { added, removed, value } of changeObjects) {
+          value = Array.isArray(value) ? value.join("") : value;
 
-          offset.push({
-            a: i,
-            b: i + [...value].length,
-            added,
-            removed,
-          });
+          if (!added && !removed) {
+            oldStr += value;
+            newStr += value;
+            result += value;
 
-          continue;
+            continue;
+          }
+
+          if (!added && removed) {
+            const i = [...result].length;
+            oldStr += value;
+            result += value;
+
+            offset.push({
+              a: i,
+              b: i + [...value].length,
+              added,
+              removed,
+            });
+
+            continue;
+          }
+
+          if (added && !removed) {
+            const i = [...result].length;
+            newStr += value;
+            result += value;
+
+            offset.push({
+              a: i,
+              b: i + [...value].length,
+              added,
+              removed,
+            });
+          }
         }
+        this.buffer_before.text = oldStr;
+        this.buffer_after.text = newStr;
+        this.buffer_result.text = result;
 
-        if (added && !removed) {
-          const i = [...result].length;
-          newStr += value;
-          result += value;
+        for (const { a, b, added, removed } of offset) {
+          const startIter = this.buffer_result.get_iter_at_offset(a);
+          const endIter = this.buffer_result.get_iter_at_offset(b);
+          let backgroundTagName = "";
+          let foregroundTagName = "";
 
-          offset.push({
-            a: i,
-            b: i + [...value].length,
-            added,
-            removed,
-          });
+          if (!added && removed) {
+            backgroundTagName = "redBackground";
+            foregroundTagName = "redForeground";
+          }
+
+          if (added && !removed) {
+            backgroundTagName = "blueBackground";
+            foregroundTagName = "blueForeground";
+          }
+          this.buffer_result.apply_tag_by_name(
+            foregroundTagName,
+            startIter,
+            endIter
+          );
+          this.buffer_result.apply_tag_by_name(
+            backgroundTagName,
+            startIter,
+            endIter
+          );
         }
-      }
-      this.buffer_before.text = oldStr;
-      this.buffer_after.text = newStr;
-      this.buffer_result.text = result;
-
-      for (const { a, b, added, removed } of offset) {
-        const startIter = this.buffer_result.get_iter_at_offset(a);
-        const endIter = this.buffer_result.get_iter_at_offset(b);
-        let backgroundTagName = "";
-        let foregroundTagName = "";
-
-        if (!added && removed) {
-          backgroundTagName = "redBackground";
-          foregroundTagName = "redForeground";
-        }
-
-        if (added && !removed) {
-          backgroundTagName = "blueBackground";
-          foregroundTagName = "blueForeground";
-        }
-        this.buffer_result.apply_tag_by_name(
-          foregroundTagName,
-          startIter,
-          endIter
-        );
-        this.buffer_result.apply_tag_by_name(
-          backgroundTagName,
-          startIter,
-          endIter
-        );
+      } catch (error) {
+        console.error(error);
+        this.displayToast(_("Comparison failed"));
       }
     };
 
