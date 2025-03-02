@@ -19,6 +19,8 @@ export const CompareWindow = GObject.registerClass(
     GTypeName: "CompareWindow",
     Template: getResourceUri("window.ui"),
     InternalChildren: [
+      // Toast overlay
+      "toast_overlay",
       // Toggle Buttons
       "old_text_button",
       "new_text_button",
@@ -37,6 +39,8 @@ export const CompareWindow = GObject.registerClass(
       this.loadStyles();
       this.bindSettings();
       this.setPreferredColorScheme();
+
+      this.toast = new Adw.Toast({ timeout: 1 });
     }
 
     createBuffer = () => {
@@ -85,92 +89,34 @@ export const CompareWindow = GObject.registerClass(
         const textBefore = this.buffer_before.text;
         const textAfter = this.buffer_after.text;
 
-        if (!textBefore && !textAfter) return;
+        if (!textBefore && !textAfter) {
+          this.displayToast("New and old text are both empty");
+          return;
+        }
         let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
         let comparisonToken = this.settings.get_string("comparison-token");
-        console.log(isCaseSenitive);
-        console.log(comparisonToken);
 
         const locale = new Intl.DateTimeFormat().resolvedOptions().locale;
-        console.log(locale)
 
         const options = {
-          ignoreCase: !isCaseSenitive
+          ignoreCase: !isCaseSenitive,
+          callback: this.compareStrings,
+        };
+
+        if (comparisonToken === "characters") {
+          diffChars(textBefore, textAfter, options);
         }
-
-        const changeObjects = diffWords(textBefore, textAfter);
-
-        let oldStr = "";
-        let newStr = "";
-        let result = "";
-        let offset = [];
-
-        for (const { added, removed, value } of changeObjects) {
-          if (!added && !removed) {
-            oldStr += value;
-            newStr += value;
-            result += value;
-
-            continue;
-          }
-
-          if (!added && removed) {
-            const i = [...result].length;
-            oldStr += value;
-            result += value;
-
-            offset.push({
-              a: i,
-              b: i + [...value].length,
-              added,
-              removed,
-            });
-
-            continue;
-          }
-
-          if (added && !removed) {
-            const i = [...result].length;
-            newStr += value;
-            result += value;
-
-            offset.push({
-              a: i,
-              b: i + [...value].length,
-              added,
-              removed,
-            });
-          }
+        if (comparisonToken === "words") {
+          options.intlSegmenter = new Intl.Segmenter(locale, {
+            granularity: "word",
+          });
+          diffWordsWithSpace(textBefore, textAfter, options);
         }
-        this.buffer_before.text = oldStr;
-        this.buffer_after.text = newStr;
-        this.buffer_result.text = result;
-
-        for (const { a, b, added, removed } of offset) {
-          const startIter = this.buffer_result.get_iter_at_offset(a);
-          const endIter = this.buffer_result.get_iter_at_offset(b);
-          let backgroundTagName = "";
-          let foregroundTagName = "";
-
-          if (!added && removed) {
-            backgroundTagName = "redBackground";
-            foregroundTagName = "redForeground";
-          }
-
-          if (added && !removed) {
-            backgroundTagName = "blueBackground";
-            foregroundTagName = "blueForeground";
-          }
-          this.buffer_result.apply_tag_by_name(
-            foregroundTagName,
-            startIter,
-            endIter
-          );
-          this.buffer_result.apply_tag_by_name(
-            backgroundTagName,
-            startIter,
-            endIter
-          );
+        if (comparisonToken === "lines") {
+          diffLines(textBefore, textAfter, options);
+        }
+        if (comparisonToken === "sentences") {
+          diffSentences(textBefore, textAfter, options);
         }
       });
 
@@ -283,6 +229,91 @@ export const CompareWindow = GObject.registerClass(
       this._text_view_before.buffer.set_style_scheme(scheme);
       this._text_view_after.buffer.set_style_scheme(scheme);
       this._text_view_result.buffer.set_style_scheme(scheme);
+    };
+
+    compareStrings = (changeObjects) => {
+      if (!changeObjects) {
+        this.displayToast("Comparison failed");
+        return;
+      }
+      let oldStr = "";
+      let newStr = "";
+      let result = "";
+      let offset = [];
+
+      for (const { added, removed, value } of changeObjects) {
+        if (!added && !removed) {
+          oldStr += value;
+          newStr += value;
+          result += value;
+
+          continue;
+        }
+
+        if (!added && removed) {
+          const i = [...result].length;
+          oldStr += value;
+          result += value;
+
+          offset.push({
+            a: i,
+            b: i + [...value].length,
+            added,
+            removed,
+          });
+
+          continue;
+        }
+
+        if (added && !removed) {
+          const i = [...result].length;
+          newStr += value;
+          result += value;
+
+          offset.push({
+            a: i,
+            b: i + [...value].length,
+            added,
+            removed,
+          });
+        }
+      }
+      this.buffer_before.text = oldStr;
+      this.buffer_after.text = newStr;
+      this.buffer_result.text = result;
+
+      for (const { a, b, added, removed } of offset) {
+        const startIter = this.buffer_result.get_iter_at_offset(a);
+        const endIter = this.buffer_result.get_iter_at_offset(b);
+        let backgroundTagName = "";
+        let foregroundTagName = "";
+
+        if (!added && removed) {
+          backgroundTagName = "redBackground";
+          foregroundTagName = "redForeground";
+        }
+
+        if (added && !removed) {
+          backgroundTagName = "blueBackground";
+          foregroundTagName = "blueForeground";
+        }
+        this.buffer_result.apply_tag_by_name(
+          foregroundTagName,
+          startIter,
+          endIter
+        );
+        this.buffer_result.apply_tag_by_name(
+          backgroundTagName,
+          startIter,
+          endIter
+        );
+      }
+    };
+
+    displayToast = (message) => {
+      this.toast.dismiss();
+      this.toast.title = message;
+      this._toast_overlay.add_toast(this.toast);
     };
   }
 );
