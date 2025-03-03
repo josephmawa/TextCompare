@@ -5,9 +5,9 @@ import Gtk from "gi://Gtk";
 
 import { comparisonTokens } from "./util.js";
 
-export const ComparePreferencesDialog = GObject.registerClass(
+export const TextComparePreferencesDialog = GObject.registerClass(
   {
-    GTypeName: "ComparePreferencesDialog",
+    GTypeName: "TextComparePreferencesDialog",
     Template: getResourceUri("preferences.ui"),
     InternalChildren: [
       "system",
@@ -33,7 +33,7 @@ export const ComparePreferencesDialog = GObject.registerClass(
       ),
     },
   },
-  class ComparePreferencesDialog extends Adw.PreferencesDialog {
+  class TextComparePreferencesDialog extends Adw.PreferencesDialog {
     constructor(options = {}) {
       super(options);
 

@@ -2,7 +2,7 @@
 <div align="center">
   <img src="./data/icons/hicolor/scalable/apps/io.github.josephmawa.Compare.svg" alt="Compare" width="128" height="128"/>
 </div>
-<h1 align="center">Compare</h1>
+<h1 align="center">Text Compare</h1>
 <p align="center"><b>Compare old and new text</b></p>
 <div align="center">
   <a href="https://flathub.org/apps/io.github.josephmawa.Compare">

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/io/github/josephmawa/Compare">
+  <gresource prefix="/io/github/josephmawa/TextCompare">
     <file preprocess="xml-stripblanks" compressed="true" alias="gtk/help-overlay.ui">ui/help-overlay.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="window.ui">ui/window.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="preferences.ui">ui/preferences.ui</file>
   </gresource>
-  <gresource prefix="/io/github/josephmawa/Compare">
+  <gresource prefix="/io/github/josephmawa/TextCompare">
     <file compressed="true" alias="index.css">styles/index.css</file>
   </gresource>
-  <gresource prefix="/io/github/josephmawa/Compare/icons">
+  <gresource prefix="/io/github/josephmawa/TextCompare/icons">
     <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/accessories-text-editor-symbolic.svg">icons/accessories-text-editor-symbolic.svg</file>
   </gresource>
 </gresources>

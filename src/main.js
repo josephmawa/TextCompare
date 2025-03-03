@@ -1,6 +1,6 @@
-import { CompareApplication } from "./application.js";
+import { TextCompareApplication } from "./application.js";
 
 export function main(argv) {
-  const application = new CompareApplication();
+  const application = new TextCompareApplication();
   return application.runAsync(argv);
 }

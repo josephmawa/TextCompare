@@ -15,9 +15,9 @@ import {
 
 GObject.type_ensure(GtkSource.View.$gtype);
 
-export const CompareWindow = GObject.registerClass(
+export const TextCompareWindow = GObject.registerClass(
   {
-    GTypeName: "CompareWindow",
+    GTypeName: "TextCompareWindow",
     Template: getResourceUri("window.ui"),
     InternalChildren: [
       // Main stack
@@ -34,7 +34,7 @@ export const CompareWindow = GObject.registerClass(
       "text_view_result",
     ],
   },
-  class CompareWindow extends Adw.ApplicationWindow {
+  class TextCompareWindow extends Adw.ApplicationWindow {
     constructor(application) {
       super({ application });
       this.createActions();

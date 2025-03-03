@@ -1,8 +1,8 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-data/io.github.josephmawa.Compare.desktop.in
-data/io.github.josephmawa.Compare.metainfo.xml.in
-data/io.github.josephmawa.Compare.gschema.xml
+data/io.github.josephmawa.TextCompare.desktop.in
+data/io.github.josephmawa.TextCompare.metainfo.xml.in
+data/io.github.josephmawa.TextCompare.gschema.xml
 src/main.js
 src/window.js
 src/window.ui
