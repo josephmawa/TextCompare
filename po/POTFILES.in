@@ -3,6 +3,15 @@
 data/io.github.josephmawa.TextCompare.desktop.in
 data/io.github.josephmawa.TextCompare.metainfo.xml.in
 data/io.github.josephmawa.TextCompare.gschema.xml
+
+src/about.js
+src/application.js
 src/main.js
+src/preferences.js
 src/window.js
-src/window.ui
+
+src/ui/help-overlay.ui
+src/ui/preferences.ui
+src/ui/window.ui
+
+src/util/util.js

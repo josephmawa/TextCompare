@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the textcompare package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: textcompare\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-03 21:37+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/io.github.josephmawa.TextCompare.desktop.in:3
+msgid "TextCompare"
+msgstr ""
+
+#. Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/io.github.josephmawa.TextCompare.desktop.in:10
+msgid "Text;TextCompare;Difference;Comparison;Checker;Diff;"
+msgstr ""
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:7
+msgid "Text Compare"
+msgstr ""
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
+msgid "Compare old and new text"
+msgstr ""
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
+msgid "Compare new version of text with the old one"
+msgstr ""
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:11
+msgid "Below are the main features of Text Compare:"
+msgstr ""
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:13
+msgid "Compare two versions of the same text"
+msgstr ""
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:14
+msgid "Switch to dark, light, or system mode"
+msgstr ""
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:19
+msgid "Joseph Mawa"
+msgstr ""
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:57
+msgid "TextCompare in dark mode"
+msgstr ""
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:61
+msgid "TextCompare in light mode"
+msgstr ""
+
+#. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
+#: src/about.js:13
+msgid "translator-credits"
+msgstr ""
+
+#: src/window.js:96
+msgid "New and old text are both empty"
+msgstr ""
+
+#: src/window.js:354
+msgid "Comparison Failed"
+msgstr ""
+
+#: src/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: src/ui/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr ""
+
+#: src/ui/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: src/ui/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Show Preferences"
+msgstr ""
+
+#: src/ui/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Compare Text"
+msgstr ""
+
+#: src/ui/help-overlay.ui:38
+msgctxt "shortcut window"
+msgid "Go Back"
+msgstr ""
+
+#: src/ui/preferences.ui:8 src/ui/preferences.ui:14
+msgid "Preferences"
+msgstr ""
+
+#: src/ui/preferences.ui:17
+msgid "Color Theme"
+msgstr ""
+
+#: src/ui/preferences.ui:18
+msgid "Set color theme"
+msgstr ""
+
+#: src/ui/preferences.ui:24
+msgid "Color theme"
+msgstr ""
+
+#: src/ui/preferences.ui:40
+msgctxt "System color theme"
+msgid "System"
+msgstr ""
+
+#: src/ui/preferences.ui:54
+msgctxt "Light color theme"
+msgid "Light"
+msgstr ""
+
+#: src/ui/preferences.ui:68
+msgctxt "Dark color theme"
+msgid "Dark"
+msgstr ""
+
+#: src/ui/preferences.ui:82
+msgid "Text Comparison"
+msgstr ""
+
+#: src/ui/preferences.ui:83
+msgid "Text comparison settings"
+msgstr ""
+
+#: src/ui/preferences.ui:87
+msgid "Comparison Token"
+msgstr ""
+
+#: src/ui/preferences.ui:88
+msgid "Select Comparison Token"
+msgstr ""
+
+#: src/ui/preferences.ui:93
+msgid "Case Sensitivity"
+msgstr ""
+
+#: src/ui/preferences.ui:94
+msgid "Case Senitive Comparison"
+msgstr ""
+
+#: src/ui/window.ui:6 src/ui/window.ui:122
+msgid "Compare"
+msgstr ""
+
+#: src/ui/window.ui:41
+msgid "_Old Text"
+msgstr ""
+
+#: src/ui/window.ui:66
+msgid "_New Text"
+msgstr ""
+
+#: src/ui/window.ui:91
+msgid "_Comparison"
+msgstr ""
+
+#: src/ui/window.ui:108
+msgid "Main Menu"
+msgstr ""
+
+#: src/ui/window.ui:226
+msgctxt "Back to main screen"
+msgid "Back"
+msgstr ""
+
+#: src/ui/window.ui:228
+msgctxt "accessibility"
+msgid "Back"
+msgstr ""
+
+#: src/ui/window.ui:263
+msgctxt ""
+"TRANSLATORS: Only translate the text starting with 'To improve "
+"performance...'"
+msgid ""
+"<span font-size=\"xx-large\">To improve performance when comparing large "
+"texts, select either lines or sentences as the comparison token in the "
+"settings.</span>"
+msgstr ""
+
+#: src/ui/window.ui:282
+msgid "_Preferences"
+msgstr ""
+
+#: src/ui/window.ui:286
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/ui/window.ui:290
+msgid "_About Compare"
+msgstr ""
+
+#: src/util/util.js:4
+msgid "Characters"
+msgstr ""
+
+#: src/util/util.js:8
+msgid "Words"
+msgstr ""
+
+#: src/util/util.js:12
+msgid "Lines"
+msgstr ""
+
+#: src/util/util.js:16
+msgid "Sentences"
+msgstr ""
