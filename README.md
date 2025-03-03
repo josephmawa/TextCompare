@@ -1,11 +1,11 @@
 <!-- markdownlint-disable -->
 <div align="center">
-  <img src="./data/icons/hicolor/scalable/apps/io.github.josephmawa.Compare.svg" alt="Compare" width="128" height="128"/>
+  <img src="./data/icons/hicolor/scalable/apps/io.github.josephmawa.TextCompare.svg" alt="Text Compare" width="128" height="128"/>
 </div>
 <h1 align="center">Text Compare</h1>
 <p align="center"><b>Compare old and new text</b></p>
 <div align="center">
-  <a href="https://flathub.org/apps/io.github.josephmawa.Compare">
+  <a href="https://flathub.org/apps/io.github.josephmawa.TextCompare">
     <img width="240" alt="Get it on Flathub" src="https://flathub.org/api/badge?locale=en"/>
   </a>
 </div>
@@ -19,7 +19,7 @@
 <!-- markdownlint-enable -->
 <!-- markdownlint-disable headings -->
 
-Compare is a simple text comparison app.
+Text Compare is a simple text comparison app.
 
  ## Main features
 
