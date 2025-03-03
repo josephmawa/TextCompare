@@ -20,6 +20,8 @@ export const CompareWindow = GObject.registerClass(
     GTypeName: "CompareWindow",
     Template: getResourceUri("window.ui"),
     InternalChildren: [
+      // Main stack
+      "main_stack",
       // Toast overlay
       "toast_overlay",
       // Toggle Buttons
@@ -97,6 +99,16 @@ export const CompareWindow = GObject.registerClass(
         let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
         let comparisonToken = this.settings.get_string("comparison-token");
 
+        if ("characters" === comparisonToken || "words" === comparisonToken) {
+          const byteCountBefore = textBefore.length * 2;
+          const byteCountAfter = textAfter.length * 2;
+
+          if (byteCountBefore > 10_000 || byteCountAfter > 10_000) {
+            this._main_stack.visible_child_name = "error_view";
+            return;
+          }
+        }
+
         const locale = new Intl.DateTimeFormat().resolvedOptions().locale;
 
         const options = {
@@ -118,7 +130,7 @@ export const CompareWindow = GObject.registerClass(
         if (comparisonToken === "lines") {
           diffLines(textBefore, textAfter, options);
         }
-        
+
         if (comparisonToken === "sentences") {
           const sentenceSeg = new Intl.Segmenter(locale, {
             granularity: "sentence",
@@ -138,7 +150,15 @@ export const CompareWindow = GObject.registerClass(
         }
       });
 
+      const goBackAction = new Gio.SimpleAction({
+        name: "go-back",
+      });
+      goBackAction.connect("activate", () => {
+        this._main_stack.visible_child_name = "main_view";
+      });
+
       this.add_action(checkDiffAction);
+      this.add_action(goBackAction);
     };
 
     bindSettings = () => {
@@ -252,7 +272,7 @@ export const CompareWindow = GObject.registerClass(
     compareStrings = (changeObjects) => {
       try {
         if (!changeObjects) {
-          this.displayToast("Comparison failed");
+          this.displayToast("Comparison Failed");
           return;
         }
         let oldStr = "";
@@ -331,7 +351,7 @@ export const CompareWindow = GObject.registerClass(
         }
       } catch (error) {
         console.error(error);
-        this.displayToast(_("Comparison failed"));
+        this.displayToast(_("Comparison Failed"));
       }
     };
 
