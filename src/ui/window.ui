@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.0" />
   <requires lib="Adw" version="1.0" />
-  <template class="CompareWindow" parent="AdwApplicationWindow">
+  <template class="TextCompareWindow" parent="AdwApplicationWindow">
     <property name="title" translatable="yes">Compare</property>
     <property name="default-width">800</property>
     <property name="default-height">600</property>

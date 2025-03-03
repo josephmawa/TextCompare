@@ -10,7 +10,7 @@ imports.package.init({
   datadir: "@datadir@",
 });
 
-globalThis.APP_NAME = "Compare";
+globalThis.APP_NAME = "Text Compare";
 
 globalThis.getResourceUri = (resource) => {
   return "resource://@resource_path@/" + resource;

@@ -2,7 +2,7 @@
 <interface>
   <requires lib="gtk" version="4.10" />
   <requires lib="Adw" version="1.5" />
-  <template class="ComparePreferencesDialog" parent="AdwPreferencesDialog">
+  <template class="TextComparePreferencesDialog" parent="AdwPreferencesDialog">
     <property name="content_width">300</property>
     <property name="content_height">400</property>
     <property name="title" translatable="yes">Preferences</property>

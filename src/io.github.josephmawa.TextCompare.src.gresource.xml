@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/io/github/josephmawa/Compare/js">
+  <gresource prefix="/io/github/josephmawa/TextCompare/js">
     <file compressed="true">main.js</file>
     <file compressed="true">about.js</file>
     <file compressed="true">application.js</file>
     <file compressed="true">window.js</file>
     <file compressed="true">preferences.js</file>
   </gresource>
-  <gresource prefix="/io/github/josephmawa/Compare/js">
+  <gresource prefix="/io/github/josephmawa/TextCompare/js">
     <file compressed="true" alias="js-diff.js">lib/js-diff.js</file>
     <file compressed="true" alias="util.js">util/util.js</file>
   </gresource>

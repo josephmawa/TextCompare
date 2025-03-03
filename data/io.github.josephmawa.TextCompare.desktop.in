@@ -1,11 +1,11 @@
 [Desktop Entry]
-Name=Compare
-Exec=io.github.josephmawa.Compare
-Icon=io.github.josephmawa.Compare
+Name=TextCompare
+Exec=io.github.josephmawa.TextCompare
+Icon=io.github.josephmawa.TextCompare
 Terminal=false
 Type=Application
 Categories=GTK;GNOME;Office;Utility;TextEditor;TextTools;
 # Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-Keywords=Text;Compare;Difference;Comparison;Checker;Diff;
+Keywords=Text;TextCompare;Difference;Comparison;Checker;Diff;
 StartupNotify=true
 DBusActivatable=true

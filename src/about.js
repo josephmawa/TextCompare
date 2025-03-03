@@ -12,9 +12,9 @@ const aboutParams = {
   // Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
   translator_credits: _("translator-credits"),
   copyright: "Copyright © 2025 Joseph Mawa",
-  website: "https://github.com/josephmawa/Compare",
-  issue_url: "https://github.com/josephmawa/Compare/issues",
-  support_url: "https://github.com/josephmawa/Compare/issues"
+  website: "https://github.com/josephmawa/TextCompare",
+  issue_url: "https://github.com/josephmawa/TextCompare/issues",
+  support_url: "https://github.com/josephmawa/TextCompare/issues"
 };
 
 export const AboutDialog = () => {

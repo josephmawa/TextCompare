@@ -1,1 +1,1 @@
-i18n.gettext('compare', preset: 'glib')
+i18n.gettext('textcompare', preset: 'glib')

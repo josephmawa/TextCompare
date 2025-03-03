@@ -1,4 +1,4 @@
-application_id = 'io.github.josephmawa.Compare'
+application_id = 'io.github.josephmawa.TextCompare'
 
 scalable_dir = 'hicolor' / 'scalable' / 'apps'
 install_data(

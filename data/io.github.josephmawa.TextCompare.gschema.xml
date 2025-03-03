@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schemalist gettext-domain="compare">
-  <schema id="io.github.josephmawa.Compare" path="/io/github/josephmawa/Compare/">
+<schemalist gettext-domain="textcompare">
+  <schema id="io.github.josephmawa.TextCompare" path="/io/github/josephmawa/TextCompare/">
     <key name="window-width" type="i">
       <default>800</default>
     </key>

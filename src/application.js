@@ -3,12 +3,12 @@ import Gio from "gi://Gio";
 import Gtk from "gi://Gtk?version=4.0";
 import Adw from "gi://Adw?version=1";
 
-import { CompareWindow } from "./window.js";
+import { TextCompareWindow } from "./window.js";
 import { AboutDialog } from "./about.js";
-import { ComparePreferencesDialog } from "./preferences.js";
+import { TextComparePreferencesDialog } from "./preferences.js";
 
-export const CompareApplication = GObject.registerClass(
-  class CompareApplication extends Adw.Application {
+export const TextCompareApplication = GObject.registerClass(
+  class TextCompareApplication extends Adw.Application {
     constructor() {
       super({
         application_id: pkg.name,
@@ -23,7 +23,7 @@ export const CompareApplication = GObject.registerClass(
 
       const preferencesAction = new Gio.SimpleAction({ name: "preferences" });
       preferencesAction.connect("activate", (action) => {
-        const preferencesDialog = new ComparePreferencesDialog();
+        const preferencesDialog = new TextComparePreferencesDialog();
 
         preferencesDialog.present(this.active_window);
       });
@@ -50,7 +50,7 @@ export const CompareApplication = GObject.registerClass(
     vfunc_activate() {
       let { active_window } = this;
 
-      if (!active_window) active_window = new CompareWindow(this);
+      if (!active_window) active_window = new TextCompareWindow(this);
 
       active_window.present();
     }

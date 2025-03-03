@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>io.github.josephmawa.Compare</id>
+  <id>io.github.josephmawa.TextCompare</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
 
-  <name>Compare</name>
+  <name>Text Compare</name>
   <summary>Compare old and new text</summary>
   <description>
     <p>Compare new version of text with the old one</p>
-    <p>Below are the main features of Compare:</p>
+    <p>Below are the main features of Text Compare:</p>
     <ul>
       <li>Compare two versions of the same text</li>
       <li>Switch to dark, light, or system mode</li>
@@ -20,11 +20,11 @@
   </developer>
 
   <!-- Requered: Should be a link to the upstream homepage for the component -->
-  <url type="homepage">https://github.com/josephmawa/Compare</url>
+  <url type="homepage">https://github.com/josephmawa/TextCompare</url>
   <!-- Recommended: It is highly recommended for open-source projects to display the source code repository -->
-  <url type="vcs-browser">https://github.com/josephmawa/Compare</url>
+  <url type="vcs-browser">https://github.com/josephmawa/TextCompare</url>
   <!-- Should point to the software's bug tracking system, for users to report new bugs -->
-  <url type="bugtracker">https://github.com/josephmawa/Compare/issues</url>
+  <url type="bugtracker">https://github.com/josephmawa/TextCompare/issues</url>
   <!-- Should link a FAQ page for this software, to answer some of the most-asked questions in detail -->
   <!-- URLs of this type should point to a webpage where users can submit or modify translations of the upstream project -->
   <!-- <url type="translate">https://example.org/translate</url> -->
@@ -36,12 +36,12 @@
   <!--This could for example be an HTTPS URL to an online form or a page describing how to contact the developer -->
   <!-- <url type="contact">https://example.org/contact</url> -->
   <!--URLs of this type should point to a webpage showing information on how to contribute to the described software project -->
-  <url type="contribute">https://github.com/josephmawa/Compare/blob/main/README.md#contributing</url>
+  <url type="contribute">https://github.com/josephmawa/TextCompare/blob/main/README.md#contributing</url>
 
   <translation type="gettext">compare</translation>
   <!-- All graphical applications having a desktop file must have this tag in the MetaInfo.
      If this is present, appstreamcli compose will pull icons, keywords and categories from the desktop file. -->
-  <launchable type="desktop-id">io.github.josephmawa.Compare.desktop</launchable>
+  <launchable type="desktop-id">io.github.josephmawa.TextCompare.desktop</launchable>
   <!-- Use the OARS website (https://hughsie.github.io/oars/generate.html) to generate these and make sure to use oars-1.1 -->
   <content_rating type="oars-1.1" />
 
@@ -53,12 +53,12 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/josephmawa/Compare/main/screenshots/compare-dark-mode.png</image>
-      <caption>Compare in dark mode</caption>
+      <image>https://raw.githubusercontent.com/josephmawa/TextCompare/main/screenshots/compare-dark-mode.png</image>
+      <caption>TextCompare in dark mode</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/josephmawa/Compare/main/screenshots/compare-light-mode.png</image>
-      <caption>Compare in light mode</caption>
+      <image>https://raw.githubusercontent.com/josephmawa/TextCompare/main/screenshots/compare-light-mode.png</image>
+      <caption>TextCompare in light mode</caption>
     </screenshot>
   </screenshots>
 

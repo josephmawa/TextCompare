@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=io.github.josephmawa.Compare
-Exec=@bindir@/io.github.josephmawa.Compare --gapplication-service
