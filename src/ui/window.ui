@@ -33,7 +33,7 @@
                                         <property name="spacing">6</property>
                                         <child>
                                           <object class="GtkImage">
-                                            <property name="icon-name">accessories-text-editor-symbolic</property>
+                                            <property name="icon-name">text-compare-accessories-text-editor-symbolic</property>
                                           </object>
                                         </child>
                                         <child>
@@ -58,7 +58,7 @@
                                         <property name="spacing">6</property>
                                         <child>
                                           <object class="GtkImage">
-                                            <property name="icon-name">accessories-text-editor-symbolic</property>
+                                            <property name="icon-name">text-compare-accessories-text-editor-symbolic</property>
                                           </object>
                                         </child>
                                         <child>
@@ -83,7 +83,7 @@
                                         <property name="spacing">6</property>
                                         <child>
                                           <object class="GtkImage">
-                                            <property name="icon-name">accessories-text-editor-symbolic</property>
+                                            <property name="icon-name">text-compare-accessories-text-editor-symbolic</property>
                                           </object>
                                         </child>
                                         <child>
@@ -222,7 +222,7 @@
                             <property name="centering-policy">strict</property>
                             <child type="start">
                               <object class="GtkButton">
-                                <property name="icon-name">go-next-symbolic-rtl</property>
+                                <property name="icon-name">text-compare-go-next-symbolic-rtl</property>
                                 <property name="tooltip-text" translatable="yes" context="Back to main screen">Back</property>
                                 <accessibility>
                                   <property name="label" translatable="yes" context="accessibility">Back</property>

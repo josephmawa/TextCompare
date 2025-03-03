@@ -9,6 +9,7 @@
     <file compressed="true" alias="index.css">styles/index.css</file>
   </gresource>
   <gresource prefix="/io/github/josephmawa/TextCompare/icons">
-    <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/accessories-text-editor-symbolic.svg">icons/accessories-text-editor-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/text-compare-accessories-text-editor-symbolic.svg">icons/text-compare-accessories-text-editor-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/text-compare-go-next-symbolic-rtl.svg">icons/text-compare-go-next-symbolic-rtl.svg</file>
   </gresource>
 </gresources>
