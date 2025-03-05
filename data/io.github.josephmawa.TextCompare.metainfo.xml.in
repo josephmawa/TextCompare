@@ -5,9 +5,9 @@
   <project_license>GPL-3.0-or-later</project_license>
 
   <name>Text Compare</name>
-  <summary>Compare old and new text</summary>
+  <summary>Compare text</summary>
   <description>
-    <p>Compare new version of text with the old one</p>
+    <p>Compare old and new text.</p>
     <p>Below are the main features of Text Compare:</p>
     <ul>
       <li>Compare two versions of the same text</li>
@@ -47,8 +47,8 @@
 
   <!-- Applications should set a brand color in both light and dark variants like so -->
   <branding>
-    <color type="primary" scheme_preference="light">#ff00ff</color>
-    <color type="primary" scheme_preference="dark">#993d3d</color>
+    <color type="primary" scheme_preference="light">#baa6ce</color>
+    <color type="primary" scheme_preference="dark">#291e33</color>
   </branding>
 
   <screenshots>
@@ -63,7 +63,7 @@
   </screenshots>
 
   <releases>
-    <release version="0.1.0" date="2025-03-01">
+    <release version="0.1.0" date="2025-03-05">
       <description translate="no">
         <p>Initial release</p>
       </description>
