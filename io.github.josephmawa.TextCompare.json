@@ -23,7 +23,7 @@
   ],
   "modules": [
     {
-      "name": "textcompare",
+      "name": "TextCompare",
       "builddir": true,
       "buildsystem": "meson",
       "sources": [

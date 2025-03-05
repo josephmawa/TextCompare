@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the textcompare package.
+# This file is distributed under the same license as the TextCompare package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: textcompare\n"
+"Project-Id-Version: TextCompare\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-03 21:37+0300\n"
+"POT-Creation-Date: 2025-03-05 10:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,24 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/io.github.josephmawa.TextCompare.desktop.in:3
-msgid "TextCompare"
-msgstr ""
-
-#. Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
-#: data/io.github.josephmawa.TextCompare.desktop.in:10
-msgid "Text;TextCompare;Difference;Comparison;Checker;Diff;"
-msgstr ""
-
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:7
 msgid "Text Compare"
 msgstr ""
 
+#. Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/io.github.josephmawa.TextCompare.desktop.in:10
+msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
+msgstr ""
+
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
-msgid "Compare old and new text"
+msgid "Compare text"
 msgstr ""
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
-msgid "Compare new version of text with the old one"
+msgid "Compare old and new text."
 msgstr ""
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:11
@@ -60,11 +57,6 @@ msgstr ""
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:61
 msgid "TextCompare in light mode"
-msgstr ""
-
-#. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-#: src/about.js:13
-msgid "translator-credits"
 msgstr ""
 
 #: src/window.js:96
@@ -209,7 +201,7 @@ msgid "_Keyboard Shortcuts"
 msgstr ""
 
 #: src/ui/window.ui:290
-msgid "_About Compare"
+msgid "_About Text Compare"
 msgstr ""
 
 #: src/util/util.js:4
