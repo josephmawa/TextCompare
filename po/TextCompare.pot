@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TextCompare\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 10:37+0300\n"
+"POT-Creation-Date: 2025-03-10 21:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
 msgstr ""
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
-msgid "Compare text"
+msgid "Get text difference"
 msgstr ""
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
@@ -51,11 +51,11 @@ msgstr ""
 msgid "Joseph Mawa"
 msgstr ""
 
-#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:57
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:39
 msgid "TextCompare in dark mode"
 msgstr ""
 
-#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:61
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:43
 msgid "TextCompare in light mode"
 msgstr ""
 

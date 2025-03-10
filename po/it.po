@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TextCompare\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 10:37+0300\n"
+"POT-Creation-Date: 2025-03-10 21:30+0300\n"
 "PO-Revision-Date: 2025-03-03 22:30+0100\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
@@ -27,8 +27,8 @@ msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
 msgstr "Testo;Confronta;Differenza;Confronto;Controllo;Diff;"
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
-msgid "Compare text"
-msgstr "Confronta testo"
+msgid "Get text difference"
+msgstr ""
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
 msgid "Compare old and new text."
@@ -36,7 +36,8 @@ msgstr "Confronta il testo vecchio e quello nuovo."
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:11
 msgid "Below are the main features of Text Compare:"
-msgstr "Di seguito sono riportate le principali caratteristiche di Text Compare:"
+msgstr ""
+"Di seguito sono riportate le principali caratteristiche di Text Compare:"
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:13
 msgid "Compare two versions of the same text"
@@ -50,11 +51,11 @@ msgstr "Passa alla modalità scura, chiara o di sistema"
 msgid "Joseph Mawa"
 msgstr "Joseph Mawa"
 
-#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:57
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:39
 msgid "TextCompare in dark mode"
 msgstr "Confronta il testo in modalità scura"
 
-#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:61
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:43
 msgid "TextCompare in light mode"
 msgstr "Confronta il testo in modalità chiara"
 
@@ -190,9 +191,9 @@ msgid ""
 "texts, select either lines or sentences as the comparison token in the "
 "settings.</span>"
 msgstr ""
-"<span font-size=\"xx-large\">Per migliorare le prestazioni quando si confrontano "
-"testi di grandi dimensioni,selezionare righe o frasi come token di confronto nelle "
-"impostazioni.</span>"
+"<span font-size=\"xx-large\">Per migliorare le prestazioni quando si "
+"confrontano testi di grandi dimensioni,selezionare righe o frasi come token "
+"di confronto nelle impostazioni.</span>"
 
 #: src/ui/window.ui:282
 msgid "_Preferences"
@@ -221,3 +222,6 @@ msgstr "Righe"
 #: src/util/util.js:16
 msgid "Sentences"
 msgstr "Frasi"
+
+#~ msgid "Compare text"
+#~ msgstr "Confronta testo"
