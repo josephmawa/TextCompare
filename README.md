@@ -19,11 +19,12 @@
 <!-- markdownlint-enable -->
 <!-- markdownlint-disable headings -->
 
-Text Compare is a simple text comparison app.
+Text Compare is a simple text comparison app for Gnome desktop environment.
 
  ## Main features
 
 - Compare old and new text
+- Select comparison token
 - Switch to dark, light or system mode
 
 ## Contributing
