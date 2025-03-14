@@ -5,7 +5,7 @@
   <project_license>GPL-3.0-or-later</project_license>
 
   <name>Text Compare</name>
-  <summary>Get text difference</summary>
+  <summary>Text snippet comparison</summary>
   <description>
     <p>Compare old and new text.</p>
     <p>Below are the main features of Text Compare:</p>
@@ -29,8 +29,8 @@
   <content_rating type="oars-1.1" />
 
   <branding>
-    <color type="primary" scheme_preference="light">#baa6ce</color>
-    <color type="primary" scheme_preference="dark">#291e33</color>
+    <color type="primary" scheme_preference="light">#a9b6d1</color>
+    <color type="primary" scheme_preference="dark">#2c3b58</color>
   </branding>
 
   <screenshots>
