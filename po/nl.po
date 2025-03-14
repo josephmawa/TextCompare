@@ -1,0 +1,225 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the TextCompare package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TextCompare\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-10 21:30+0300\n"
+"PO-Revision-Date: 2025-03-14 20:05+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+
+#: data/io.github.josephmawa.TextCompare.desktop.in:3
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:7
+msgid "Text Compare"
+msgstr "Tekstvergelijking"
+
+#. Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/io.github.josephmawa.TextCompare.desktop.in:10
+msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
+msgstr "Tekst;Vergelijken;Verschil;Overeenkomst;Controle;Diff;"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
+msgid "Get text difference"
+msgstr "Teksten vergelijken"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
+msgid "Compare old and new text."
+msgstr "Vergelijk oude en nieuwe tekst."
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:11
+msgid "Below are the main features of Text Compare:"
+msgstr "Tekstvergelijking beschikt over de volgende mogelijkheden:"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:13
+msgid "Compare two versions of the same text"
+msgstr "Vergelijk twee versies van dezelfde tekst;"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:14
+msgid "Switch to dark, light, or system mode"
+msgstr "Kies voor het lichte, donkere of systeemthema."
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:19
+msgid "Joseph Mawa"
+msgstr "Joseph Mawa"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:39
+msgid "TextCompare in dark mode"
+msgstr "Tekstvergelijking met het donkere thema"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:43
+msgid "TextCompare in light mode"
+msgstr "Tekstvergelijking met het lichte thema"
+
+#: src/window.js:96
+msgid "New and old text are both empty"
+msgstr "Er zijn geen te vergelijken teksten ingevoerd"
+
+#: src/window.js:354
+msgid "Comparison Failed"
+msgstr "Vergelijken mislukt"
+
+#: src/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Algemeen"
+
+#: src/ui/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Sneltoetsen tonen"
+
+#: src/ui/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: src/ui/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Show Preferences"
+msgstr "Voorkeuren openen"
+
+#: src/ui/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Compare Text"
+msgstr "Tekst vergelijken"
+
+#: src/ui/help-overlay.ui:38
+msgctxt "shortcut window"
+msgid "Go Back"
+msgstr "Ga terug"
+
+#: src/ui/preferences.ui:8 src/ui/preferences.ui:14
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+#: src/ui/preferences.ui:17
+msgid "Color Theme"
+msgstr "Thema"
+
+#: src/ui/preferences.ui:18
+msgid "Set color theme"
+msgstr "Thema instellen"
+
+#: src/ui/preferences.ui:24
+msgid "Color theme"
+msgstr "Thema"
+
+#: src/ui/preferences.ui:40
+msgctxt "System color theme"
+msgid "System"
+msgstr "Systeeminstellingen"
+
+#: src/ui/preferences.ui:54
+msgctxt "Light color theme"
+msgid "Light"
+msgstr "Licht thema"
+
+#: src/ui/preferences.ui:68
+msgctxt "Dark color theme"
+msgid "Dark"
+msgstr "Donker thema"
+
+#: src/ui/preferences.ui:82
+msgid "Text Comparison"
+msgstr "Tekstvergelijking"
+
+#: src/ui/preferences.ui:83
+msgid "Text comparison settings"
+msgstr "Tekstvergelijkingsvoorkeuren"
+
+#: src/ui/preferences.ui:87
+msgid "Comparison Token"
+msgstr "Vergelijkingsmethode"
+
+#: src/ui/preferences.ui:88
+msgid "Select Comparison Token"
+msgstr "Kies de vergelijkingsmethode"
+
+#: src/ui/preferences.ui:93
+msgid "Case Sensitivity"
+msgstr "Hoofdlettergevoelig"
+
+#: src/ui/preferences.ui:94
+msgid "Case Senitive Comparison"
+msgstr "Vergelijk teksten met hoofdlettergevoeligheid"
+
+#: src/ui/window.ui:6 src/ui/window.ui:122
+msgid "Compare"
+msgstr "Vergelijken"
+
+#: src/ui/window.ui:41
+msgid "_Old Text"
+msgstr "_Oude tekst"
+
+#: src/ui/window.ui:66
+msgid "_New Text"
+msgstr "_Nieuwe tekst"
+
+#: src/ui/window.ui:91
+msgid "_Comparison"
+msgstr "Ver_gelijken"
+
+#: src/ui/window.ui:108
+msgid "Main Menu"
+msgstr "Hoofdmenu"
+
+#: src/ui/window.ui:226
+msgctxt "Back to main screen"
+msgid "Back"
+msgstr "Terug"
+
+#: src/ui/window.ui:228
+msgctxt "accessibility"
+msgid "Back"
+msgstr "Terug"
+
+#: src/ui/window.ui:263
+msgctxt ""
+"TRANSLATORS: Only translate the text starting with 'To improve "
+"performance...'"
+msgid ""
+"<span font-size=\"xx-large\">To improve performance when comparing large "
+"texts, select either lines or sentences as the comparison token in the "
+"settings.</span>"
+msgstr ""
+"<span font-size=\"xx-large\">Wilt u de prestaties tijdens het "
+"vergelijken van grote lappen tekst verbeteren? Open dan de voorkeuren en "
+"kies voor vergelijken per regel of per zin.</span>"
+
+#: src/ui/window.ui:282
+msgid "_Preferences"
+msgstr "_Voorkeuren"
+
+#: src/ui/window.ui:286
+msgid "_Keyboard Shortcuts"
+msgstr "_Sneltoetsen"
+
+#: src/ui/window.ui:290
+msgid "_About Text Compare"
+msgstr "_Over Tekstvergelijking"
+
+#: src/util/util.js:4
+msgid "Characters"
+msgstr "Tekens"
+
+#: src/util/util.js:8
+msgid "Words"
+msgstr "Woorden"
+
+#: src/util/util.js:12
+msgid "Lines"
+msgstr "Regels"
+
+#: src/util/util.js:16
+msgid "Sentences"
+msgstr "Zinnen"
