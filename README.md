@@ -10,10 +10,10 @@
   </a>
 </div>
 <p align="center">
-  <img src="./screenshots/compare-dark-mode.png" alt="Compare in dark mode" width="986" height="692"/>
+  <img src="./screenshots/compare-dark-mode.png" alt="Compare in dark mode" width="981" height="696"/>
 </p>
 <p align="center">
-  <img src="./screenshots/compare-light-mode.png" alt="Compare in light mode" width="986" height="692"/>
+  <img src="./screenshots/compare-light-mode.png" alt="Compare in light mode" width="981" height="696"/>
 </p>
 
 <!-- markdownlint-enable -->
