@@ -2,6 +2,7 @@ import GObject from "gi://GObject";
 import Gtk from "gi://Gtk";
 import Adw from "gi://Adw";
 import Gio from "gi://Gio";
+import GLib from "gi://GLib";
 import GtkSource from "gi://GtkSource?version=5";
 import {
   diffChars,
@@ -51,6 +52,22 @@ export const TextCompareWindow = GObject.registerClass(
       this.buffer_after = new GtkSource.Buffer();
       this.buffer_result = new GtkSource.Buffer();
 
+      // Add change handlers with debounce
+      let debounceTimeout = null;
+      const handleBufferChange = () => {
+        if (debounceTimeout) {
+          GLib.source_remove(debounceTimeout);
+        }
+        debounceTimeout = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 300, () => {
+          this.performComparison();
+          debounceTimeout = null;
+          return GLib.SOURCE_REMOVE;
+        });
+      };
+
+      this.buffer_before.connect("changed", handleBufferChange);
+      this.buffer_after.connect("changed", handleBufferChange);
+
       const tagTableResult = this.buffer_result.tag_table;
 
       tagTableResult.add(
@@ -83,73 +100,68 @@ export const TextCompareWindow = GObject.registerClass(
       this._text_view_result.buffer = this.buffer_result;
     };
 
-    createActions = () => {
-      const checkDiffAction = new Gio.SimpleAction({
-        name: "compare",
-      });
+    performComparison = () => {
+      const textBefore = this.buffer_before.text.normalize("NFC");
+      const textAfter = this.buffer_after.text.normalize("NFC");
 
-      checkDiffAction.connect("activate", () => {
-        const textBefore = this.buffer_before.text.normalize("NFC");
-        const textAfter = this.buffer_after.text.normalize("NFC");
+      if (!textBefore && !textAfter) {
+        return;
+      }
+      let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
+      let comparisonToken = this.settings.get_string("comparison-token");
 
-        if (!textBefore && !textAfter) {
-          this.displayToast(_("New and old text are both empty"));
+      if ("characters" === comparisonToken || "words" === comparisonToken) {
+        const byteCountBefore = textBefore.length * 2;
+        const byteCountAfter = textAfter.length * 2;
+
+        if (byteCountBefore > 10_000 || byteCountAfter > 10_000) {
+          this._main_stack.visible_child_name = "error_view";
           return;
         }
-        let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
-        let comparisonToken = this.settings.get_string("comparison-token");
+      }
 
-        if ("characters" === comparisonToken || "words" === comparisonToken) {
-          const byteCountBefore = textBefore.length * 2;
-          const byteCountAfter = textAfter.length * 2;
+      const locale = new Intl.DateTimeFormat().resolvedOptions().locale;
 
-          if (byteCountBefore > 10_000 || byteCountAfter > 10_000) {
-            this._main_stack.visible_child_name = "error_view";
-            return;
-          }
-        }
+      const options = {
+        ignoreCase: !isCaseSenitive,
+        callback: this.compareStrings,
+      };
 
-        const locale = new Intl.DateTimeFormat().resolvedOptions().locale;
+      if (comparisonToken === "characters") {
+        diffChars(textBefore, textAfter, options);
+      }
 
-        const options = {
-          ignoreCase: !isCaseSenitive,
-          callback: this.compareStrings,
-        };
+      if (comparisonToken === "words") {
+        options.intlSegmenter = new Intl.Segmenter(locale, {
+          granularity: "word",
+        });
+        diffWordsWithSpace(textBefore, textAfter, options);
+      }
 
-        if (comparisonToken === "characters") {
-          diffChars(textBefore, textAfter, options);
-        }
+      if (comparisonToken === "lines") {
+        diffLines(textBefore, textAfter, options);
+      }
 
-        if (comparisonToken === "words") {
-          options.intlSegmenter = new Intl.Segmenter(locale, {
-            granularity: "word",
-          });
-          diffWordsWithSpace(textBefore, textAfter, options);
-        }
+      if (comparisonToken === "sentences") {
+        const sentenceSeg = new Intl.Segmenter(locale, {
+          granularity: "sentence",
+        });
 
-        if (comparisonToken === "lines") {
-          diffLines(textBefore, textAfter, options);
-        }
+        const tokensOldText = Array.from(
+          sentenceSeg.segment(textBefore),
+          ({ segment }) => segment,
+        );
 
-        if (comparisonToken === "sentences") {
-          const sentenceSeg = new Intl.Segmenter(locale, {
-            granularity: "sentence",
-          });
+        const tokensNewText = Array.from(
+          sentenceSeg.segment(textAfter),
+          ({ segment }) => segment,
+        );
 
-          const tokensOldText = Array.from(
-            sentenceSeg.segment(textBefore),
-            ({ segment }) => segment
-          );
+        diffArrays(tokensOldText, tokensNewText, options);
+      }
+    };
 
-          const tokensNewText = Array.from(
-            sentenceSeg.segment(textAfter),
-            ({ segment }) => segment
-          );
-
-          diffArrays(tokensOldText, tokensNewText, options);
-        }
-      });
-
+    createActions = () => {
       const goBackAction = new Gio.SimpleAction({
         name: "go-back",
       });
@@ -157,7 +169,6 @@ export const TextCompareWindow = GObject.registerClass(
         this._main_stack.visible_child_name = "main_view";
       });
 
-      this.add_action(checkDiffAction);
       this.add_action(goBackAction);
     };
 
@@ -226,6 +237,15 @@ export const TextCompareWindow = GObject.registerClass(
         "changed::preferred-theme",
         this.setPreferredColorScheme
       );
+
+      // Update comparison when preferences change
+      this.settings.connect("changed::case-sensitivity", () => {
+        this.performComparison();
+      });
+
+      this.settings.connect("changed::comparison-token", () => {
+        this.performComparison();
+      });
     };
 
     loadStyles = () => {
@@ -275,42 +295,15 @@ export const TextCompareWindow = GObject.registerClass(
           this.displayToast("Comparison Failed");
           return;
         }
-        let oldStr = "";
-        let newStr = "";
         let result = "";
         let offset = [];
 
         for (let { added, removed, value } of changeObjects) {
           value = Array.isArray(value) ? value.join("") : value;
+          result += value;
 
-          if (!added && !removed) {
-            oldStr += value;
-            newStr += value;
-            result += value;
-
-            continue;
-          }
-
-          if (!added && removed) {
-            const i = [...result].length;
-            oldStr += value;
-            result += value;
-
-            offset.push({
-              a: i,
-              b: i + [...value].length,
-              added,
-              removed,
-            });
-
-            continue;
-          }
-
-          if (added && !removed) {
-            const i = [...result].length;
-            newStr += value;
-            result += value;
-
+          if (added || removed) {
+            const i = [...result].length - [...value].length;
             offset.push({
               a: i,
               b: i + [...value].length,
@@ -319,8 +312,7 @@ export const TextCompareWindow = GObject.registerClass(
             });
           }
         }
-        this.buffer_before.text = oldStr;
-        this.buffer_after.text = newStr;
+
         this.buffer_result.text = result;
 
         for (const { a, b, added, removed } of offset) {
