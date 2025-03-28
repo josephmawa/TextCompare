@@ -15,6 +15,7 @@ export const TextComparePreferencesDialog = GObject.registerClass(
       "light",
       "comparison_token_settings",
       "case_sensitivity_settings",
+      "real_time_comparison_settings"
     ],
     Properties: {
       theme: GObject.ParamSpec.string(
@@ -55,6 +56,12 @@ export const TextComparePreferencesDialog = GObject.registerClass(
       this.settings.bind(
         "case-sensitivity",
         this._case_sensitivity_settings,
+        "active",
+        Gio.SettingsBindFlags.DEFAULT
+      );
+      this.settings.bind(
+        "real-time-comparison",
+        this._real_time_comparison_settings,
         "active",
         Gio.SettingsBindFlags.DEFAULT
       );
