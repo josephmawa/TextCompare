@@ -4,7 +4,7 @@
   <requires lib="Adw" version="1.5" />
   <template class="TextComparePreferencesDialog" parent="AdwPreferencesDialog">
     <property name="content_width">300</property>
-    <property name="content_height">400</property>
+    <property name="content_height">450</property>
     <property name="title" translatable="yes">Preferences</property>
     <property name="search-enabled">true</property>
     <property name="presentation-mode">floating</property>
@@ -92,6 +92,12 @@
               <object class="AdwSwitchRow" id="case_sensitivity_settings">
                 <property name="title" translatable="yes">Case Sensitivity</property>
                 <property name="subtitle" translatable="yes">Case Senitive Comparison</property>
+              </object>
+            </child>
+            <child>
+              <object class="AdwSwitchRow" id="real_time_comparison_settings">
+                <property name="title" translatable="yes">Real Time Comparison</property>
+                <property name="subtitle" translatable="yes">Compare Text As You Type</property>
               </object>
             </child>
           </object>
