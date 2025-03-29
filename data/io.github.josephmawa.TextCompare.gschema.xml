@@ -39,5 +39,8 @@
     <key name="case-sensitivity" type="b">
       <default>true</default>
     </key>
+    <key name="real-time-comparison" type="b">
+      <default>false</default>
+    </key>
   </schema>
 </schemalist>

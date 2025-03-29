@@ -29,6 +29,12 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes" context="shortcut window">Compare Text</property>
+                <property name="action-name">win.compare</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">Go Back</property>
                 <property name="action-name">win.go-back</property>
               </object>
