@@ -16,6 +16,11 @@ import {
 
 GObject.type_ensure(GtkSource.View.$gtype);
 
+const handlerIds = {
+  beforeHandlerId: null,
+  afterHandlerId: null,
+};
+
 export const TextCompareWindow = GObject.registerClass(
   {
     GTypeName: "TextCompareWindow",
@@ -29,6 +34,8 @@ export const TextCompareWindow = GObject.registerClass(
       "old_text_button",
       "new_text_button",
       "comparison_button",
+      // Check Button
+      "check_button",
       // Source views
       "text_view_before",
       "text_view_after",
@@ -52,21 +59,28 @@ export const TextCompareWindow = GObject.registerClass(
       this.buffer_after = new GtkSource.Buffer();
       this.buffer_result = new GtkSource.Buffer();
 
-      // Add change handlers with debounce
-      let debounceTimeout = null;
-      const handleBufferChange = () => {
-        if (debounceTimeout) {
-          GLib.source_remove(debounceTimeout);
-        }
-        debounceTimeout = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 300, () => {
-          this.performComparison();
-          debounceTimeout = null;
-          return GLib.SOURCE_REMOVE;
-        });
-      };
+      if (!this.handleBufferChange) {
+        this.handleBufferChange = this.debounce(this.performComparison, 300);
+      }
 
-      this.buffer_before.connect("changed", handleBufferChange);
-      this.buffer_after.connect("changed", handleBufferChange);
+      if (!this.settings) {
+        this.settings = Gio.Settings.new(pkg.name);
+      }
+
+      const realTimeComparisonEnabled = this.settings.get_boolean(
+        "real-time-comparison"
+      );
+
+      if (realTimeComparisonEnabled) {
+        handlerIds.beforeHandlerId = this.buffer_before.connect(
+          "changed",
+          this.handleBufferChange
+        );
+        handlerIds.afterHandlerId = this.buffer_after.connect(
+          "changed",
+          this.handleBufferChange
+        );
+      }
 
       const tagTableResult = this.buffer_result.tag_table;
 
@@ -105,6 +119,14 @@ export const TextCompareWindow = GObject.registerClass(
       const textAfter = this.buffer_after.text.normalize("NFC");
 
       if (!textBefore && !textAfter) {
+        const realTimeComparisonEnabled = this.settings.get_boolean(
+          "real-time-comparison"
+        );
+
+        if (!realTimeComparisonEnabled) {
+          this.displayToast(_("New and old text are both empty"));
+        }
+        
         return;
       }
       let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
@@ -149,12 +171,12 @@ export const TextCompareWindow = GObject.registerClass(
 
         const tokensOldText = Array.from(
           sentenceSeg.segment(textBefore),
-          ({ segment }) => segment,
+          ({ segment }) => segment
         );
 
         const tokensNewText = Array.from(
           sentenceSeg.segment(textAfter),
-          ({ segment }) => segment,
+          ({ segment }) => segment
         );
 
         diffArrays(tokensOldText, tokensNewText, options);
@@ -162,6 +184,13 @@ export const TextCompareWindow = GObject.registerClass(
     };
 
     createActions = () => {
+      const checkDiffAction = new Gio.SimpleAction({
+        name: "compare",
+      });
+      checkDiffAction.connect("activate", () => {
+        this.performComparison();
+      });
+
       const goBackAction = new Gio.SimpleAction({
         name: "go-back",
       });
@@ -169,7 +198,19 @@ export const TextCompareWindow = GObject.registerClass(
         this._main_stack.visible_child_name = "main_view";
       });
 
+      this.add_action(checkDiffAction);
       this.add_action(goBackAction);
+
+      if (!this.settings) {
+        this.settings = Gio.Settings.new(pkg.name);
+      }
+
+      this.settings.bind(
+        "real-time-comparison",
+        checkDiffAction,
+        "enabled",
+        Gio.SettingsBindFlags.INVERT_BOOLEAN
+      );
     };
 
     bindSettings = () => {
@@ -211,6 +252,24 @@ export const TextCompareWindow = GObject.registerClass(
         "active",
         Gio.SettingsBindFlags.DEFAULT
       );
+      /**
+       * When real time comparison is activated,
+       * the check button is hidden. However, hiding
+       * a button alone doesn't prevent it from being
+       * triggered via keyboard shortcut. Therefore,
+       * the button must be hidden and the action bound
+       * to it must be disabled. Check this.createActions
+       *  method.
+       *
+       * FIXME: In addition to being invisible, the button
+       * needs to be disabled.
+       */
+      this.settings.bind(
+        "real-time-comparison",
+        this._check_button,
+        "visible",
+        Gio.SettingsBindFlags.INVERT_BOOLEAN
+      );
 
       this._old_text_button.bind_property(
         "active",
@@ -240,11 +299,52 @@ export const TextCompareWindow = GObject.registerClass(
 
       // Update comparison when preferences change
       this.settings.connect("changed::case-sensitivity", () => {
-        this.performComparison();
+        const realTimeComparisonEnabled = this.settings.get_boolean(
+          "real-time-comparison"
+        );
+
+        if (realTimeComparisonEnabled) {
+          this.performComparison();
+        }
       });
 
       this.settings.connect("changed::comparison-token", () => {
-        this.performComparison();
+        const realTimeComparisonEnabled = this.settings.get_boolean(
+          "real-time-comparison"
+        );
+
+        if (realTimeComparisonEnabled) {
+          this.performComparison();
+        }
+      });
+
+      this.settings.connect("changed::real-time-comparison", () => {
+        const realTimeComparisonEnabled = this.settings.get_boolean(
+          "real-time-comparison"
+        );
+
+        if (realTimeComparisonEnabled) {
+          handlerIds.beforeHandlerId = this.buffer_before.connect(
+            "changed",
+            this.handleBufferChange
+          );
+          handlerIds.afterHandlerId = this.buffer_after.connect(
+            "changed",
+            this.handleBufferChange
+          );
+
+          this.performComparison();
+        } else {
+          if (handlerIds.beforeHandlerId) {
+            this.buffer_before.disconnect(handlerIds.beforeHandlerId);
+            handlerIds.beforeHandlerId = null;
+          }
+
+          if (handlerIds.afterHandlerId) {
+            this.buffer_after.disconnect(handlerIds.afterHandlerId);
+            handlerIds.afterHandlerId = null;
+          }
+        }
       });
     };
 
@@ -351,6 +451,22 @@ export const TextCompareWindow = GObject.registerClass(
       this.toast.dismiss();
       this.toast.title = message;
       this._toast_overlay.add_toast(this.toast);
+    };
+
+    debounce = (callback, wait = 300) => {
+      let debounceTimeout = null;
+
+      return (...args) => {
+        if (debounceTimeout) {
+          GLib.source_remove(debounceTimeout);
+        }
+
+        debounceTimeout = GLib.timeout_add(GLib.PRIORITY_DEFAULT, wait, () => {
+          callback(...args);
+          debounceTimeout = null;
+          return GLib.SOURCE_REMOVE;
+        });
+      };
     };
   }
 );
