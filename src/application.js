@@ -43,6 +43,7 @@ export const TextCompareApplication = GObject.registerClass(
        */
       this.set_accels_for_action("app.quit", ["<primary>q"]);
       this.set_accels_for_action("app.preferences", ["<primary>comma"]);
+      this.set_accels_for_action("win.compare", ["<shift><primary>c"]);
       this.set_accels_for_action("win.go-back", ["<primary>Left"]);
     }
 

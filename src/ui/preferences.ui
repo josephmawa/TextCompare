@@ -97,7 +97,7 @@
             <child>
               <object class="AdwSwitchRow" id="real_time_comparison_settings">
                 <property name="title" translatable="yes">Real Time Comparison</property>
-                <property name="subtitle" translatable="yes">Compare Text As You Type</property>
+                <property name="subtitle" translatable="yes">Compare Text In Real Time</property>
               </object>
             </child>
           </object>

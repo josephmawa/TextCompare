@@ -118,6 +118,16 @@
                             <property name="vexpand">true</property>
                             <property name="spacing">10</property>
                             <child>
+                              <object class="GtkButton" id="check_button">
+                                <property name="label" translatable="true">Compare</property>
+                                <property name="halign">center</property>
+                                <property name="action-name">win.compare</property>
+                                <style>
+                                  <class name="suggested-action" />
+                                </style>
+                              </object>
+                            </child>
+                            <child>
                               <object class="GtkBox">
                                 <property name="hexpand">true</property>
                                 <property name="vexpand">true</property>
