@@ -40,6 +40,10 @@ export const TextCompareWindow = GObject.registerClass(
       "text_view_before",
       "text_view_after",
       "text_view_result",
+      // Scroll windows
+      "old_txt_scroll_win",
+      "new_txt_scroll_win",
+      "comparison_txt_scroll_win",
     ],
   },
   class TextCompareWindow extends Adw.ApplicationWindow {
@@ -50,6 +54,7 @@ export const TextCompareWindow = GObject.registerClass(
       this.loadStyles();
       this.bindSettings();
       this.setPreferredColorScheme();
+      this.updateStyleClasses();
 
       this.toast = new Adw.Toast({ timeout: 1 });
     }
@@ -126,7 +131,7 @@ export const TextCompareWindow = GObject.registerClass(
         if (!realTimeComparisonEnabled) {
           this.displayToast(_("New and old text are both empty"));
         }
-        
+
         return;
       }
       let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
@@ -346,6 +351,16 @@ export const TextCompareWindow = GObject.registerClass(
           }
         }
       });
+
+      this._old_text_button.connect("toggled", () => {
+        this.updateStyleClasses();
+      });
+      this._new_text_button.connect("toggled", () => {
+        this.updateStyleClasses();
+      });
+      this._comparison_button.connect("toggled", () => {
+        this.updateStyleClasses();
+      });
     };
 
     loadStyles = () => {
@@ -444,6 +459,75 @@ export const TextCompareWindow = GObject.registerClass(
       } catch (error) {
         console.error(error);
         this.displayToast(_("Comparison Failed"));
+      }
+    };
+
+    updateStyleClasses = () => {
+      const oldTxtBtnActive = this._old_text_button.active;
+      const newTxtBtnActive = this._new_text_button.active;
+      const comTxtBtnActive = this._comparison_button.active;
+
+      const scrollWinOldTxt = this._old_txt_scroll_win.get_style_context();
+      const scrollWinNewTxt = this._new_txt_scroll_win.get_style_context();
+      const scrollWinComTxt =
+        this._comparison_txt_scroll_win.get_style_context();
+
+      const activeBtnCount =
+        Number(oldTxtBtnActive) +
+        Number(newTxtBtnActive) +
+        Number(comTxtBtnActive);
+
+      if (activeBtnCount === 3) {
+        if (!scrollWinOldTxt.has_class("border-right")) {
+          scrollWinOldTxt.add_class("border-right");
+        }
+        if (!scrollWinComTxt.has_class("border-left")) {
+          scrollWinComTxt.add_class("border-left");
+        }
+      }
+
+      if (activeBtnCount === 2) {
+        if (
+          oldTxtBtnActive &&
+          newTxtBtnActive &&
+          !scrollWinOldTxt.has_class("border-right")
+        ) {
+          scrollWinOldTxt.add_class("border-right");
+        }
+
+        if (
+          newTxtBtnActive &&
+          comTxtBtnActive &&
+          !scrollWinComTxt.has_class("border-left")
+        ) {
+          scrollWinComTxt.add_class("border-left");
+        }
+
+        if (
+          oldTxtBtnActive &&
+          comTxtBtnActive &&
+          scrollWinOldTxt.has_class("border-right")
+        ) {
+          scrollWinOldTxt.remove_class("border-right");
+        }
+
+        if (
+          oldTxtBtnActive &&
+          comTxtBtnActive &&
+          !scrollWinComTxt.has_class("border-left")
+        ) {
+          scrollWinComTxt.add_class("border-left");
+        }
+      }
+
+      if (activeBtnCount === 1) {
+        if (oldTxtBtnActive && scrollWinOldTxt.has_class("border-right")) {
+          scrollWinOldTxt.remove_class("border-right");
+        }
+
+        if (comTxtBtnActive && scrollWinComTxt.has_class("border-left")) {
+          scrollWinComTxt.remove_class("border-left");
+        }
       }
     };
 
