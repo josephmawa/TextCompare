@@ -132,7 +132,10 @@
                                 <property name="hexpand">true</property>
                                 <property name="vexpand">true</property>
                                 <child>
-                                  <object class="GtkScrolledWindow">
+                                  <object class="GtkScrolledWindow" id="old_txt_scroll_win">
+                                    <style>
+                                      <class name="border-right" />
+                                    </style>
                                     <property name="name">old_text</property>
                                     <property name="propagate-natural-height">true</property>
                                     <property name="propagate-natural-width">true</property>
@@ -156,7 +159,7 @@
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkScrolledWindow">
+                                  <object class="GtkScrolledWindow" id="new_txt_scroll_win">
                                     <property name="name">new_text</property>
                                     <property name="propagate-natural-height">true</property>
                                     <property name="propagate-natural-width">true</property>
@@ -180,7 +183,10 @@
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="GtkScrolledWindow">
+                                  <object class="GtkScrolledWindow" id="comparison_txt_scroll_win">
+                                    <style>
+                                      <class name="border-left" />
+                                    </style>
                                     <property name="name">comparison_text</property>
                                     <property name="propagate-natural-height">true</property>
                                     <property name="propagate-natural-width">true</property>
