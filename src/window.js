@@ -28,6 +28,8 @@ export const TextCompareWindow = GObject.registerClass(
     InternalChildren: [
       // Main stack
       "main_stack",
+      // Panels stack
+      "panels_stack",
       // Toast overlay
       "toast_overlay",
       // Toggle Buttons
@@ -476,6 +478,12 @@ export const TextCompareWindow = GObject.registerClass(
         Number(oldTxtBtnActive) +
         Number(newTxtBtnActive) +
         Number(comTxtBtnActive);
+
+      if (activeBtnCount) {
+        this._panels_stack.visible_child_name = "panels_visible";
+      } else {
+        this._panels_stack.visible_child_name = "panels_hidden";
+      }
 
       if (activeBtnCount === 3) {
         if (!scrollWinOldTxt.has_class("border-right")) {
