@@ -229,8 +229,8 @@
                                         <property name="valign">center</property>
                                         <child>
                                           <object class="GtkImage">
-                                            <property name="icon-name">text-compare-accessories-text-editor-symbolic</property>
-                                            <property name="pixel-size">84</property>
+                                            <property name="icon-name">io.github.josephmawa.TextCompare</property>
+                                            <property name="pixel-size">196</property>
                                           </object>
                                         </child>
                                       </object>
