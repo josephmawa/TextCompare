@@ -230,7 +230,7 @@
                                         <child>
                                           <object class="GtkImage">
                                             <property name="icon-name">io.github.josephmawa.TextCompare</property>
-                                            <property name="pixel-size">196</property>
+                                            <property name="pixel-size">120</property>
                                           </object>
                                         </child>
                                       </object>
