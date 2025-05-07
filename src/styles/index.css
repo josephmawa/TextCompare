@@ -2,7 +2,11 @@
   padding: 10px;
 }
 
-#old_text,
-#new_text {
+
+.border-right {
   border-right: 1px solid @borders;
+}
+
+.border-left {
+  border-left: 1px solid @borders;
 }

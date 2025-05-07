@@ -2,6 +2,7 @@ import GObject from "gi://GObject";
 import Gtk from "gi://Gtk";
 import Adw from "gi://Adw";
 import Gio from "gi://Gio";
+import GLib from "gi://GLib";
 import GtkSource from "gi://GtkSource?version=5";
 import {
   diffChars,
@@ -15,6 +16,11 @@ import {
 
 GObject.type_ensure(GtkSource.View.$gtype);
 
+const handlerIds = {
+  beforeHandlerId: null,
+  afterHandlerId: null,
+};
+
 export const TextCompareWindow = GObject.registerClass(
   {
     GTypeName: "TextCompareWindow",
@@ -22,16 +28,24 @@ export const TextCompareWindow = GObject.registerClass(
     InternalChildren: [
       // Main stack
       "main_stack",
+      // Panels stack
+      "panels_stack",
       // Toast overlay
       "toast_overlay",
       // Toggle Buttons
       "old_text_button",
       "new_text_button",
       "comparison_button",
+      // Check Button
+      "check_button",
       // Source views
       "text_view_before",
       "text_view_after",
       "text_view_result",
+      // Scroll windows
+      "old_txt_scroll_win",
+      "new_txt_scroll_win",
+      "comparison_txt_scroll_win",
     ],
   },
   class TextCompareWindow extends Adw.ApplicationWindow {
@@ -42,6 +56,7 @@ export const TextCompareWindow = GObject.registerClass(
       this.loadStyles();
       this.bindSettings();
       this.setPreferredColorScheme();
+      this.updateStyleClasses();
 
       this.toast = new Adw.Toast({ timeout: 1 });
     }
@@ -50,6 +65,29 @@ export const TextCompareWindow = GObject.registerClass(
       this.buffer_before = new GtkSource.Buffer();
       this.buffer_after = new GtkSource.Buffer();
       this.buffer_result = new GtkSource.Buffer();
+
+      if (!this.handleBufferChange) {
+        this.handleBufferChange = this.debounce(this.performComparison, 300);
+      }
+
+      if (!this.settings) {
+        this.settings = Gio.Settings.new(pkg.name);
+      }
+
+      const realTimeComparisonEnabled = this.settings.get_boolean(
+        "real-time-comparison"
+      );
+
+      if (realTimeComparisonEnabled) {
+        handlerIds.beforeHandlerId = this.buffer_before.connect(
+          "changed",
+          this.handleBufferChange
+        );
+        handlerIds.afterHandlerId = this.buffer_after.connect(
+          "changed",
+          this.handleBufferChange
+        );
+      }
 
       const tagTableResult = this.buffer_result.tag_table;
 
@@ -83,71 +121,81 @@ export const TextCompareWindow = GObject.registerClass(
       this._text_view_result.buffer = this.buffer_result;
     };
 
+    performComparison = () => {
+      const textBefore = this.buffer_before.text.normalize("NFC");
+      const textAfter = this.buffer_after.text.normalize("NFC");
+
+      if (!textBefore && !textAfter) {
+        const realTimeComparisonEnabled = this.settings.get_boolean(
+          "real-time-comparison"
+        );
+
+        if (!realTimeComparisonEnabled) {
+          this.displayToast(_("New and old text are both empty"));
+        }
+
+        return;
+      }
+      let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
+      let comparisonToken = this.settings.get_string("comparison-token");
+
+      if ("characters" === comparisonToken || "words" === comparisonToken) {
+        const byteCountBefore = textBefore.length * 2;
+        const byteCountAfter = textAfter.length * 2;
+
+        if (byteCountBefore > 10_000 || byteCountAfter > 10_000) {
+          this._main_stack.visible_child_name = "error_view";
+          return;
+        }
+      }
+
+      const locale = new Intl.DateTimeFormat().resolvedOptions().locale;
+
+      const options = {
+        ignoreCase: !isCaseSenitive,
+        callback: this.compareStrings,
+      };
+
+      if (comparisonToken === "characters") {
+        diffChars(textBefore, textAfter, options);
+      }
+
+      if (comparisonToken === "words") {
+        options.intlSegmenter = new Intl.Segmenter(locale, {
+          granularity: "word",
+        });
+        diffWordsWithSpace(textBefore, textAfter, options);
+      }
+
+      if (comparisonToken === "lines") {
+        diffLines(textBefore, textAfter, options);
+      }
+
+      if (comparisonToken === "sentences") {
+        const sentenceSeg = new Intl.Segmenter(locale, {
+          granularity: "sentence",
+        });
+
+        const tokensOldText = Array.from(
+          sentenceSeg.segment(textBefore),
+          ({ segment }) => segment
+        );
+
+        const tokensNewText = Array.from(
+          sentenceSeg.segment(textAfter),
+          ({ segment }) => segment
+        );
+
+        diffArrays(tokensOldText, tokensNewText, options);
+      }
+    };
+
     createActions = () => {
       const checkDiffAction = new Gio.SimpleAction({
         name: "compare",
       });
-
       checkDiffAction.connect("activate", () => {
-        const textBefore = this.buffer_before.text.normalize("NFC");
-        const textAfter = this.buffer_after.text.normalize("NFC");
-
-        if (!textBefore && !textAfter) {
-          this.displayToast(_("New and old text are both empty"));
-          return;
-        }
-        let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
-        let comparisonToken = this.settings.get_string("comparison-token");
-
-        if ("characters" === comparisonToken || "words" === comparisonToken) {
-          const byteCountBefore = textBefore.length * 2;
-          const byteCountAfter = textAfter.length * 2;
-
-          if (byteCountBefore > 10_000 || byteCountAfter > 10_000) {
-            this._main_stack.visible_child_name = "error_view";
-            return;
-          }
-        }
-
-        const locale = new Intl.DateTimeFormat().resolvedOptions().locale;
-
-        const options = {
-          ignoreCase: !isCaseSenitive,
-          callback: this.compareStrings,
-        };
-
-        if (comparisonToken === "characters") {
-          diffChars(textBefore, textAfter, options);
-        }
-
-        if (comparisonToken === "words") {
-          options.intlSegmenter = new Intl.Segmenter(locale, {
-            granularity: "word",
-          });
-          diffWordsWithSpace(textBefore, textAfter, options);
-        }
-
-        if (comparisonToken === "lines") {
-          diffLines(textBefore, textAfter, options);
-        }
-
-        if (comparisonToken === "sentences") {
-          const sentenceSeg = new Intl.Segmenter(locale, {
-            granularity: "sentence",
-          });
-
-          const tokensOldText = Array.from(
-            sentenceSeg.segment(textBefore),
-            ({ segment }) => segment
-          );
-
-          const tokensNewText = Array.from(
-            sentenceSeg.segment(textAfter),
-            ({ segment }) => segment
-          );
-
-          diffArrays(tokensOldText, tokensNewText, options);
-        }
+        this.performComparison();
       });
 
       const goBackAction = new Gio.SimpleAction({
@@ -159,6 +207,17 @@ export const TextCompareWindow = GObject.registerClass(
 
       this.add_action(checkDiffAction);
       this.add_action(goBackAction);
+
+      if (!this.settings) {
+        this.settings = Gio.Settings.new(pkg.name);
+      }
+
+      this.settings.bind(
+        "real-time-comparison",
+        checkDiffAction,
+        "enabled",
+        Gio.SettingsBindFlags.INVERT_BOOLEAN
+      );
     };
 
     bindSettings = () => {
@@ -200,6 +259,24 @@ export const TextCompareWindow = GObject.registerClass(
         "active",
         Gio.SettingsBindFlags.DEFAULT
       );
+      /**
+       * When real time comparison is activated,
+       * the check button is hidden. However, hiding
+       * a button alone doesn't prevent it from being
+       * triggered via keyboard shortcut. Therefore,
+       * the button must be hidden and the action bound
+       * to it must be disabled. Check this.createActions
+       *  method.
+       *
+       * FIXME: In addition to being invisible, the button
+       * needs to be disabled.
+       */
+      this.settings.bind(
+        "real-time-comparison",
+        this._check_button,
+        "visible",
+        Gio.SettingsBindFlags.INVERT_BOOLEAN
+      );
 
       this._old_text_button.bind_property(
         "active",
@@ -226,6 +303,66 @@ export const TextCompareWindow = GObject.registerClass(
         "changed::preferred-theme",
         this.setPreferredColorScheme
       );
+
+      // Update comparison when preferences change
+      this.settings.connect("changed::case-sensitivity", () => {
+        const realTimeComparisonEnabled = this.settings.get_boolean(
+          "real-time-comparison"
+        );
+
+        if (realTimeComparisonEnabled) {
+          this.performComparison();
+        }
+      });
+
+      this.settings.connect("changed::comparison-token", () => {
+        const realTimeComparisonEnabled = this.settings.get_boolean(
+          "real-time-comparison"
+        );
+
+        if (realTimeComparisonEnabled) {
+          this.performComparison();
+        }
+      });
+
+      this.settings.connect("changed::real-time-comparison", () => {
+        const realTimeComparisonEnabled = this.settings.get_boolean(
+          "real-time-comparison"
+        );
+
+        if (realTimeComparisonEnabled) {
+          handlerIds.beforeHandlerId = this.buffer_before.connect(
+            "changed",
+            this.handleBufferChange
+          );
+          handlerIds.afterHandlerId = this.buffer_after.connect(
+            "changed",
+            this.handleBufferChange
+          );
+
+          this.performComparison();
+        } else {
+          if (handlerIds.beforeHandlerId) {
+            this.buffer_before.disconnect(handlerIds.beforeHandlerId);
+            handlerIds.beforeHandlerId = null;
+          }
+
+          if (handlerIds.afterHandlerId) {
+            this.buffer_after.disconnect(handlerIds.afterHandlerId);
+            handlerIds.afterHandlerId = null;
+          }
+        }
+      });
+
+      this._old_text_button.connect("toggled", () => {
+        this.updateStyleClasses();
+      });
+      this._new_text_button.connect("toggled", () => {
+        this.updateStyleClasses();
+      });
+      this._comparison_button.connect("toggled", () => {
+        this.updateStyleClasses();
+      });
     };
 
     loadStyles = () => {
@@ -275,42 +412,15 @@ export const TextCompareWindow = GObject.registerClass(
           this.displayToast("Comparison Failed");
           return;
         }
-        let oldStr = "";
-        let newStr = "";
         let result = "";
         let offset = [];
 
         for (let { added, removed, value } of changeObjects) {
           value = Array.isArray(value) ? value.join("") : value;
+          result += value;
 
-          if (!added && !removed) {
-            oldStr += value;
-            newStr += value;
-            result += value;
-
-            continue;
-          }
-
-          if (!added && removed) {
-            const i = [...result].length;
-            oldStr += value;
-            result += value;
-
-            offset.push({
-              a: i,
-              b: i + [...value].length,
-              added,
-              removed,
-            });
-
-            continue;
-          }
-
-          if (added && !removed) {
-            const i = [...result].length;
-            newStr += value;
-            result += value;
-
+          if (added || removed) {
+            const i = [...result].length - [...value].length;
             offset.push({
               a: i,
               b: i + [...value].length,
@@ -319,8 +429,7 @@ export const TextCompareWindow = GObject.registerClass(
             });
           }
         }
-        this.buffer_before.text = oldStr;
-        this.buffer_after.text = newStr;
+
         this.buffer_result.text = result;
 
         for (const { a, b, added, removed } of offset) {
@@ -355,10 +464,101 @@ export const TextCompareWindow = GObject.registerClass(
       }
     };
 
+    updateStyleClasses = () => {
+      const oldTxtBtnActive = this._old_text_button.active;
+      const newTxtBtnActive = this._new_text_button.active;
+      const comTxtBtnActive = this._comparison_button.active;
+
+      const scrollWinOldTxt = this._old_txt_scroll_win.get_style_context();
+      const scrollWinNewTxt = this._new_txt_scroll_win.get_style_context();
+      const scrollWinComTxt =
+        this._comparison_txt_scroll_win.get_style_context();
+
+      const activeBtnCount =
+        Number(oldTxtBtnActive) +
+        Number(newTxtBtnActive) +
+        Number(comTxtBtnActive);
+
+      if (activeBtnCount) {
+        this._panels_stack.visible_child_name = "panels_visible";
+      } else {
+        this._panels_stack.visible_child_name = "panels_hidden";
+      }
+
+      if (activeBtnCount === 3) {
+        if (!scrollWinOldTxt.has_class("border-right")) {
+          scrollWinOldTxt.add_class("border-right");
+        }
+        if (!scrollWinComTxt.has_class("border-left")) {
+          scrollWinComTxt.add_class("border-left");
+        }
+      }
+
+      if (activeBtnCount === 2) {
+        if (
+          oldTxtBtnActive &&
+          newTxtBtnActive &&
+          !scrollWinOldTxt.has_class("border-right")
+        ) {
+          scrollWinOldTxt.add_class("border-right");
+        }
+
+        if (
+          newTxtBtnActive &&
+          comTxtBtnActive &&
+          !scrollWinComTxt.has_class("border-left")
+        ) {
+          scrollWinComTxt.add_class("border-left");
+        }
+
+        if (
+          oldTxtBtnActive &&
+          comTxtBtnActive &&
+          scrollWinOldTxt.has_class("border-right")
+        ) {
+          scrollWinOldTxt.remove_class("border-right");
+        }
+
+        if (
+          oldTxtBtnActive &&
+          comTxtBtnActive &&
+          !scrollWinComTxt.has_class("border-left")
+        ) {
+          scrollWinComTxt.add_class("border-left");
+        }
+      }
+
+      if (activeBtnCount === 1) {
+        if (oldTxtBtnActive && scrollWinOldTxt.has_class("border-right")) {
+          scrollWinOldTxt.remove_class("border-right");
+        }
+
+        if (comTxtBtnActive && scrollWinComTxt.has_class("border-left")) {
+          scrollWinComTxt.remove_class("border-left");
+        }
+      }
+    };
+
     displayToast = (message) => {
       this.toast.dismiss();
       this.toast.title = message;
       this._toast_overlay.add_toast(this.toast);
+    };
+
+    debounce = (callback, wait = 300) => {
+      let debounceTimeout = null;
+
+      return (...args) => {
+        if (debounceTimeout) {
+          GLib.source_remove(debounceTimeout);
+        }
+
+        debounceTimeout = GLib.timeout_add(GLib.PRIORITY_DEFAULT, wait, () => {
+          callback(...args);
+          debounceTimeout = null;
+          return GLib.SOURCE_REMOVE;
+        });
+      };
     };
   }
 );

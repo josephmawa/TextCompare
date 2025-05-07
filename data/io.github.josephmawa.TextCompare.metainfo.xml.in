@@ -12,6 +12,7 @@
     <ul>
       <li>Compare two versions of the same text</li>
       <li>Switch to dark, light, or system mode</li>
+      <li>Compare text in real time</li>
     </ul>
   </description>
 
@@ -45,6 +46,15 @@
   </screenshots>
 
   <releases>
+    <release version="0.1.2" date="2025-04-01">
+      <description translate="no">
+        <ul>
+          <li>Update UI</li>
+          <li>Add feature for real-time comparison</li>
+          <li>Add Brazillian Portuguese translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.1" date="2025-03-15">
       <description translate="no">
         <ul>
