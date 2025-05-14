@@ -46,6 +46,14 @@
   </screenshots>
 
   <releases>
+    <release version="0.1.3" date="2025-05-14">
+      <description translate="no">
+        <ul>
+          <li>Remove WindowHandle</li>
+          <li>Upgrade GNOME runtime to 48</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.2" date="2025-04-01">
       <description translate="no">
         <ul>
