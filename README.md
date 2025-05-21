@@ -1,74 +1,92 @@
 <!-- markdownlint-disable -->
-<div align="center">
-  <img src="./data/icons/hicolor/scalable/apps/io.github.josephmawa.TextCompare.svg" alt="Text Compare" width="128" height="128"/>
-</div>
+
+<p align="center">
+  <img src="./data/icons/hicolor/scalable/apps/io.github.josephmawa.TextCompare.svg" alt="Text Compare Logo" width="128" height="128"/>
+</p>
+
 <h1 align="center">Text Compare</h1>
 <p align="center"><b>Compare old and new text</b></p>
-<div align="center">
+
+<p align="center">
   <a href="https://flathub.org/apps/io.github.josephmawa.TextCompare">
-    <img width="240" alt="Get it on Flathub" src="https://flathub.org/api/badge?locale=en"/>
+    <img width="200" alt="Get it on Flathub" src="https://flathub.org/api/badge?locale=en"/>
   </a>
-</div>
-<p align="center">
-  <img src="./screenshots/compare-dark-mode.png" alt="Compare in dark mode" width="981" height="696"/>
-</p>
-<p align="center">
-  <img src="./screenshots/compare-light-mode.png" alt="Compare in light mode" width="981" height="696"/>
 </p>
 
-<!-- markdownlint-enable -->
-<!-- markdownlint-disable headings -->
+---
 
-Text Compare is a simple text comparison app for Gnome desktop environment.
+## 🖼️ Screenshots
 
- ## Main features
+Text Compare supports both **dark** and **light** themes.  
+Below you can see the interface in both modes:
+
+### 🌙 Dark Mode
+<p align="center">
+  <img src="./screenshots/compare-dark-mode.png" alt="Compare in dark mode" width="800"/>
+</p>
+
+### ☀️ Light Mode
+<p align="center">
+  <img src="./screenshots/compare-light-mode.png" alt="Compare in light mode" width="800"/>
+</p>
+
+---
+
+## 📝 About
+
+**Text Compare** is a simple text comparison app for the **GNOME desktop environment**.
+
+---
+
+## ✨ Main Features
 
 - Compare old and new text
 - Select comparison token
-- Switch to dark, light or system mode
+- Switch between dark, light, or system mode
 
-## Contributing
+---
 
-If you find this app useful, do consider contributing. If you are wondering how,
-you can contribute in the following ways:
+## 🤝 Contributing
 
-- Star the project repository on GitHub
-- Report bugs if you encounter some. There are probably a handful of them.
-- You can also contribute code. If it is a bug fix, do open a pull request(PR). However,
-if it is a new feature, first open an issue so that we discuss it before opening
-a PR.
+If you find this app useful, consider contributing! Here's how you can help:
 
-## Run project locally
- <!-- markdownlint-disable no-inline-html -->
-1. Download [GNOME builder](https://flathub.org/apps/org.gnome.Builder). It's the
- fastest way to get up and running.
-1. Use GNOME builder to clone this project to your local machine. The
-<kbd>Clone Repository</kbd> button is at the bottom of the GNOME builder Welcome
- screen.
-1. Use the <kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>Space</kbd> keyboard
-combination to run the project after opening it in GNOME builder. You can also
- use the <kbd>▶</kbd> button at the top.
- <!-- markdownlint-enable no-inline-html -->
+- ⭐ Star the project on GitHub  
+- 🐞 Report bugs (there are probably a few!)  
+- 💻 Contribute code  
+  - For bug fixes, feel free to open a Pull Request (PR)  
+  - For new features, please open an issue first so we can discuss it
 
-## License
+---
 
-Compare is a [free software](https://www.gnu.org/philosophy/free-sw.html) and
-will always be free. It is released under the terms of the
-[GNU General Public License v3.0](./LICENSE).
+## 🚀 Run Project Locally
 
-## Acknowledgment
+1. Download [GNOME Builder](https://flathub.org/apps/org.gnome.Builder) — the fastest way to get started.  
+2. Use GNOME Builder to **clone** this project:  
+   > Use the <kbd>Clone Repository</kbd> button at the bottom of the Welcome screen.  
+3. Open the project and run it with:  
+   - <kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>Space</kbd>  
+   - Or click the <kbd>▶</kbd> button at the top
 
-- This app's UI is inspired by [Workbench](https://github.com/workbenchdev/Workbench).
-Thank you Sonny Piers and the other maintainers of Workbench.
-- Internally, the app uses [jsdiff](https://github.com/kpdecker/jsdiff), a JS implementation
-of [Myers' Difference Algorithm](http://www.xmailserver.org/diff2.pdf). Thank you
-Kevin Decker and the other maintainers of jsdiff.
+---
 
-## License
+## 📜 License
 
-This project is [GPL-3.0 Licensed](./COPYING) and jsdiff, the text diff package
-it uses internally, is BSD 3-Clause Licensed.
+Text Compare is [free software](https://www.gnu.org/philosophy/free-sw.html) and always will be.  
+It is licensed under the terms of the [GNU General Public License v3.0](./LICENSE).
 
-## Copyright
+Note: This project is [GPL-3.0 Licensed](./COPYING), and the `jsdiff` library it uses internally is **BSD 3-Clause Licensed**.
 
-Copyright © 2025 [Joseph Mawa](https://github.com/josephmawa)
+---
+
+## 🙏 Acknowledgments
+
+- UI inspired by [Workbench](https://github.com/workbenchdev/Workbench) — thank you Sonny Piers and contributors.  
+- Diffing powered by [jsdiff](https://github.com/kpdecker/jsdiff), a JS implementation of [Myers' Difference Algorithm](http://www.xmailserver.org/diff2.pdf) — thanks to Kevin Decker and maintainers.
+
+---
+
+## ©️ Copyright
+
+© 2025 [Joseph Mawa](https://github.com/josephmawa)
+
+<!-- markdownlint-enable -->
