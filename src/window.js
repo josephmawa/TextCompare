@@ -56,6 +56,7 @@ export const TextCompareWindow = GObject.registerClass(
       this.loadStyles();
       this.bindSettings();
       this.setPreferredColorScheme();
+      this.bindSourceViewColorScheme();
       this.updateStyleClasses();
 
       this.toast = new Adw.Toast({ timeout: 1 });
@@ -396,7 +397,17 @@ export const TextCompareWindow = GObject.registerClass(
 
       const styleManager = this.application.get_style_manager();
       styleManager.color_scheme = colorScheme;
+    };
 
+    bindSourceViewColorScheme = () => {
+      const styleManager = this.application.get_style_manager();
+      styleManager.connect("notify::dark", () => {
+        this.setSourceViewColorScheme(styleManager);
+      });
+      this.setSourceViewColorScheme(styleManager);
+    };
+
+    setSourceViewColorScheme = (styleManager) => {
       const editorColorScheme = styleManager.dark ? "Adwaita-dark" : "Adwaita";
       const schemeManager = GtkSource.StyleSchemeManager.get_default();
       const scheme = schemeManager.get_scheme(editorColorScheme);
