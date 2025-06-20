@@ -10,21 +10,11 @@ export const TextComparePreferencesDialog = GObject.registerClass(
     GTypeName: "TextComparePreferencesDialog",
     Template: getResourceUri("preferences.ui"),
     InternalChildren: [
-      "system",
-      "dark",
-      "light",
       "comparison_token_settings",
       "case_sensitivity_settings",
       "real_time_comparison_settings"
     ],
     Properties: {
-      theme: GObject.ParamSpec.string(
-        "theme",
-        "Theme",
-        "Preferred theme",
-        GObject.ParamFlags.READWRITE,
-        ""
-      ),
       comparisonToken: GObject.ParamSpec.string(
         "comparisonToken",
         "comparison_token",
@@ -41,12 +31,7 @@ export const TextComparePreferencesDialog = GObject.registerClass(
       this.setComparisonTokenModel();
 
       this.settings = Gio.Settings.new(pkg.name);
-      this.settings.bind(
-        "preferred-theme",
-        this,
-        "theme",
-        Gio.SettingsBindFlags.DEFAULT
-      );
+     
       this.settings.bind(
         "comparison-token",
         this,
@@ -64,33 +49,6 @@ export const TextComparePreferencesDialog = GObject.registerClass(
         this._real_time_comparison_settings,
         "active",
         Gio.SettingsBindFlags.DEFAULT
-      );
-
-      this.bind_property_full(
-        "theme",
-        this._system,
-        "active",
-        GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE,
-        (_, theme) => [true, theme === "system"],
-        (_, theme) => [theme, "system"]
-      );
-
-      this.bind_property_full(
-        "theme",
-        this._light,
-        "active",
-        GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE,
-        (_, theme) => [true, theme === "light"],
-        (_, theme) => [theme, "light"]
-      );
-
-      this.bind_property_full(
-        "theme",
-        this._dark,
-        "active",
-        GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE,
-        (_, theme) => [true, theme === "dark"],
-        (_, theme) => [theme, "dark"]
       );
 
       this.bind_property_full(
