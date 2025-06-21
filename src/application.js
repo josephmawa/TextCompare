@@ -5,8 +5,7 @@ import Adw from "gi://Adw?version=1";
 import { TextCompareWindow } from "./window.js";
 import { AboutDialog } from "./about.js";
 import { TextComparePreferencesDialog } from "./preferences.js";
-
-export const settings = Gio.Settings.new(pkg.name);
+import { settings } from "./util.js";
 
 export const TextCompareApplication = GObject.registerClass(
   class TextCompareApplication extends Adw.Application {

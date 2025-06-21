@@ -13,6 +13,7 @@ import {
   diffTrimmedLines,
   diffArrays,
 } from "./js-diff.js";
+import { settings } from "./util.js";
 
 GObject.type_ensure(GtkSource.View.$gtype);
 
@@ -67,11 +68,7 @@ export const TextCompareWindow = GObject.registerClass(
         this.handleBufferChange = this.debounce(this.performComparison, 300);
       }
 
-      if (!this.settings) {
-        this.settings = Gio.Settings.new(pkg.name);
-      }
-
-      const realTimeComparisonEnabled = this.settings.get_boolean(
+      const realTimeComparisonEnabled = settings.get_boolean(
         "real-time-comparison"
       );
 
@@ -123,7 +120,7 @@ export const TextCompareWindow = GObject.registerClass(
       const textAfter = this.buffer_after.text.normalize("NFC");
 
       if (!textBefore && !textAfter) {
-        const realTimeComparisonEnabled = this.settings.get_boolean(
+        const realTimeComparisonEnabled = settings.get_boolean(
           "real-time-comparison"
         );
 
@@ -133,8 +130,8 @@ export const TextCompareWindow = GObject.registerClass(
 
         return;
       }
-      let isCaseSenitive = this.settings.get_boolean("case-sensitivity");
-      let comparisonToken = this.settings.get_string("comparison-token");
+      let isCaseSenitive = settings.get_boolean("case-sensitivity");
+      let comparisonToken = settings.get_string("comparison-token");
 
       if ("characters" === comparisonToken || "words" === comparisonToken) {
         const byteCountBefore = textBefore.length * 2;
@@ -205,11 +202,7 @@ export const TextCompareWindow = GObject.registerClass(
       this.add_action(checkDiffAction);
       this.add_action(goBackAction);
 
-      if (!this.settings) {
-        this.settings = Gio.Settings.new(pkg.name);
-      }
-
-      this.settings.bind(
+      settings.bind(
         "real-time-comparison",
         checkDiffAction,
         "enabled",
@@ -218,39 +211,38 @@ export const TextCompareWindow = GObject.registerClass(
     };
 
     bindSettings = () => {
-      this.settings = Gio.Settings.new(pkg.name);
-      this.settings.bind(
+      settings.bind(
         "window-width",
         this,
         "default-width",
         Gio.SettingsBindFlags.DEFAULT
       );
-      this.settings.bind(
+      settings.bind(
         "window-height",
         this,
         "default-height",
         Gio.SettingsBindFlags.DEFAULT
       );
-      this.settings.bind(
+      settings.bind(
         "window-maximized",
         this,
         "maximized",
         Gio.SettingsBindFlags.DEFAULT
       );
 
-      this.settings.bind(
+      settings.bind(
         "show-old-text",
         this._old_text_button,
         "active",
         Gio.SettingsBindFlags.DEFAULT
       );
-      this.settings.bind(
+      settings.bind(
         "show-new-text",
         this._new_text_button,
         "active",
         Gio.SettingsBindFlags.DEFAULT
       );
-      this.settings.bind(
+      settings.bind(
         "show-comparison",
         this._comparison_button,
         "active",
@@ -268,7 +260,7 @@ export const TextCompareWindow = GObject.registerClass(
        * FIXME: In addition to being invisible, the button
        * needs to be disabled.
        */
-      this.settings.bind(
+      settings.bind(
         "real-time-comparison",
         this._check_button,
         "visible",
@@ -297,8 +289,8 @@ export const TextCompareWindow = GObject.registerClass(
       );
 
       // Update comparison when preferences change
-      this.settings.connect("changed::case-sensitivity", () => {
-        const realTimeComparisonEnabled = this.settings.get_boolean(
+      settings.connect("changed::case-sensitivity", () => {
+        const realTimeComparisonEnabled = settings.get_boolean(
           "real-time-comparison"
         );
 
@@ -307,8 +299,8 @@ export const TextCompareWindow = GObject.registerClass(
         }
       });
 
-      this.settings.connect("changed::comparison-token", () => {
-        const realTimeComparisonEnabled = this.settings.get_boolean(
+      settings.connect("changed::comparison-token", () => {
+        const realTimeComparisonEnabled = settings.get_boolean(
           "real-time-comparison"
         );
 
@@ -317,8 +309,8 @@ export const TextCompareWindow = GObject.registerClass(
         }
       });
 
-      this.settings.connect("changed::real-time-comparison", () => {
-        const realTimeComparisonEnabled = this.settings.get_boolean(
+      settings.connect("changed::real-time-comparison", () => {
+        const realTimeComparisonEnabled = settings.get_boolean(
           "real-time-comparison"
         );
 
