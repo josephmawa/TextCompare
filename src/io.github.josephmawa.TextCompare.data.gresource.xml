@@ -10,6 +10,7 @@
   </gresource>
   <gresource prefix="/io/github/josephmawa/TextCompare/icons">
     <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/text-compare-accessories-text-editor-symbolic.svg">icons/text-compare-accessories-text-editor-symbolic.svg</file>
-    <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/text-compare-go-next-symbolic-rtl.svg">icons/text-compare-go-next-symbolic-rtl.svg</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/text-compare-go-previous-symbolic.svg">icons/text-compare-go-previous-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/text-compare-open-menu-symbolic.svg">icons/text-compare-open-menu-symbolic.svg</file>
   </gresource>
 </gresources>

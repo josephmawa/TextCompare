@@ -32,6 +32,7 @@
                                     <child>
                                       <object class="GtkImage">
                                         <property name="icon-name">text-compare-accessories-text-editor-symbolic</property>
+                                        <property name="accessible-role">presentation</property>
                                       </object>
                                     </child>
                                     <child>
@@ -45,6 +46,9 @@
                                 <style>
                                   <class name="flat" />
                                 </style>
+                                <accessibility>
+                                  <property name="label" translatable="yes" context="accessibility">Old text</property>
+                                </accessibility>
                               </object>
                             </child>
                             <child>
@@ -57,6 +61,7 @@
                                     <child>
                                       <object class="GtkImage">
                                         <property name="icon-name">text-compare-accessories-text-editor-symbolic</property>
+                                        <property name="accessible-role">presentation</property>
                                       </object>
                                     </child>
                                     <child>
@@ -70,6 +75,9 @@
                                 <style>
                                   <class name="flat" />
                                 </style>
+                                <accessibility>
+                                  <property name="label" translatable="yes" context="accessibility">New text</property>
+                                </accessibility>
                               </object>
                             </child>
                             <child>
@@ -82,6 +90,7 @@
                                     <child>
                                       <object class="GtkImage">
                                         <property name="icon-name">text-compare-accessories-text-editor-symbolic</property>
+                                        <property name="accessible-role">presentation</property>
                                       </object>
                                     </child>
                                     <child>
@@ -95,6 +104,9 @@
                                 <style>
                                   <class name="flat" />
                                 </style>
+                                <accessibility>
+                                  <property name="label" translatable="yes" context="accessibility">Text comparison</property>
+                                </accessibility>
                               </object>
                             </child>
                           </object>
@@ -102,9 +114,12 @@
                         <child type="end">
                           <object class="GtkMenuButton">
                             <property name="primary">True</property>
-                            <property name="icon-name">open-menu-symbolic</property>
+                            <property name="icon-name">text-compare-open-menu-symbolic</property>
                             <property name="tooltip-text" translatable="yes">Main Menu</property>
                             <property name="menu-model">primary_menu</property>
+                            <accessibility>
+                              <property name="label" translatable="yes" context="accessibility">Main menu</property>
+                            </accessibility>
                           </object>
                         </child>
                       </object>
@@ -158,6 +173,9 @@
                                             <property name="smart-backspace">true</property>
                                             <property name="tab-width">2</property>
                                             <property name="wrap-mode">word</property>
+                                            <accessibility>
+                                              <property name="label" translatable="yes" context="accessibility">Old text</property>
+                                            </accessibility>
                                           </object>
                                         </property>
                                       </object>
@@ -182,6 +200,9 @@
                                             <property name="smart-backspace">true</property>
                                             <property name="tab-width">2</property>
                                             <property name="wrap-mode">word</property>
+                                            <accessibility>
+                                              <property name="label" translatable="yes" context="accessibility">New text</property>
+                                            </accessibility>
                                           </object>
                                         </property>
                                       </object>
@@ -209,6 +230,9 @@
                                             <property name="smart-backspace">true</property>
                                             <property name="tab-width">2</property>
                                             <property name="wrap-mode">word</property>
+                                            <accessibility>
+                                              <property name="label" translatable="yes" context="accessibility">Text comparison</property>
+                                            </accessibility>
                                           </object>
                                         </property>
                                       </object>
@@ -254,7 +278,7 @@
                         <property name="centering-policy">strict</property>
                         <child type="start">
                           <object class="GtkButton">
-                            <property name="icon-name">text-compare-go-next-symbolic-rtl</property>
+                            <property name="icon-name">text-compare-go-previous-symbolic</property>
                             <property name="tooltip-text" translatable="yes" context="Back to main screen">Back</property>
                             <accessibility>
                               <property name="label" translatable="yes" context="accessibility">Back</property>
@@ -284,15 +308,19 @@
                           <class name="card" />
                         </style>
                         <child>
-                          <object class="GtkLabel">
-                            <property name="margin-start">18</property>
-                            <property name="margin-end">18</property>
-                            <property name="margin-top">18</property>
-                            <property name="margin-bottom">18</property>
-                            <property name="use-markup">True</property>
-                            <property name="wrap">True</property>
-                            <property name="max_width_chars">80</property>
-                            <property name="label" translatable="yes" context="TRANSLATORS: Only translate the text starting with 'To improve performance...'">&lt;span font-size=&quot;xx-large&quot;&gt;To improve performance when comparing large texts, select either lines or sentences as the comparison token in the settings.&lt;/span&gt;</property>
+                          <object class="AdwClamp">
+                            <property name="maximum-size">400</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="margin-start">18</property>
+                                <property name="margin-end">18</property>
+                                <property name="margin-top">18</property>
+                                <property name="margin-bottom">18</property>
+                                <property name="use-markup">True</property>
+                                <property name="wrap">True</property>
+                                <property name="label" translatable="yes" context="TRANSLATORS: Only translate the text starting with 'To improve performance...'">&lt;span font-size=&quot;large&quot;&gt;For large text comparison, select lines or sentences as comparison token in settings&lt;/span&gt;</property>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>
