@@ -3,7 +3,7 @@ import GObject from "gi://GObject";
 import Gio from "gi://Gio";
 import Gtk from "gi://Gtk";
 
-import { comparisonTokens } from "./util.js";
+import { comparisonTokens, settings } from "./util.js";
 
 export const TextComparePreferencesDialog = GObject.registerClass(
   {
@@ -12,7 +12,7 @@ export const TextComparePreferencesDialog = GObject.registerClass(
     InternalChildren: [
       "comparison_token_settings",
       "case_sensitivity_settings",
-      "real_time_comparison_settings"
+      "real_time_comparison_settings",
     ],
     Properties: {
       comparisonToken: GObject.ParamSpec.string(
@@ -30,21 +30,19 @@ export const TextComparePreferencesDialog = GObject.registerClass(
 
       this.setComparisonTokenModel();
 
-      this.settings = Gio.Settings.new(pkg.name);
-     
-      this.settings.bind(
+      settings.bind(
         "comparison-token",
         this,
         "comparisonToken",
         Gio.SettingsBindFlags.DEFAULT
       );
-      this.settings.bind(
+      settings.bind(
         "case-sensitivity",
         this._case_sensitivity_settings,
         "active",
         Gio.SettingsBindFlags.DEFAULT
       );
-      this.settings.bind(
+      settings.bind(
         "real-time-comparison",
         this._real_time_comparison_settings,
         "active",
@@ -62,16 +60,13 @@ export const TextComparePreferencesDialog = GObject.registerClass(
           );
 
           if (!comparisonToken) {
-            throw new Error(
-              "Mismatch between difficulty keys in the settings and in comparisonTokens array"
-            );
+            throw new Error("Comparison token not found");
           }
 
           const model = this._comparison_token_settings.model;
 
           for (let i = 0; i < model.get_n_items(); i++) {
             const stringObject = model.get_item(i);
-
             if (stringObject?.string === comparisonToken.description) {
               return [true, i];
             }
@@ -86,16 +81,11 @@ export const TextComparePreferencesDialog = GObject.registerClass(
             const comparisonToken = comparisonTokens.find(
               ({ description }) => description === stringObject?.string
             );
-
             if (!comparisonToken) {
-              throw new Error(
-                "There is a mismatch between comparison token descriptions in the settings model and comparisonTokens array"
-              );
+              throw new Error("Comparison token not found");
             }
-
             return [true, comparisonToken.key];
           }
-
           return [false, "mixed"];
         }
       );
@@ -108,13 +98,12 @@ export const TextComparePreferencesDialog = GObject.registerClass(
       this._comparison_token_settings.model =
         Gtk.StringList.new(_comparisonTokens);
 
-      const propExpression = Gtk.PropertyExpression.new(
+      const propertyExpression = Gtk.PropertyExpression.new(
         Gtk.StringObject,
         null,
         "string"
       );
-
-      this._comparison_token_settings.expression = propExpression;
+      this._comparison_token_settings.expression = propertyExpression;
     };
   }
 );
