@@ -2,14 +2,14 @@ pkgdatadir = get_option('datadir') / meson.project_name()
 gnome = import('gnome')
 
 src_res = gnome.compile_resources('io.github.josephmawa.TextCompare.src',
-  'io.github.josephmawa.TextCompare.src.gresource.xml',
+  'res' / 'io.github.josephmawa.TextCompare.src.gresource.xml',
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,
 )
 
 data_res = gnome.compile_resources('io.github.josephmawa.TextCompare.data',
-  'io.github.josephmawa.TextCompare.data.gresource.xml',
+  'res' / 'io.github.josephmawa.TextCompare.data.gresource.xml',
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,
@@ -25,7 +25,7 @@ bin_conf.set('datadir', get_option('prefix') / get_option('datadir'))
 bin_conf.set('resource_path', '/io/github/josephmawa/TextCompare')
 
 configure_file(
-  input: 'io.github.josephmawa.TextCompare.in',
+  input: 'bin' / 'io.github.josephmawa.TextCompare.in',
   output: 'io.github.josephmawa.TextCompare',
   configuration: bin_conf,
   install: true,

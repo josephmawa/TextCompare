@@ -1,0 +1,29 @@
+{
+  "name": "text-compare",
+  "version": "0.1.4",
+  "description": "Simple text comparison app for Gnome desktop environment",
+  "main": "index.js",
+  "scripts": {
+    "build": "flatpak run org.flatpak.Builder --force-clean --sandbox --user --install --install-deps-from=flathub --ccache --mirror-screenshots-url=https://dl.flathub.org/media/ --repo=repo builddir io.github.josephmawa.TextCompare.json",
+    "lint": "npm run build && flatpak run --command=flatpak-builder-lint org.flatpak.Builder io.github.josephmawa.TextCompare.json && flatpak run --command=flatpak-builder-lint org.flatpak.Builder repo repo",
+    "init:build-dir": "flatpak run --command=meson --filesystem=host org.gnome.Sdk build-dir",
+    "gen:pot": "npm run init:build-dir && flatpak run --command=meson --filesystem=host org.gnome.Sdk compile -C build-dir TextCompare-pot",
+    "rm:build-artifacts": "rm -rf .flatpak-builder builddir repo build-dir"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephmawa/TextCompare.git"
+  },
+  "keywords": [
+    "Text",
+    "Compare",
+    "Comparison"
+  ],
+  "author": "Joseph Mawa",
+  "license": "GPL-3.0-or-later",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/josephmawa/TextCompare/issues"
+  },
+  "homepage": "https://github.com/josephmawa/TextCompare#readme"
+}
