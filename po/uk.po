@@ -1,0 +1,253 @@
+# Ukrainian translation for TextCompare.
+# Copyright (C) 2025 THE TextCompare'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the TextCompare package.
+# freeducks-debug, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TextCompare\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-06 12:01+0300\n"
+"PO-Revision-Date: 2025-07-06 12:04+0300\n"
+"Last-Translator: freeducks-debug <applesause454@gmail.com>\n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+#: data/io.github.josephmawa.TextCompare.desktop.in:3 data/io.github.josephmawa.TextCompare.metainfo.xml.in:7
+msgid "Text Compare"
+msgstr "Порівняння тексту"
+
+#. Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/io.github.josephmawa.TextCompare.desktop.in:10
+msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
+msgstr "Text;Compare;Difference;Comparison;Checker;Diff;порівняння;порівняти;тексту;текст;текста;різниця;діффнути;перевірити;"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
+msgid "Text snippet comparison"
+msgstr "Порівняння фрагментів тексту"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
+msgid "Compare old and new text."
+msgstr "Порівнюйте нові та старі тексти."
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:11
+msgid "Below are the main features of Text Compare:"
+msgstr "Нижче вказані головні функції \"Порівняння тексту\":"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:13
+msgid "Compare two versions of the same text"
+msgstr "Порівняння двох версій одного тексту"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:14
+msgid "Switch to dark, light, or system mode"
+msgstr "Перемикання між темним, світлим або системним стилями"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:15
+msgid "Compare text in real time"
+msgstr "Порівняння тексту у реальному часі"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:20
+msgid "Joseph Mawa"
+msgstr "Joseph Mawa"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:40
+msgid "TextCompare in dark mode"
+msgstr "\"Порівняння тексту\" у темному стилі"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:44
+msgid "TextCompare in light mode"
+msgstr "\"Порівняння тексту\" у світлому стилі"
+
+#: src/window.js:128
+msgid "New and old text are both empty"
+msgstr "Новий та старий тексти порожні"
+
+#: src/window.js:435
+msgid "Comparison Failed"
+msgstr "Не вдалося порівняти"
+
+#: src/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Загальні"
+
+#: src/ui/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Показати клавіатурні скорочення"
+
+#: src/ui/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Вийти"
+
+#: src/ui/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Show Preferences"
+msgstr "Показати налаштування"
+
+#: src/ui/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Compare Text"
+msgstr "Порівняти текст"
+
+#: src/ui/help-overlay.ui:38
+msgctxt "shortcut window"
+msgid "Go Back"
+msgstr "Назад"
+
+#: src/ui/preferences.ui:7 src/ui/preferences.ui:13
+msgid "Preferences"
+msgstr "Налаштування"
+
+#: src/ui/preferences.ui:16
+msgid "Color Theme"
+msgstr "Стиль"
+
+#: src/ui/preferences.ui:17
+msgid "Set color theme"
+msgstr "Встановити стиль"
+
+#: src/ui/preferences.ui:23
+msgid "Color theme"
+msgstr "Стиль"
+
+#: src/ui/preferences.ui:39
+msgctxt "System color theme"
+msgid "System"
+msgstr "Системний"
+
+#: src/ui/preferences.ui:56
+msgctxt "Light color theme"
+msgid "Light"
+msgstr "Світлий"
+
+#: src/ui/preferences.ui:73
+msgctxt "Dark color theme"
+msgid "Dark"
+msgstr "Темний"
+
+#: src/ui/preferences.ui:90
+msgid "Text Comparison"
+msgstr "Порівняння тексту"
+
+#: src/ui/preferences.ui:91
+msgid "Text comparison settings"
+msgstr "Налаштування порівняння тексту"
+
+#: src/ui/preferences.ui:95
+msgid "Comparison Token"
+msgstr "Тип порівняння"
+
+#: src/ui/preferences.ui:96
+msgid "Select Comparison Token"
+msgstr "Оберіть тип порівняння"
+
+#: src/ui/preferences.ui:101
+msgid "Case Sensitivity"
+msgstr "Чутливість до регістру"
+
+#: src/ui/preferences.ui:102
+msgid "Case Senitive Comparison"
+msgstr "Порівняння з чутливістю до регістру"
+
+#: src/ui/preferences.ui:107
+msgid "Real Time Comparison"
+msgstr "Порівняння у реальному часі"
+
+#: src/ui/preferences.ui:108
+msgid "Compare Text In Real Time"
+msgstr "Порівнювати текст у реальному часі"
+
+#: src/ui/window.ui:6 src/ui/window.ui:135
+msgid "Compare"
+msgstr "Порівняти"
+
+#: src/ui/window.ui:40
+msgid "_Old Text"
+msgstr "_Старий текст"
+
+#: src/ui/window.ui:50 src/ui/window.ui:177
+msgctxt "accessibility"
+msgid "Old text"
+msgstr "Старий текст"
+
+#: src/ui/window.ui:69
+msgid "_New Text"
+msgstr "_Новий текст"
+
+#: src/ui/window.ui:79 src/ui/window.ui:204
+msgctxt "accessibility"
+msgid "New text"
+msgstr "Новий текст"
+
+#: src/ui/window.ui:98
+msgid "_Comparison"
+msgstr "_Порівняння"
+
+#: src/ui/window.ui:108 src/ui/window.ui:234
+msgctxt "accessibility"
+msgid "Text comparison"
+msgstr "Порівняння тексту"
+
+#: src/ui/window.ui:118
+msgid "Main Menu"
+msgstr "Головне меню"
+
+#: src/ui/window.ui:121
+msgctxt "accessibility"
+msgid "Main menu"
+msgstr "Головне меню"
+
+#: src/ui/window.ui:282
+msgctxt "Back to main screen"
+msgid "Back"
+msgstr "Назад"
+
+#: src/ui/window.ui:284
+msgctxt "accessibility"
+msgid "Back"
+msgstr "Назад"
+
+#: src/ui/window.ui:321
+msgctxt "TRANSLATORS: Only translate the text starting with 'To improve performance...'"
+msgid "<span font-size=\"large\">For large text comparison, select lines or sentences as comparison token in settings</span>"
+msgstr ""
+"<span font-size=\"large\">Для порівняння великого тексту, оберіть \"Лінії\" або \"Речення\" як тип порівняння у "
+"налаштуваннях</span>"
+
+#: src/ui/window.ui:340
+msgid "_Preferences"
+msgstr "_Налаштування"
+
+#: src/ui/window.ui:344
+msgid "_Keyboard Shortcuts"
+msgstr "_Клавіатурні скорочення"
+
+#: src/ui/window.ui:348
+msgid "_About Text Compare"
+msgstr "_Про \"Порівняння тексту\""
+
+#: src/util/util.js:7
+msgid "Characters"
+msgstr "Символи"
+
+#: src/util/util.js:11
+msgid "Words"
+msgstr "Слова"
+
+#: src/util/util.js:15
+msgid "Lines"
+msgstr "Лінії"
+
+#: src/util/util.js:19
+msgid "Sentences"
+msgstr "Речення"
+
+#~ msgid "Get text difference"
+#~ msgstr "Знайдіть різницю тексту"
