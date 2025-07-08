@@ -7,7 +7,8 @@
     "build": "flatpak run org.flatpak.Builder --force-clean --sandbox --user --install --install-deps-from=flathub --ccache --mirror-screenshots-url=https://dl.flathub.org/media/ --repo=repo builddir io.github.josephmawa.TextCompare.json",
     "lint": "npm run build && flatpak run --command=flatpak-builder-lint org.flatpak.Builder io.github.josephmawa.TextCompare.json && flatpak run --command=flatpak-builder-lint org.flatpak.Builder repo repo",
     "init:build-dir": "flatpak run --command=meson --filesystem=host org.gnome.Sdk build-dir",
-    "gen:pot": "npm run init:build-dir && flatpak run --command=meson --filesystem=host org.gnome.Sdk compile -C build-dir TextCompare-pot",
+    "pot:gen": "npm run init:build-dir && flatpak run --command=meson --filesystem=host org.gnome.Sdk compile -C build-dir TextCompare-pot",
+    "pot:update": "npm run init:build-dir && flatpak run --command=meson --filesystem=host org.gnome.Sdk compile -C build-dir TextCompare-update-po",
     "rm:build-artifacts": "rm -rf .flatpak-builder builddir repo build-dir"
   },
   "repository": {
