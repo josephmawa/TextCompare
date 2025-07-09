@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TextCompare\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-10 21:30+0300\n"
+"POT-Creation-Date: 2025-07-09 22:07+0300\n"
 "PO-Revision-Date: 2025-03-15 18:30+0100\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
@@ -27,8 +27,9 @@ msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
 msgstr "Testo;Confronta;Differenza;Confronto;Controllo;Diff;"
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
-msgid "Get text difference"
-msgstr "Ottieni la differenza del testo"
+#, fuzzy
+msgid "Text snippet comparison"
+msgstr "Confronto di testo"
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
 msgid "Compare old and new text."
@@ -47,23 +48,33 @@ msgstr "Confronta due versioni dello stesso testo"
 msgid "Switch to dark, light, or system mode"
 msgstr "Passa alla modalità scura, chiara o di sistema"
 
-#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:19
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:15
+#, fuzzy
+msgid "Compare text in real time"
+msgstr "Confronta testo"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:20
 msgid "Joseph Mawa"
 msgstr "Joseph Mawa"
 
-#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:39
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:40
 msgid "TextCompare in dark mode"
 msgstr "Confronta il testo in modalità scura"
 
-#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:43
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:44
 msgid "TextCompare in light mode"
 msgstr "Confronta il testo in modalità chiara"
 
-#: src/window.js:96
+#. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
+#: src/about.js:15
+msgid "translator-credits"
+msgstr "albanobattistella"
+
+#: src/window.js:128
 msgid "New and old text are both empty"
 msgstr "Sia il testo nuovo che quello vecchio sono vuoti"
 
-#: src/window.js:354
+#: src/window.js:435
 msgid "Comparison Failed"
 msgstr "Confronto non riuscito"
 
@@ -97,131 +108,162 @@ msgctxt "shortcut window"
 msgid "Go Back"
 msgstr "Torna indietro"
 
-#: src/ui/preferences.ui:8 src/ui/preferences.ui:14
+#: src/ui/preferences.ui:6 src/ui/preferences.ui:12
 msgid "Preferences"
 msgstr "Preferenze"
 
-#: src/ui/preferences.ui:17
+#: src/ui/preferences.ui:15
 msgid "Color Theme"
 msgstr "COlore del tema"
 
-#: src/ui/preferences.ui:18
+#: src/ui/preferences.ui:16
 msgid "Set color theme"
 msgstr "Imposta colore del tema"
 
-#: src/ui/preferences.ui:24
+#: src/ui/preferences.ui:22
 msgid "Color theme"
 msgstr "Colore del tema"
 
-#: src/ui/preferences.ui:40
+#: src/ui/preferences.ui:38
 msgctxt "System color theme"
 msgid "System"
 msgstr "Sistema"
 
-#: src/ui/preferences.ui:54
+#: src/ui/preferences.ui:55
 msgctxt "Light color theme"
 msgid "Light"
 msgstr "Chiaro"
 
-#: src/ui/preferences.ui:68
+#: src/ui/preferences.ui:72
 msgctxt "Dark color theme"
 msgid "Dark"
 msgstr "Scuro"
 
-#: src/ui/preferences.ui:82
+#: src/ui/preferences.ui:89
 msgid "Text Comparison"
 msgstr "Confronto di testo"
 
-#: src/ui/preferences.ui:83
+#: src/ui/preferences.ui:90
 msgid "Text comparison settings"
 msgstr "Impostazioni di confronto del testo"
 
-#: src/ui/preferences.ui:87
+#: src/ui/preferences.ui:94
 msgid "Comparison Token"
 msgstr "Token di confronto"
 
-#: src/ui/preferences.ui:88
+#: src/ui/preferences.ui:95
 msgid "Select Comparison Token"
 msgstr "Seleziona token di confronto"
 
-#: src/ui/preferences.ui:93
+#: src/ui/preferences.ui:100
 msgid "Case Sensitivity"
 msgstr "Sensibilità alle maiuscole/minuscole"
 
-#: src/ui/preferences.ui:94
+#: src/ui/preferences.ui:101
 msgid "Case Senitive Comparison"
 msgstr "Confronto con distinzione tra maiuscole e minuscole"
 
-#: src/ui/window.ui:6 src/ui/window.ui:122
+#: src/ui/preferences.ui:106
+#, fuzzy
+msgid "Real Time Comparison"
+msgstr "Confronto di testo"
+
+#: src/ui/preferences.ui:107
+#, fuzzy
+msgid "Compare Text In Real Time"
+msgstr "Confronta testo"
+
+#: src/ui/window.ui:6 src/ui/window.ui:135
 msgid "Compare"
 msgstr "Confronta"
 
-#: src/ui/window.ui:41
+#: src/ui/window.ui:40
 msgid "_Old Text"
 msgstr "_Vecchio testo"
 
-#: src/ui/window.ui:66
+#: src/ui/window.ui:50 src/ui/window.ui:177
+#, fuzzy
+msgctxt "accessibility"
+msgid "Old text"
+msgstr "_Vecchio testo"
+
+#: src/ui/window.ui:69
 msgid "_New Text"
 msgstr "_Nuovo testo"
 
-#: src/ui/window.ui:91
+#: src/ui/window.ui:79 src/ui/window.ui:204
+#, fuzzy
+msgctxt "accessibility"
+msgid "New text"
+msgstr "_Nuovo testo"
+
+#: src/ui/window.ui:98
 msgid "_Comparison"
 msgstr "_Confronto"
 
-#: src/ui/window.ui:108
+#: src/ui/window.ui:108 src/ui/window.ui:234
+#, fuzzy
+msgctxt "accessibility"
+msgid "Text comparison"
+msgstr "Confronto di testo"
+
+#: src/ui/window.ui:118
 msgid "Main Menu"
 msgstr "Menu principale"
 
-#: src/ui/window.ui:226
+#: src/ui/window.ui:121
+#, fuzzy
+msgctxt "accessibility"
+msgid "Main menu"
+msgstr "Menu principale"
+
+#: src/ui/window.ui:282
 msgctxt "Back to main screen"
 msgid "Back"
 msgstr "Indietro"
 
-#: src/ui/window.ui:228
+#: src/ui/window.ui:284
 msgctxt "accessibility"
 msgid "Back"
 msgstr "Indietro"
 
-#: src/ui/window.ui:263
-msgctxt ""
-"TRANSLATORS: Only translate the text starting with 'To improve "
-"performance...'"
+#: src/ui/window.ui:321
+#, fuzzy
 msgid ""
-"<span font-size=\"xx-large\">To improve performance when comparing large "
-"texts, select either lines or sentences as the comparison token in the "
-"settings.</span>"
+"<span font-size=\"large\">For large text comparison, select lines or "
+"sentences as comparison token in settings</span>"
 msgstr ""
 "<span font-size=\"xx-large\">Per migliorare le prestazioni quando si "
 "confrontano testi di grandi dimensioni,selezionare righe o frasi come token "
 "di confronto nelle impostazioni.</span>"
 
-#: src/ui/window.ui:282
+#: src/ui/window.ui:340
 msgid "_Preferences"
 msgstr "_Preferenze"
 
-#: src/ui/window.ui:286
+#: src/ui/window.ui:344
 msgid "_Keyboard Shortcuts"
 msgstr "_Scorciatoie da tastiera"
 
-#: src/ui/window.ui:290
+#: src/ui/window.ui:348
 msgid "_About Text Compare"
 msgstr "_Informazioni su Text Compare"
 
-#: src/util/util.js:4
+#: src/util/util.js:7
 msgid "Characters"
 msgstr "Caratteri"
 
-#: src/util/util.js:8
+#: src/util/util.js:11
 msgid "Words"
 msgstr "Parole"
 
-#: src/util/util.js:12
+#: src/util/util.js:15
 msgid "Lines"
 msgstr "Righe"
 
-#: src/util/util.js:16
+#: src/util/util.js:19
 msgid "Sentences"
 msgstr "Frasi"
 
-#~ msgid "Compare text"
-#~ msgstr "Confronta testo"
+#~ msgid "Get text difference"
+#~ msgstr "Ottieni la differenza del testo"

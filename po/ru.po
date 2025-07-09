@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TextCompare\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-06 12:01+0300\n"
+"POT-Creation-Date: 2025-07-09 22:07+0300\n"
 "PO-Revision-Date: 2025-07-06 12:14+0300\n"
 "Last-Translator: freeducks-debug <applesause454@gmail.com>\n"
 "Language-Team: \n"
@@ -26,7 +26,9 @@ msgstr "Сравнение текста"
 #. Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
 #: data/io.github.josephmawa.TextCompare.desktop.in:10
 msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
-msgstr "Text;Compare;Difference;Comparison;Checker;Diff;сравнение;сравнить;проверить;текст;текста;тексты;диффнуть;разница;"
+msgstr ""
+"Text;Compare;Difference;Comparison;Checker;Diff;сравнение;сравнить;проверить;"
+"текст;текста;тексты;диффнуть;разница;"
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
 msgid "Text snippet comparison"
@@ -63,6 +65,11 @@ msgstr "\"Сравнение текста\" в темной теме"
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:44
 msgid "TextCompare in light mode"
 msgstr "\"Сравнение текста\" в светлой теме"
+
+#. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
+#: src/about.js:15
+msgid "translator-credits"
+msgstr "freeducks-debug"
 
 #: src/window.js:128
 msgid "New and old text are both empty"
@@ -102,66 +109,66 @@ msgctxt "shortcut window"
 msgid "Go Back"
 msgstr "Назад"
 
-#: src/ui/preferences.ui:7 src/ui/preferences.ui:13
+#: src/ui/preferences.ui:6 src/ui/preferences.ui:12
 msgid "Preferences"
 msgstr "Настройки"
 
-#: src/ui/preferences.ui:16
+#: src/ui/preferences.ui:15
 msgid "Color Theme"
 msgstr "Цветовая тема"
 
-#: src/ui/preferences.ui:17
+#: src/ui/preferences.ui:16
 msgid "Set color theme"
 msgstr "Установить тему цветов"
 
-#: src/ui/preferences.ui:23
+#: src/ui/preferences.ui:22
 msgid "Color theme"
 msgstr "Цветовая тема"
 
-#: src/ui/preferences.ui:39
+#: src/ui/preferences.ui:38
 msgctxt "System color theme"
 msgid "System"
 msgstr "Системная"
 
-#: src/ui/preferences.ui:56
+#: src/ui/preferences.ui:55
 msgctxt "Light color theme"
 msgid "Light"
 msgstr "Светлая"
 
-#: src/ui/preferences.ui:73
+#: src/ui/preferences.ui:72
 msgctxt "Dark color theme"
 msgid "Dark"
 msgstr "Темная"
 
-#: src/ui/preferences.ui:90
+#: src/ui/preferences.ui:89
 msgid "Text Comparison"
 msgstr "Сравнение текста"
 
-#: src/ui/preferences.ui:91
+#: src/ui/preferences.ui:90
 msgid "Text comparison settings"
 msgstr "Настройки сравнения текста"
 
-#: src/ui/preferences.ui:95
+#: src/ui/preferences.ui:94
 msgid "Comparison Token"
 msgstr "Тип сравнения"
 
-#: src/ui/preferences.ui:96
+#: src/ui/preferences.ui:95
 msgid "Select Comparison Token"
 msgstr "Выберите тип сравнения"
 
-#: src/ui/preferences.ui:101
+#: src/ui/preferences.ui:100
 msgid "Case Sensitivity"
 msgstr "Чувствительность к регистру"
 
-#: src/ui/preferences.ui:102
+#: src/ui/preferences.ui:101
 msgid "Case Senitive Comparison"
 msgstr "Сравнивать с чувствительностью к регистру"
 
-#: src/ui/preferences.ui:107
+#: src/ui/preferences.ui:106
 msgid "Real Time Comparison"
 msgstr "Сравнения в реальном времени"
 
-#: src/ui/preferences.ui:108
+#: src/ui/preferences.ui:107
 msgid "Compare Text In Real Time"
 msgstr "Сравнивать в реальном времени"
 
@@ -216,9 +223,7 @@ msgid "Back"
 msgstr "Назад"
 
 #: src/ui/window.ui:321
-msgctxt ""
-"TRANSLATORS: Only translate the text starting with 'To improve "
-"performance...'"
+#, fuzzy
 msgid ""
 "<span font-size=\"large\">For large text comparison, select lines or "
 "sentences as comparison token in settings</span>"

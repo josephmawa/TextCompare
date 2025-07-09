@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TextCompare\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-06 12:01+0300\n"
+"POT-Creation-Date: 2025-07-09 22:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,6 +63,11 @@ msgstr ""
 msgid "TextCompare in light mode"
 msgstr ""
 
+#. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
+#: src/about.js:15
+msgid "translator-credits"
+msgstr ""
+
 #: src/window.js:128
 msgid "New and old text are both empty"
 msgstr ""
@@ -101,66 +106,66 @@ msgctxt "shortcut window"
 msgid "Go Back"
 msgstr ""
 
-#: src/ui/preferences.ui:7 src/ui/preferences.ui:13
+#: src/ui/preferences.ui:6 src/ui/preferences.ui:12
 msgid "Preferences"
 msgstr ""
 
-#: src/ui/preferences.ui:16
+#: src/ui/preferences.ui:15
 msgid "Color Theme"
 msgstr ""
 
-#: src/ui/preferences.ui:17
+#: src/ui/preferences.ui:16
 msgid "Set color theme"
 msgstr ""
 
-#: src/ui/preferences.ui:23
+#: src/ui/preferences.ui:22
 msgid "Color theme"
 msgstr ""
 
-#: src/ui/preferences.ui:39
+#: src/ui/preferences.ui:38
 msgctxt "System color theme"
 msgid "System"
 msgstr ""
 
-#: src/ui/preferences.ui:56
+#: src/ui/preferences.ui:55
 msgctxt "Light color theme"
 msgid "Light"
 msgstr ""
 
-#: src/ui/preferences.ui:73
+#: src/ui/preferences.ui:72
 msgctxt "Dark color theme"
 msgid "Dark"
 msgstr ""
 
-#: src/ui/preferences.ui:90
+#: src/ui/preferences.ui:89
 msgid "Text Comparison"
 msgstr ""
 
-#: src/ui/preferences.ui:91
+#: src/ui/preferences.ui:90
 msgid "Text comparison settings"
 msgstr ""
 
-#: src/ui/preferences.ui:95
+#: src/ui/preferences.ui:94
 msgid "Comparison Token"
 msgstr ""
 
-#: src/ui/preferences.ui:96
+#: src/ui/preferences.ui:95
 msgid "Select Comparison Token"
 msgstr ""
 
-#: src/ui/preferences.ui:101
+#: src/ui/preferences.ui:100
 msgid "Case Sensitivity"
 msgstr ""
 
-#: src/ui/preferences.ui:102
+#: src/ui/preferences.ui:101
 msgid "Case Senitive Comparison"
 msgstr ""
 
-#: src/ui/preferences.ui:107
+#: src/ui/preferences.ui:106
 msgid "Real Time Comparison"
 msgstr ""
 
-#: src/ui/preferences.ui:108
+#: src/ui/preferences.ui:107
 msgid "Compare Text In Real Time"
 msgstr ""
 
@@ -215,9 +220,6 @@ msgid "Back"
 msgstr ""
 
 #: src/ui/window.ui:321
-msgctxt ""
-"TRANSLATORS: Only translate the text starting with 'To improve "
-"performance...'"
 msgid ""
 "<span font-size=\"large\">For large text comparison, select lines or "
 "sentences as comparison token in settings</span>"

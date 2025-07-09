@@ -318,7 +318,7 @@
                                 <property name="margin-bottom">18</property>
                                 <property name="use-markup">True</property>
                                 <property name="wrap">True</property>
-                                <property name="label" translatable="yes" context="TRANSLATORS: Only translate the text starting with 'To improve performance...'">&lt;span font-size=&quot;large&quot;&gt;For large text comparison, select lines or sentences as comparison token in settings&lt;/span&gt;</property>
+                                <property name="label" translatable="yes">&lt;span font-size=&quot;large&quot;&gt;For large text comparison, select lines or sentences as comparison token in settings&lt;/span&gt;</property>
                               </object>
                             </child>
                           </object>
