@@ -46,6 +46,15 @@
   </screenshots>
 
   <releases>
+    <release version="0.1.5" date="2025-07-10">
+      <description translate="no">
+        <ul>
+          <li>Add Russian translation</li>
+          <li>Add Ukrainian translation</li>
+          <li>Fix PreferencesDialog bug</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.4" date="2025-06-22">
       <description translate="no">
         <ul>
