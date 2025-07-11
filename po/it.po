@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: TextCompare\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-09 22:07+0300\n"
-"PO-Revision-Date: 2025-03-15 18:30+0100\n"
+"PO-Revision-Date: 2025-07-10 20:30+0100\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
@@ -27,9 +27,8 @@ msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
 msgstr "Testo;Confronta;Differenza;Confronto;Controllo;Diff;"
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
-#, fuzzy
 msgid "Text snippet comparison"
-msgstr "Confronto di testo"
+msgstr "Confronto di frammenti di testo"
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
 msgid "Compare old and new text."
@@ -49,9 +48,8 @@ msgid "Switch to dark, light, or system mode"
 msgstr "Passa alla modalità scura, chiara o di sistema"
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:15
-#, fuzzy
 msgid "Compare text in real time"
-msgstr "Confronta testo"
+msgstr "Confronta il testo in tempo reale"
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:20
 msgid "Joseph Mawa"
@@ -164,14 +162,12 @@ msgid "Case Senitive Comparison"
 msgstr "Confronto con distinzione tra maiuscole e minuscole"
 
 #: src/ui/preferences.ui:106
-#, fuzzy
 msgid "Real Time Comparison"
-msgstr "Confronto di testo"
+msgstr "Confronto in tempo reale"
 
 #: src/ui/preferences.ui:107
-#, fuzzy
 msgid "Compare Text In Real Time"
-msgstr "Confronta testo"
+msgstr "Confronta il testo in tempo reale"
 
 #: src/ui/window.ui:6 src/ui/window.ui:135
 msgid "Compare"
@@ -182,27 +178,24 @@ msgid "_Old Text"
 msgstr "_Vecchio testo"
 
 #: src/ui/window.ui:50 src/ui/window.ui:177
-#, fuzzy
 msgctxt "accessibility"
 msgid "Old text"
-msgstr "_Vecchio testo"
+msgstr "Vecchio testo"
 
 #: src/ui/window.ui:69
 msgid "_New Text"
 msgstr "_Nuovo testo"
 
 #: src/ui/window.ui:79 src/ui/window.ui:204
-#, fuzzy
 msgctxt "accessibility"
 msgid "New text"
-msgstr "_Nuovo testo"
+msgstr "Nuovo testo"
 
 #: src/ui/window.ui:98
 msgid "_Comparison"
 msgstr "_Confronto"
 
 #: src/ui/window.ui:108 src/ui/window.ui:234
-#, fuzzy
 msgctxt "accessibility"
 msgid "Text comparison"
 msgstr "Confronto di testo"
@@ -212,7 +205,6 @@ msgid "Main Menu"
 msgstr "Menu principale"
 
 #: src/ui/window.ui:121
-#, fuzzy
 msgctxt "accessibility"
 msgid "Main menu"
 msgstr "Menu principale"
@@ -228,14 +220,12 @@ msgid "Back"
 msgstr "Indietro"
 
 #: src/ui/window.ui:321
-#, fuzzy
 msgid ""
 "<span font-size=\"large\">For large text comparison, select lines or "
 "sentences as comparison token in settings</span>"
 msgstr ""
-"<span font-size=\"xx-large\">Per migliorare le prestazioni quando si "
-"confrontano testi di grandi dimensioni,selezionare righe o frasi come token "
-"di confronto nelle impostazioni.</span>"
+"<span font-size=\"large\">Per il confronto di testo di grandi dimensioni, seleziona righe o "
+"frasi come token di confronto nelle impostazioni</span>"
 
 #: src/ui/window.ui:340
 msgid "_Preferences"
