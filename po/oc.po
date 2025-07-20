@@ -1,0 +1,257 @@
+# Occitan translation file.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the TextCompare package.
+# Quentin PAGÈS, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TextCompare\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-09 22:08+0300\n"
+"PO-Revision-Date: 2025-07-20 21:22+0200\n"
+"Last-Translator: Quentin PAGÈS\n"
+"Language-Team: \n"
+"Language: oc\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+#: data/io.github.josephmawa.TextCompare.desktop.in:3
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:7
+msgid "Text Compare"
+msgstr "Comparason de tèxt"
+
+#. Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/io.github.josephmawa.TextCompare.desktop.in:10
+msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
+msgstr "tèxt;tèxte;comparar;diferéncia;comparason;verificador;diff;"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
+msgid "Text snippet comparison"
+msgstr "Comparason d’extraches de tèxt"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
+msgid "Compare old and new text."
+msgstr "Comparar lo tèxt ancian e lo novèl."
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:11
+msgid "Below are the main features of Text Compare:"
+msgstr "Çai-jos las foncionalitats principalas de Text Compare :"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:13
+msgid "Compare two versions of the same text"
+msgstr "Comparar doas versions del meteis tèxt"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:14
+msgid "Switch to dark, light, or system mode"
+msgstr "Passar al mòde escur, clar o sistèma"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:15
+msgid "Compare text in real time"
+msgstr "Comparar de tèxtes instantanèament"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:20
+msgid "Joseph Mawa"
+msgstr "Joseph Mawa"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:40
+msgid "TextCompare in dark mode"
+msgstr "TextCompare en mòde escur"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:44
+msgid "TextCompare in light mode"
+msgstr "TextCompare en mòde clar"
+
+#. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
+#: src/about.js:15
+msgid "translator-credits"
+msgstr "Quentin PAGÈS"
+
+#: src/window.js:128
+msgid "New and old text are both empty"
+msgstr "Lo tèxt ancian e lo novèl son totes dos voids"
+
+#: src/window.js:435
+msgid "Comparison Failed"
+msgstr "Fracàs de la comparason"
+
+#: src/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: src/ui/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Afichar los acorchis"
+
+#: src/ui/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quitar"
+
+#: src/ui/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Show Preferences"
+msgstr "Afichar las preferéncias"
+
+#: src/ui/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Compare Text"
+msgstr "Comparar tèxt"
+
+#: src/ui/help-overlay.ui:38
+msgctxt "shortcut window"
+msgid "Go Back"
+msgstr "Tornar"
+
+#: src/ui/preferences.ui:6 src/ui/preferences.ui:12
+msgid "Preferences"
+msgstr "Preferéncias"
+
+#: src/ui/preferences.ui:15
+msgid "Color Theme"
+msgstr "Jòc de colors"
+
+#: src/ui/preferences.ui:16
+msgid "Set color theme"
+msgstr "Definir lo jòc de colors"
+
+#: src/ui/preferences.ui:22
+msgid "Color theme"
+msgstr "Jòc de colors"
+
+#: src/ui/preferences.ui:38
+msgctxt "System color theme"
+msgid "System"
+msgstr "Sistèma"
+
+#: src/ui/preferences.ui:55
+msgctxt "Light color theme"
+msgid "Light"
+msgstr "Clar"
+
+#: src/ui/preferences.ui:72
+msgctxt "Dark color theme"
+msgid "Dark"
+msgstr "Escur"
+
+#: src/ui/preferences.ui:89
+msgid "Text Comparison"
+msgstr "Comparason de tèxt"
+
+#: src/ui/preferences.ui:90
+msgid "Text comparison settings"
+msgstr "Paramètres de comparason de tèxt"
+
+#: src/ui/preferences.ui:94
+msgid "Comparison Token"
+msgstr "Geton de comparason"
+
+#: src/ui/preferences.ui:95
+msgid "Select Comparison Token"
+msgstr "Seleccionar lo geton de comparason"
+
+#: src/ui/preferences.ui:100
+msgid "Case Sensitivity"
+msgstr "Sensibilitat a la cassa"
+
+#: src/ui/preferences.ui:101
+msgid "Case Senitive Comparison"
+msgstr "Comparason de la sensibilitat a la cassa"
+
+#: src/ui/preferences.ui:106
+msgid "Real Time Comparison"
+msgstr "Comparason instantanèa"
+
+#: src/ui/preferences.ui:107
+msgid "Compare Text In Real Time"
+msgstr "Comparar de tèxtes instantanèament"
+
+#: src/ui/window.ui:6 src/ui/window.ui:135
+msgid "Compare"
+msgstr "Comparar"
+
+#: src/ui/window.ui:40
+msgid "_Old Text"
+msgstr "_Ancian tèxt"
+
+#: src/ui/window.ui:50 src/ui/window.ui:177
+msgctxt "accessibility"
+msgid "Old text"
+msgstr "Ancian tèxt"
+
+#: src/ui/window.ui:69
+msgid "_New Text"
+msgstr "_Novèl tèxt"
+
+#: src/ui/window.ui:79 src/ui/window.ui:204
+msgctxt "accessibility"
+msgid "New text"
+msgstr "Novèl tèxt"
+
+#: src/ui/window.ui:98
+msgid "_Comparison"
+msgstr "_Comparason"
+
+#: src/ui/window.ui:108 src/ui/window.ui:234
+msgctxt "accessibility"
+msgid "Text comparison"
+msgstr "Comparason de tèxt"
+
+#: src/ui/window.ui:118
+msgid "Main Menu"
+msgstr "Menú principal"
+
+#: src/ui/window.ui:121
+msgctxt "accessibility"
+msgid "Main menu"
+msgstr "Menú principal"
+
+#: src/ui/window.ui:282
+msgctxt "Back to main screen"
+msgid "Back"
+msgstr "Retorn"
+
+#: src/ui/window.ui:284
+msgctxt "accessibility"
+msgid "Back"
+msgstr "Retorn"
+
+#: src/ui/window.ui:321
+msgid ""
+"<span font-size=\"large\">For large text comparison, select lines or "
+"sentences as comparison token in settings</span>"
+msgstr ""
+"<span font-size=\"large\">Per de longas comparasons, seleccionatz "
+"las linhas o frasas coma geton de comparason als paramètres</span>"
+
+#: src/ui/window.ui:340
+msgid "_Preferences"
+msgstr "_Preferéncias"
+
+#: src/ui/window.ui:344
+msgid "_Keyboard Shortcuts"
+msgstr "_Acorchis clavièr"
+
+#: src/ui/window.ui:348
+msgid "_About Text Compare"
+msgstr "_A prepaus de Text Compare"
+
+#: src/util/util.js:7
+msgid "Characters"
+msgstr "Caractèrs"
+
+#: src/util/util.js:11
+msgid "Words"
+msgstr "Mots"
+
+#: src/util/util.js:15
+msgid "Lines"
+msgstr "Linhas"
+
+#: src/util/util.js:19
+msgid "Sentences"
+msgstr "Frasas"
