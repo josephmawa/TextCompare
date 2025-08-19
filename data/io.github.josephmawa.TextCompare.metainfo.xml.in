@@ -46,6 +46,14 @@
   </screenshots>
 
   <releases>
+    <release version="0.1.6" date="2025-08-19">
+      <description translate="no">
+        <ul>
+          <li>Update Italian translation</li>
+          <li>Add Occitan language</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.5" date="2025-07-10">
       <description translate="no">
         <ul>
