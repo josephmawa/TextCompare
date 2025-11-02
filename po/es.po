@@ -1,0 +1,259 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the TextCompare package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TextCompare\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-09 22:08+0300\n"
+"PO-Revision-Date: 2025-11-02 13:16-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+#: data/io.github.josephmawa.TextCompare.desktop.in:3
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:7
+msgid "Text Compare"
+msgstr "Comparador de texto"
+
+#. Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/io.github.josephmawa.TextCompare.desktop.in:10
+msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
+msgstr "Texto;Comparar;Diferencia;Comparación;Comprobador;Diferencia;"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
+msgid "Text snippet comparison"
+msgstr "Comparación de fragmentos de texto"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
+msgid "Compare old and new text."
+msgstr "Compare el texto antiguo con el nuevo."
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:11
+msgid "Below are the main features of Text Compare:"
+msgstr ""
+"A continuación se enumeran las principales características de "
+"Comparador de texto:"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:13
+msgid "Compare two versions of the same text"
+msgstr "Compare dos versiones del mismo texto"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:14
+msgid "Switch to dark, light, or system mode"
+msgstr "Cambiar al modo oscuro, claro o del sistema"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:15
+msgid "Compare text in real time"
+msgstr "Comparar texto en tiempo real"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:20
+msgid "Joseph Mawa"
+msgstr "Joseph Mawa"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:40
+msgid "TextCompare in dark mode"
+msgstr "Comparador de texto en modo oscuro"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:44
+msgid "TextCompare in light mode"
+msgstr "Comparador de texto en modo claro"
+
+#. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
+#: src/about.js:15
+msgid "translator-credits"
+msgstr "haggen88"
+
+#: src/window.js:128
+msgid "New and old text are both empty"
+msgstr "El texto nuevo y el antiguo están vacíos"
+
+#: src/window.js:435
+msgid "Comparison Failed"
+msgstr "La comparación ha fallado."
+
+#: src/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: src/ui/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Mostrar atajos de teclado"
+
+#: src/ui/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Salir"
+
+#: src/ui/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Show Preferences"
+msgstr "Mostrar Preferencias"
+
+#: src/ui/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Compare Text"
+msgstr "Comparar texto"
+
+#: src/ui/help-overlay.ui:38
+msgctxt "shortcut window"
+msgid "Go Back"
+msgstr "Volver atrás"
+
+#: src/ui/preferences.ui:6 src/ui/preferences.ui:12
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: src/ui/preferences.ui:15
+msgid "Color Theme"
+msgstr "Color del tema"
+
+#: src/ui/preferences.ui:16
+msgid "Set color theme"
+msgstr "Establecer color del tema"
+
+#: src/ui/preferences.ui:22
+msgid "Color theme"
+msgstr "Color del tema"
+
+#: src/ui/preferences.ui:38
+msgctxt "System color theme"
+msgid "System"
+msgstr "Sistema"
+
+#: src/ui/preferences.ui:55
+msgctxt "Light color theme"
+msgid "Light"
+msgstr "Claro"
+
+#: src/ui/preferences.ui:72
+msgctxt "Dark color theme"
+msgid "Dark"
+msgstr "Oscuro"
+
+#: src/ui/preferences.ui:89
+msgid "Text Comparison"
+msgstr "Comparación de textos"
+
+#: src/ui/preferences.ui:90
+msgid "Text comparison settings"
+msgstr "Configuración de la comparación de textos"
+
+#: src/ui/preferences.ui:94
+msgid "Comparison Token"
+msgstr "Token de comparación"
+
+#: src/ui/preferences.ui:95
+msgid "Select Comparison Token"
+msgstr "Seleccionar token de comparación"
+
+#: src/ui/preferences.ui:100
+msgid "Case Sensitivity"
+msgstr "Distinción entre mayúsculas y minúsculas"
+
+#: src/ui/preferences.ui:101
+msgid "Case Senitive Comparison"
+msgstr "Comparación sensible a mayúsculas y minúsculas"
+
+#: src/ui/preferences.ui:106
+msgid "Real Time Comparison"
+msgstr "Comparación en tiempo real"
+
+#: src/ui/preferences.ui:107
+msgid "Compare Text In Real Time"
+msgstr "Comparar texto en tiempo real"
+
+#: src/ui/window.ui:6 src/ui/window.ui:135
+msgid "Compare"
+msgstr "Comparar"
+
+#: src/ui/window.ui:40
+msgid "_Old Text"
+msgstr "_Texto antiguo"
+
+#: src/ui/window.ui:50 src/ui/window.ui:177
+msgctxt "accessibility"
+msgid "Old text"
+msgstr "Texto antiguo"
+
+#: src/ui/window.ui:69
+msgid "_New Text"
+msgstr "_Texto nuevo"
+
+#: src/ui/window.ui:79 src/ui/window.ui:204
+msgctxt "accessibility"
+msgid "New text"
+msgstr "Texto nuevo"
+
+#: src/ui/window.ui:98
+msgid "_Comparison"
+msgstr "_Comparación"
+
+#: src/ui/window.ui:108 src/ui/window.ui:234
+msgctxt "accessibility"
+msgid "Text comparison"
+msgstr "Comparación de textos"
+
+#: src/ui/window.ui:118
+msgid "Main Menu"
+msgstr "Menú principal"
+
+#: src/ui/window.ui:121
+msgctxt "accessibility"
+msgid "Main menu"
+msgstr "Menú principal"
+
+#: src/ui/window.ui:282
+msgctxt "Back to main screen"
+msgid "Back"
+msgstr "Volver atrás"
+
+#: src/ui/window.ui:284
+msgctxt "accessibility"
+msgid "Back"
+msgstr "Volver atrás"
+
+#: src/ui/window.ui:321
+msgid ""
+"<span font-size=\"large\">For large text comparison, select lines or "
+"sentences as comparison token in settings</span>"
+msgstr ""
+"<span font-size=\"large\">Para comparar textos largos, seleccione "
+"líneas o frases como token de comparación en la configuración</span>"
+
+#: src/ui/window.ui:340
+msgid "_Preferences"
+msgstr "_Preferencias"
+
+#: src/ui/window.ui:344
+msgid "_Keyboard Shortcuts"
+msgstr "_Atajos de teclado"
+
+#: src/ui/window.ui:348
+msgid "_About Text Compare"
+msgstr "_Acerca de Comparador de texto"
+
+#: src/util/util.js:7
+msgid "Characters"
+msgstr "Caracteres"
+
+#: src/util/util.js:11
+msgid "Words"
+msgstr "Palabras"
+
+#: src/util/util.js:15
+msgid "Lines"
+msgstr "Líneas"
+
+#: src/util/util.js:19
+msgid "Sentences"
+msgstr "Frases"
