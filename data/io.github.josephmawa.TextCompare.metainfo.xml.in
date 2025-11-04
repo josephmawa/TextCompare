@@ -46,6 +46,13 @@
   </screenshots>
 
   <releases>
+    <release version="0.1.7" date="2025-11-04">
+      <description translate="no">
+        <ul>
+          <li>Add Spanish translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.6" date="2025-08-19">
       <description translate="no">
         <ul>
