@@ -13,7 +13,7 @@ const aboutParams = {
   artists: ["Joseph Mawa"],
   // Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
   translator_credits: _("translator-credits"),
-  copyright: "Copyright © 2025 Joseph Mawa",
+  copyright: "© 2025 Joseph Mawa",
   website: GITHUB_URL,
   issue_url: GITHUB_URL + "/issues",
   support_url: GITHUB_URL + "/issues",
