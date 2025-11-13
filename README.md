@@ -71,4 +71,4 @@ it uses internally, is BSD 3-Clause Licensed.
 
 ## Copyright
 
-Copyright © 2025 [Joseph Mawa](https://github.com/josephmawa)
+© 2025 [Joseph Mawa](https://github.com/josephmawa)
