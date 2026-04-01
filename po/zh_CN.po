@@ -1,0 +1,259 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the TextCompare package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# yu Qin <imqin_yu@outlook.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TextCompare\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-09 22:08+0300\n"
+"PO-Revision-Date: 2026-03-31 17:49+0800\n"
+"Last-Translator: yu Qin <imqin_yu@outlook.com>\n"
+"Language-Team: Chinese (China)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-DL-Lang: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 50.0\n"
+
+#: data/io.github.josephmawa.TextCompare.desktop.in:3
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:7
+msgid "Text Compare"
+msgstr "Text Compare"
+
+#. Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+#: data/io.github.josephmawa.TextCompare.desktop.in:10
+msgid "Text;Compare;Difference;Comparison;Checker;Diff;"
+msgstr "文本;比较;差异;检查器;"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:8
+msgid "Text snippet comparison"
+msgstr "文本片段比较"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:10
+msgid "Compare old and new text."
+msgstr "比较新旧文本。"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:11
+msgid "Below are the main features of Text Compare:"
+msgstr "以下是文本比较的主要功能："
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:13
+msgid "Compare two versions of the same text"
+msgstr "比较同一文本的两个版本"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:14
+msgid "Switch to dark, light, or system mode"
+msgstr "切换至深色、浅色或系统模式"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:15
+msgid "Compare text in real time"
+msgstr "实时比较文本"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:20
+msgid "Joseph Mawa"
+msgstr "Joseph Mawa"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:40
+msgid "TextCompare in dark mode"
+msgstr "深色模式下的 Text Compare"
+
+#: data/io.github.josephmawa.TextCompare.metainfo.xml.in:44
+msgid "TextCompare in light mode"
+msgstr "浅色模式下的 Text Compare"
+
+#. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
+#: src/about.js:15
+msgid "translator-credits"
+msgstr "秦宇"
+
+#: src/window.js:128
+msgid "New and old text are both empty"
+msgstr "新旧文本同为空"
+
+#: src/window.js:435
+msgid "Comparison Failed"
+msgstr "比对失败"
+
+#: src/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "常规"
+
+#: src/ui/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "显示快捷键"
+
+#: src/ui/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "退出"
+
+#: src/ui/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Show Preferences"
+msgstr "显示首选项"
+
+#: src/ui/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Compare Text"
+msgstr "比对文本"
+
+#: src/ui/help-overlay.ui:38
+msgctxt "shortcut window"
+msgid "Go Back"
+msgstr "返回"
+
+#: src/ui/preferences.ui:6 src/ui/preferences.ui:12
+msgid "Preferences"
+msgstr "首选项"
+
+#: src/ui/preferences.ui:15
+msgid "Color Theme"
+msgstr "颜色主题"
+
+#: src/ui/preferences.ui:16
+msgid "Set color theme"
+msgstr "设置颜色主题"
+
+#: src/ui/preferences.ui:22
+msgid "Color theme"
+msgstr "颜色主题"
+
+#: src/ui/preferences.ui:38
+msgctxt "System color theme"
+msgid "System"
+msgstr "系统"
+
+#: src/ui/preferences.ui:55
+msgctxt "Light color theme"
+msgid "Light"
+msgstr "浅色"
+
+#: src/ui/preferences.ui:72
+msgctxt "Dark color theme"
+msgid "Dark"
+msgstr "深色"
+
+#: src/ui/preferences.ui:89
+msgid "Text Comparison"
+msgstr "文字比较"
+
+#: src/ui/preferences.ui:90
+msgid "Text comparison settings"
+msgstr "文字比较设置"
+
+#: src/ui/preferences.ui:94
+msgid "Comparison Token"
+msgstr "比较词元"
+
+#: src/ui/preferences.ui:95
+msgid "Select Comparison Token"
+msgstr "选择比较词元"
+
+#: src/ui/preferences.ui:100
+msgid "Case Sensitivity"
+msgstr "大小写敏感"
+
+#: src/ui/preferences.ui:101
+msgid "Case Senitive Comparison"
+msgstr "比较时区分大小写"
+
+#: src/ui/preferences.ui:106
+msgid "Real Time Comparison"
+msgstr "实时比对"
+
+#: src/ui/preferences.ui:107
+msgid "Compare Text In Real Time"
+msgstr "实时比对文本"
+
+#: src/ui/window.ui:6 src/ui/window.ui:135
+msgid "Compare"
+msgstr "比对"
+
+#: src/ui/window.ui:40
+msgid "_Old Text"
+msgstr "原文本(_O)"
+
+#: src/ui/window.ui:50 src/ui/window.ui:177
+msgctxt "accessibility"
+msgid "Old text"
+msgstr "原文本"
+
+#: src/ui/window.ui:69
+msgid "_New Text"
+msgstr "新文本(_N)"
+
+#: src/ui/window.ui:79 src/ui/window.ui:204
+msgctxt "accessibility"
+msgid "New text"
+msgstr "新文本"
+
+#: src/ui/window.ui:98
+msgid "_Comparison"
+msgstr "比较(_C)"
+
+#: src/ui/window.ui:108 src/ui/window.ui:234
+msgctxt "accessibility"
+msgid "Text comparison"
+msgstr "文字比较"
+
+#: src/ui/window.ui:118
+msgid "Main Menu"
+msgstr "主菜单"
+
+#: src/ui/window.ui:121
+msgctxt "accessibility"
+msgid "Main menu"
+msgstr "主菜单"
+
+#: src/ui/window.ui:282
+msgctxt "Back to main screen"
+msgid "Back"
+msgstr "返回主屏幕"
+
+#: src/ui/window.ui:284
+msgctxt "accessibility"
+msgid "Back"
+msgstr "返回"
+
+#: src/ui/window.ui:321
+msgid ""
+"<span font-size=\"large\">For large text comparison, select lines or "
+"sentences as comparison token in settings</span>"
+msgstr ""
+"<span font-size=\"large\">对于大文本比较，请在设置中选择行或句子作为比较标记"
+"</span>"
+
+#: src/ui/window.ui:340
+msgid "_Preferences"
+msgstr "首选项(_P)"
+
+#: src/ui/window.ui:344
+msgid "_Keyboard Shortcuts"
+msgstr "键盘快捷键(_K)"
+
+#: src/ui/window.ui:348
+msgid "_About Text Compare"
+msgstr "关于 Text Compare(_A)"
+
+#: src/util/util.js:7
+msgid "Characters"
+msgstr "字符"
+
+#: src/util/util.js:11
+msgid "Words"
+msgstr "词语"
+
+#: src/util/util.js:15
+msgid "Lines"
+msgstr "行"
+
+#: src/util/util.js:19
+msgid "Sentences"
+msgstr "句子"
