@@ -1,22 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
+# Croatian translation for TextCompare.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the TextCompare package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Milo Ivir <mail@milotype.de>, 2025., 2026.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: TextCompare\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-09 22:08+0300\n"
-"PO-Revision-Date: 2025-11-08 22:40+0100\n"
-"Last-Translator: Milo Ivir <mail@mivirtype.de>\n"
+"PO-Revision-Date: 2026-04-24 11:44+0200\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: \n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: data/io.github.josephmawa.TextCompare.desktop.in:3
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:7
@@ -38,7 +37,7 @@ msgstr "Usporedi stari i novi tekst."
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:11
 msgid "Below are the main features of Text Compare:"
-msgstr "Ispod su glavne funkcije aplikacije „Usporedba tekstova“:"
+msgstr "Glavne funkcije aplikacije „Usporedi tekst“:"
 
 #: data/io.github.josephmawa.TextCompare.metainfo.xml.in:13
 msgid "Compare two versions of the same text"
