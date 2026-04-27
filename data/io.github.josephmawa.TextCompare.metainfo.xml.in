@@ -46,6 +46,13 @@
   </screenshots>
 
   <releases>
+    <release version="0.1.11" date="2026-04-27">
+      <description translate="no">
+        <ul>
+          <li>Update Croatian translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.1.10" date="2026-04-06">
       <description translate="no">
         <ul>
