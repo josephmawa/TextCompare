@@ -4,14 +4,17 @@ data/io.github.josephmawa.TextCompare.desktop.in
 data/io.github.josephmawa.TextCompare.metainfo.xml.in
 data/io.github.josephmawa.TextCompare.gschema.xml
 
+# src/*.js
 src/about.js
 src/application.js
 src/main.js
 src/preferences.js
 src/window.js
 
-src/ui/help-overlay.ui
+# src/ui/*.ui
 src/ui/preferences.ui
+src/ui/shortcuts-dialog.ui
 src/ui/window.ui
 
+# src/util/*.js
 src/util/util.js
