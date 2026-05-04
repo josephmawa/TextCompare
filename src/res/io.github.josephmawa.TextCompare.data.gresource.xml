@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/io/github/josephmawa/TextCompare">
-    <file preprocess="xml-stripblanks" compressed="true" alias="gtk/help-overlay.ui">ui/help-overlay.ui</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="shortcuts-dialog.ui">ui/shortcuts-dialog.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="window.ui">ui/window.ui</file>
     <file preprocess="xml-stripblanks" compressed="true" alias="preferences.ui">ui/preferences.ui</file>
   </gresource>
   <gresource prefix="/io/github/josephmawa/TextCompare">
     <file compressed="true" alias="index.css">styles/index.css</file>
   </gresource>
-  <gresource prefix="/io/github/josephmawa/TextCompare/icons">
-    <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/text-compare-accessories-text-editor-symbolic.svg">icons/text-compare-accessories-text-editor-symbolic.svg</file>
-    <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/text-compare-go-previous-symbolic.svg">icons/text-compare-go-previous-symbolic.svg</file>
-    <file preprocess="xml-stripblanks" compressed="true" alias="scalable/actions/text-compare-open-menu-symbolic.svg">icons/text-compare-open-menu-symbolic.svg</file>
+  <gresource prefix="/io/github/josephmawa/TextCompare/icons/scalable/actions">
+    <file preprocess="xml-stripblanks" compressed="true" alias="text-compare-accessories-text-editor-symbolic.svg">icons/text-compare-accessories-text-editor-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="text-compare-go-previous-symbolic.svg">icons/text-compare-go-previous-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" compressed="true" alias="text-compare-open-menu-symbolic.svg">icons/text-compare-open-menu-symbolic.svg</file>
   </gresource>
 </gresources>

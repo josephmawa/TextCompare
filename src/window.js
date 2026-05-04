@@ -50,6 +50,7 @@ export const TextCompareWindow = GObject.registerClass(
     constructor(application) {
       super({ application });
       this.createActions();
+      this.createColorSchemeAction();
       this.createBuffer();
       this.loadStyles();
       this.bindSettings();
@@ -69,17 +70,17 @@ export const TextCompareWindow = GObject.registerClass(
       }
 
       const realTimeComparisonEnabled = settings.get_boolean(
-        "real-time-comparison"
+        "real-time-comparison",
       );
 
       if (realTimeComparisonEnabled) {
         handlerIds.beforeHandlerId = this.buffer_before.connect(
           "changed",
-          this.handleBufferChange
+          this.handleBufferChange,
         );
         handlerIds.afterHandlerId = this.buffer_after.connect(
           "changed",
-          this.handleBufferChange
+          this.handleBufferChange,
         );
       }
 
@@ -89,25 +90,25 @@ export const TextCompareWindow = GObject.registerClass(
         new Gtk.TextTag({
           name: "redForeground",
           foreground: "#b30000",
-        })
+        }),
       );
       tagTableResult.add(
         new Gtk.TextTag({
           name: "redBackground",
           background: "#fadad7",
-        })
+        }),
       );
       tagTableResult.add(
         new Gtk.TextTag({
           name: "blueForeground",
           foreground: "#406619",
-        })
+        }),
       );
       tagTableResult.add(
         new Gtk.TextTag({
           name: "blueBackground",
           background: "#eaf2c2",
-        })
+        }),
       );
 
       this._text_view_before.buffer = this.buffer_before;
@@ -121,7 +122,7 @@ export const TextCompareWindow = GObject.registerClass(
 
       if (!textBefore && !textAfter) {
         const realTimeComparisonEnabled = settings.get_boolean(
-          "real-time-comparison"
+          "real-time-comparison",
         );
 
         if (!realTimeComparisonEnabled) {
@@ -172,12 +173,12 @@ export const TextCompareWindow = GObject.registerClass(
 
         const tokensOldText = Array.from(
           sentenceSeg.segment(textBefore),
-          ({ segment }) => segment
+          ({ segment }) => segment,
         );
 
         const tokensNewText = Array.from(
           sentenceSeg.segment(textAfter),
-          ({ segment }) => segment
+          ({ segment }) => segment,
         );
 
         diffArrays(tokensOldText, tokensNewText, options);
@@ -206,8 +207,19 @@ export const TextCompareWindow = GObject.registerClass(
         "real-time-comparison",
         checkDiffAction,
         "enabled",
-        Gio.SettingsBindFlags.INVERT_BOOLEAN
+        Gio.SettingsBindFlags.INVERT_BOOLEAN,
       );
+    };
+
+    createColorSchemeAction = () => {
+      this.application.add_action(settings.create_action("color-scheme"));
+      settings.connect("changed::color-scheme", this.setColorScheme);
+      this.setColorScheme();
+    };
+
+    setColorScheme = () => {
+      const styleManager = Adw.StyleManager.get_default();
+      styleManager.set_color_scheme(settings.get_int("color-scheme"));
     };
 
     bindSettings = () => {
@@ -215,38 +227,38 @@ export const TextCompareWindow = GObject.registerClass(
         "window-width",
         this,
         "default-width",
-        Gio.SettingsBindFlags.DEFAULT
+        Gio.SettingsBindFlags.DEFAULT,
       );
       settings.bind(
         "window-height",
         this,
         "default-height",
-        Gio.SettingsBindFlags.DEFAULT
+        Gio.SettingsBindFlags.DEFAULT,
       );
       settings.bind(
         "window-maximized",
         this,
         "maximized",
-        Gio.SettingsBindFlags.DEFAULT
+        Gio.SettingsBindFlags.DEFAULT,
       );
 
       settings.bind(
         "show-old-text",
         this._old_text_button,
         "active",
-        Gio.SettingsBindFlags.DEFAULT
+        Gio.SettingsBindFlags.DEFAULT,
       );
       settings.bind(
         "show-new-text",
         this._new_text_button,
         "active",
-        Gio.SettingsBindFlags.DEFAULT
+        Gio.SettingsBindFlags.DEFAULT,
       );
       settings.bind(
         "show-comparison",
         this._comparison_button,
         "active",
-        Gio.SettingsBindFlags.DEFAULT
+        Gio.SettingsBindFlags.DEFAULT,
       );
       /**
        * When real time comparison is activated,
@@ -264,34 +276,34 @@ export const TextCompareWindow = GObject.registerClass(
         "real-time-comparison",
         this._check_button,
         "visible",
-        Gio.SettingsBindFlags.INVERT_BOOLEAN
+        Gio.SettingsBindFlags.INVERT_BOOLEAN,
       );
 
       this._old_text_button.bind_property(
         "active",
         this._text_view_before.parent,
         "visible",
-        GObject.BindingFlags.SYNC_CREATE
+        GObject.BindingFlags.SYNC_CREATE,
       );
 
       this._new_text_button.bind_property(
         "active",
         this._text_view_after.parent,
         "visible",
-        GObject.BindingFlags.SYNC_CREATE
+        GObject.BindingFlags.SYNC_CREATE,
       );
 
       this._comparison_button.bind_property(
         "active",
         this._text_view_result.parent,
         "visible",
-        GObject.BindingFlags.SYNC_CREATE
+        GObject.BindingFlags.SYNC_CREATE,
       );
 
       // Update comparison when preferences change
       settings.connect("changed::case-sensitivity", () => {
         const realTimeComparisonEnabled = settings.get_boolean(
-          "real-time-comparison"
+          "real-time-comparison",
         );
 
         if (realTimeComparisonEnabled) {
@@ -301,7 +313,7 @@ export const TextCompareWindow = GObject.registerClass(
 
       settings.connect("changed::comparison-token", () => {
         const realTimeComparisonEnabled = settings.get_boolean(
-          "real-time-comparison"
+          "real-time-comparison",
         );
 
         if (realTimeComparisonEnabled) {
@@ -311,17 +323,17 @@ export const TextCompareWindow = GObject.registerClass(
 
       settings.connect("changed::real-time-comparison", () => {
         const realTimeComparisonEnabled = settings.get_boolean(
-          "real-time-comparison"
+          "real-time-comparison",
         );
 
         if (realTimeComparisonEnabled) {
           handlerIds.beforeHandlerId = this.buffer_before.connect(
             "changed",
-            this.handleBufferChange
+            this.handleBufferChange,
           );
           handlerIds.afterHandlerId = this.buffer_after.connect(
             "changed",
-            this.handleBufferChange
+            this.handleBufferChange,
           );
 
           this.performComparison();
@@ -356,7 +368,7 @@ export const TextCompareWindow = GObject.registerClass(
       Gtk.StyleContext.add_provider_for_display(
         this.display,
         cssProvider,
-        Gtk.STYLE_PROVIDER_PRIORITY_USER
+        Gtk.STYLE_PROVIDER_PRIORITY_USER,
       );
     };
 
@@ -422,12 +434,12 @@ export const TextCompareWindow = GObject.registerClass(
           this.buffer_result.apply_tag_by_name(
             foregroundTagName,
             startIter,
-            endIter
+            endIter,
           );
           this.buffer_result.apply_tag_by_name(
             backgroundTagName,
             startIter,
-            endIter
+            endIter,
           );
         }
       } catch (error) {
@@ -532,5 +544,5 @@ export const TextCompareWindow = GObject.registerClass(
         });
       };
     };
-  }
+  },
 );
